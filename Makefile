@@ -13,34 +13,33 @@
 NAME 	=	rtv1
 
 CC	=	gcc
-
 CFLAGS	+=	-Wall -Wextra -Werror
+RM	=	rm -Rf
 
 SRC	=	main.c \
 		mlx.c\
 		draw.c\
 
-LIBMLX_MAC		=	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
-LIBMLX_LINUX	=	-Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	LIBMLX	=	-Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+else
+	LIBMLX		=	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+endif
 
-LIBFT	=	-Llibft/ -lft
+LIBFT		=	-Llibft/ -lft
+LIBFT_LINUX	=	-Llibft/ -lft_linux
 
 INC	=	-I inc/ -I minilibx/ -I libft/includes/
 
 OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
-RM	=	rm -Rf
-
 all:   $(NAME)
 
 
 $(NAME): obj $(OBJ)
-		@echo "[\033[1;32m******  Creating MACOS executable  ******\033[m]"
-		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX_MAC) $(LIBFT)
-
-linux: obj $(OBJ)
-		@echo "[\033[1;32m******  Creating LINUX executable  ******\033[m]"
-		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX_LINUX) $(LIBFT)
+		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
+		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 
 obj/%.o: src/%.c
 		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
