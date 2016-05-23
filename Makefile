@@ -34,9 +34,9 @@ INC	=	-I inc/ -I minilibx/ -I libft/includes/
 
 OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
+
+
 all:   $(NAME)
-
-
 $(NAME): obj $(OBJ)
 		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
