@@ -20,7 +20,8 @@ SRC	=	main.c \
 		mlx.c\
 		draw.c\
 
-LIBMLX 	= 	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+LIBMLX_MAC		=	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+LIBMLX_LINUX	=	-Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm
 
 LIBFT	=	-Llibft/ -lft
 
@@ -34,27 +35,32 @@ all:   $(NAME)
 
 
 $(NAME): obj $(OBJ)
-		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
+		@echo "[\033[1;32m******  Creating MACOS executable  ******\033[m]"
+		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX_MAC) $(LIBFT)
+
+linux: obj $(OBJ)
+		@echo "[\033[1;32m******  Creating LINUX executable  ******\033[m]"
+		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX_LINUX) $(LIBFT)
 
 obj/%.o: src/%.c
-		@gcc $(CFLAGS) $(INC) -o $@ -c $<
+		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 		@echo "[\033[1;32m√\033[m]" $<
 
 obj:
 		@mkdir -p obj
 
 clean:
-		@echo "\033[31;1mCleaning files .o ...\033[0m"
+		@echo "[\033[31;1m******  Cleaning object files  ******\033[0m]"
 		@$(RM) obj/
 
 fclean:	clean
-		@echo "\033[31;1mCleaning executables...\033[0m"
+		@echo "[\033[31;1m******  Cleaning executables  ******\033[0m]"
 		@$(RM) $(NAME)
 
 norm:
-		@echo "\033[32mnorminette...\033[0m"
+		@echo "[\033[1;32m******  norminette...  ******\033[0m]"
 		@norminette **/*.[ch]
 
 re: fclean all
 
-.PHONY: all clean fclean norm re
+.PHONY: all linux obj clean fclean norm re
