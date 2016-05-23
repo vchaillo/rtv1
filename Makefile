@@ -23,13 +23,13 @@ SRC	= 	main.c \
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
 	LIBMLX	=	-Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm
-	LIBFT =	-Llibft/ -lft_linux
 else
 	UNAME_S = MACOS
 	LIBMLX		=	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
-	LIBFT =	 -Llibft/ -lft
+	FILE := $(shell ls libft/libft.a)
 endif
 
+LIBFT =	 -Llibft/ -lft
 
 INC	=	-I inc/ -I minilibx/ -I libft/include/
 
@@ -38,6 +38,11 @@ OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
 all:   $(NAME)
 $(NAME): obj $(OBJ)
+		
+ifneq ($(FILE), libft/libft.a)
+	@make -C libft/
+endif
+	
 		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 
