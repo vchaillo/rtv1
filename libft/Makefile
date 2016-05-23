@@ -10,7 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	NAME = libft_linux.a
+else
+	NAME = libft.a
+endif
+
 
 CC	=	gcc
 CFLAGS	+=	-Wall -Wextra -Werror -g
@@ -36,7 +42,7 @@ OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
 all: $(NAME)
 $(NAME): obj $(OBJ)
-	@echo "[\033[1;32m******  Creating libft.a  ******\033[m]"
+	@echo "[\033[1;32m******  Creating $@  ******\033[m]"
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
