@@ -23,15 +23,15 @@ SRC	= 	main.c \
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
 	LIBMLX	=	-Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+	LIBFT =	-Llibft/ -lft_linux
 else
 	UNAME_S = MACOS
 	LIBMLX		=	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+	LIBFT =	 -Llibft/ -lft
 endif
 
-LIBFT =	 -Llibft/ -lft
-LIBFT_LINUX	=	-Llibft/ -lft_linux
 
-INC	=	-I inc/ -I minilibx/ -I libft/includes/
+INC	=	-I inc/ -I minilibx/ -I libft/include/
 
 OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
