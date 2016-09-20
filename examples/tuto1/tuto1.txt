@@ -1,0 +1,170 @@
+/*==============================================================================\
+*                                                                               *
+*                       /===========================\                           *
+*                       * Raytracing - Tutorial n°1 *                           *
+*                       \===========================/                           *
+*                                                                               *
+*                                                                               *
+*        Auteur :   Dav Vador                                                   *
+*                 __                                                            *
+*               _~\/~_                                                          *
+*              |(o)(o)|              Email  :   mchepoil@caramail.com           *
+*               \ \/ /                          ~~~~~~~~~~~~~~~~~~~~~           *
+*                (^^)                                                           *
+*                                                                               *
+*            *       .       .     +        .    .  *      .   +             .  *
+*             .    .    *      .-------°°°°°°°°-------.           .   .   +     *
+*               +       .:::~~°:::O::::(::oo::)::::O:::°~~:::.      *           *
+*  <Site>  :        <{{          http://davvador.fr.st         }}>      °   *   *
+*                .     '<-(||}-----{#}~~~[##]~~~{#}-----{||)->'      .      .   *
+*             *     .     _/           _/ ## \_           \_     .  *     .     *
+\==============================================================================*/
+
+
+
+
+
+
+I) K'est ce keu c'est ?
+***********************
+
+  Raytracing (ou raycasting) se traduit en français par "lancer de rayons".
+La technique utilisée pour ce type de rendu s'apparente en effet à un lancer de rayons depuis
+la caméra, dans toutes les directions. L'application sur PC se traduit par un lancer de rayons 
+ayant tous pour origine le centre de la caméra et passant chacun par un pixel de notre écran.
+Il faut donc lancer autant de rayons qu'il y a de pixels sur notre écran pour couvrir toute l'image.
+
+
+II) Koman sa marche ?
+*********************
+
+1) Rappels :
+============
+a) La caméra :
+--------------
+Elle est déterminée par plusieurs paramètres :
+- sa position dans l'espace (xr, yr, zr) et son orientation (rot_x, rot_y, rot_z)
+- sa focale f = distance entre le centre de la caméra et son plan de projection (écran)
+- sa résolution (res_x, res_y) et le pitch (pitch_x, pitch_y) des pixels = dimensions d'un pixel en unités du repère espace
+
+b) Les matériaux :
+------------------
+Chaque objet est associé à un matériau (plastique, métal, ...) déterminé par :
+- une couleur ambiante : celle que l'on voit toujours (même kan l'objet n'est pas éclairé)
+- une couleur diffuse : celle que l'on voit seulement kan l'objet est éclairé
+- une couleur de réflexion : les reflets seront teintés par cette couleur
+- une couleur spéculaire : les reflets des lumières seront teintés par cette couleur
+- une série de coefficients pour attribuer plus ou moins d'importance à chacune de ces couleurs
+- un coefficient d'opacité : pour les objets transparents
+
+2) Mise en oeuvre :
+===================
+Pour chaque rayon lancé, le but est de trouver l'objet touché le premier par le rayon et d'afficher le pixel associé 
+au rayon courant avec la couleur de l'objet trouvé.
+Connaissant la position des objets dans l'espace, il ne nous reste qu'à calculer l'équation du rayon et à passer en revue
+tous les objets jusqu'à trouver le premier intersecté par le rayon.
+
+a) Calcul de l'équation du rayon :
+----------------------------------
+En fait, il ne nous faut que la direction du rayon, soit un vecteur, étant donné que nous connaissons
+déjà son origine.
+L'écran étant de taille res_x*pitch_x par res_y*pitch_y et la caméra ayant une focale f,
+il nous est facile de trouver les coordonnées dans le repère caméra du pixel de coordonnée (i,j) à l'écran.
+Si l'on considère que le pixel (0,0) est en haut à gauche de l'écran, alors ses coordonnées dans le repère caméra sont :
+vx = (i - res_x/2)*pitch_x        // Pour que le point au centre de l'écran aie x = 0
+vy = (i - res_y/2)*pitch_y        // Pour que le point au centre de l'écran aie y = 0
+vz = f
+qui sont en fait les coordonnées du vecteur directeur dans le repère caméra.
+Il ne nous reste donc plus qu'à effectuer les rotations nécessaires pour que se vecteur aie
+la même orientation que la caméra afin d'avoir les coordonnées dans le repère espace.
+
+b) Recherche des intersections :
+--------------------------------
+Pour chaque objet, on va rechercher l'intersection.
+S'il y a une intersection, alors celle-ci se fait au point P tel que :
+x = alpha*vx + xr
+y = alpha*vy + yr
+z = alpha*vz + zr
+avec alpha >= 0
+Il nous faut donc trouver le aplha (noté A) le plus petit possible.
+
+* Intersection avec une sphère :
+Soit la sphère de centre (x0, y0, z0) et de rayon R.
+Soit le rayon lancé depuis (xr, yr, zr) et dirigé par (vx, vy, vz).
+
+L'équation de la sphère est : (x-x0)² + (y-y0)² + (z-z0)² = R²
+En remplaçant x par A*vx+xr, y par A*vy+yr et z par A*vz+zr, on obtient :
+(A*vx + (xr-x0))² + (A*vy + (yr-y0))² + (A*vz + (zr-z0))² = R²
+<=> A²(vx² + vy² + vz²) + A*2(vx(xr-x0) + vy(yr-y0) + vz(zr-z0)) + ((x-x0)² + (y-y0)² + (z-z0)² - R²) = 0
+qui est une équation du second degré d'inconnue A, donc facile à résoudre.
+
+* Intersection avec un plan :
+Soit le plan d'équation ax+by+cz+d = 0
+En remplaçant x par A*vx+xr, y par A*vy+yr et z par A*vz+zr, on obtient :
+A(a*vx + b*vy + c*vz) + (a*xr + b*yr + c*zr + d) = 0
+qui est une équation du 1er degré d'inconnue A, donc solution hyper simple à trouver...
+
+
+Si Alpha n'existe pas, alors on affiche la couleur de fond (noir par exemple),
+sinon, on en déduit facilement la position du point P (voir-ci dessus) et on calcule l'éclairage.
+
+
+3) Eclairage :
+==============
+Soit l'intersection du rayon s'étant produit au point P(xp, yp, zp), sur l'objet O.
+
+Dans notre cas, on ne considérera pour le moment que les lumières ambiantes.
+L'intensité au point P pour chacune des composantes R, V, B s'écrira donc :
+
+IntP = IntA
+
+avec 
+
+- IntA = Som(pour chak lumière){ca*Sa*Ia},
+
+où
+
+- ca est le coefficient d'ambiance de la surface de l'objet O, et est fixé à 1,
+
+- Sa est l'intensité d'ambiance de la surface de l'objet O au point P pour chacune des 3 composantes,
+
+- Ia est l'intensité des sources lumineuses ambiantes pour chacune des 3 composantes,
+
+
+  On impose les contraintes suivantes :
+
+- IntA < Max intensité pour chaque composante
+
+
+La couleur du pixel à allumer sera donc donnée par IntA.
+
+
+III) Divers :
+*************
+
+  La scène est décrite dans le fichier RTD. Dans cette version du programme, seul les sphères et les plans sont affichés.
+Les polygones (triangles) et objets 3DS ne sont pas gérés (calculs d'intersection plus complexes).
+Je ne vous ai pas donné le descriptif du chargement du fichier RTD, mais si cela vous intéresse, le code doit être
+suffisamment parlant, sinon me contacter...
+
+  Le but de ce tuto était simplement de vous familiariser avec le principe du Raytracing, tout
+a été réduit à son minimum. Dans le prochain tuto, j'essaierais de mettre en place une illumination plus poussée,
+non limitée aux seules lumières ambiantes.
+
+  Toutefois, si vous vous sentez suffisamment à l'aise, vous pouvez jeter un oeil aux sources
+de la dernière version...
+
+  Pour lancer le programme : 
+- "./raytracing.exe scene.rtd <image.ppm>" sous Windows (Cygwin)
+- "./raytracing.x86 scene.rtd <image.ppm>" sous Linux
+
+
+
+Et voilà votre premier rendu...
+[img]http://raytracing.fr.st/tuto1/image.gif[/img]
+
+
+[url=http://raytracing.fr.st/tuto1/tuto1.zip]Toutes les sources[/url]
+
+
+[url=http://raytracing.fr.st/index.htm]La page HTML du projet[/url]

@@ -15,33 +15,36 @@
 
 # include <mlx.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <math.h>
 # include "libft.h"
+# include "colors.h"
+# include "structs.h"
 
-# define WIN_W 1920
-# define WIN_H 1080
+# define WIN_W 800
+# define WIN_H 600
 
-typedef struct	s_env
-{
-	void		*mlx;
-	void		*win;
-	void		*img;
-	char		*data;
-	int			size;
-	int			endian;
-	int			bpp;
-}				t_env;
-
-/*
-** mlx.c functions
-*/
+// mlx.c functions
 void			start_mlx(t_env *e);
 int				mouse_hook(int button, int x, int y, t_env *e);
 int				key_hook(int keycode, t_env *e);
 int				expose_hook(t_env *e);
-/*
-** draw.c functions
-*/
+
+// init.c functions
+void			init_all(t_env *e);
+
+// draw.c functions
 void			erase_image(t_env *e);
 void			fill_pixel(t_env *e, int color, int x, int y);
+void			draw(t_env *e);
+
+// compute.c functions
+int				compute(t_env *e, int x, int y);
+t_vector	get_ray_dir(t_env *e, int x, int y);
+int 			get_intersection(t_env *e, t_ray *ray);
+
+// vector.c functions
+void			normalize(t_vector *vector);
+float     dot_product(t_vector *v1, t_vector *v2);
 
 #endif

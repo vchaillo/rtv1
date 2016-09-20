@@ -22,6 +22,21 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == 65307 || keycode == 53)
 		exit(0);
+	else if (keycode == 65293)
+		e->background += 0x111111;
+	else if (keycode == 65362)
+		e->camera.y += 1;
+	else if (keycode == 65364)
+		e->camera.y -= 1;
+	else if (keycode == 65363)
+		e->camera.x += 1;
+	else if (keycode == 65361)
+		e->camera.x -= 1;
+	else if (keycode == 65453)
+		e->camera.z += 1;
+	else if (keycode == 65451)
+		e->camera.z -= 1;
+	e->nb_rays = 0;
 	erase_image(e);
 	ft_putnbr(keycode);
 	ft_putchar('\n');
@@ -48,6 +63,7 @@ void	start_mlx(t_env *e)
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	ft_putnbr(e->bpp);
+	init_all(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 3, 3, key_hook, e);

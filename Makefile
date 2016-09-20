@@ -19,6 +19,9 @@ RM	=	rm -Rf
 SRC	= 	main.c \
 		mlx.c\
 		draw.c\
+		init.c\
+		compute.c\
+		vector.c\
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
@@ -38,11 +41,11 @@ OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
 all:   $(NAME)
 $(NAME): obj $(OBJ)
-		
+
 ifneq ($(FILE), libft/libft.a)
-	@make -C libft/
+	@make -C libft/ > /dev/null
 endif
-	
+
 		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 
