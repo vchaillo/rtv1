@@ -20,8 +20,10 @@ SRC	= 	main.c \
 		mlx.c\
 		draw.c\
 		init.c\
-		compute.c\
+		raytracer.c\
 		vector.c\
+		sphere.c\
+		plan.c\
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)

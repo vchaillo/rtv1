@@ -22,9 +22,9 @@ typedef struct	s_camera
 
 typedef struct	s_screen
 {
-	float		  	  iar;
+	float		  	  ratio;
 	float			    fov;
-	float			    d;
+	float			    focale;
 }					      t_screen;
 
 typedef struct  s_vector
@@ -57,6 +57,7 @@ typedef struct	s_ray
 	t_camera     	o;
 	t_vector     	d;
 	float		      t;
+	int						color;
 }				        t_ray;
 
 typedef struct	s_env

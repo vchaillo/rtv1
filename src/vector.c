@@ -2,18 +2,13 @@
 
 void   normalize(t_vector *v)
 {
-  float norm;
+  float mag;
 
-  norm = sqrt((v->vx * v->vx) + (v->vy * v->vy) + (v->vz * v->vz));
-  if (norm)
+  mag = abs(sqrt((v->vx * v->vx) + (v->vy * v->vy) + (v->vz * v->vz)));
+  if (mag)
   {
-    v->vy /= norm;
-    v->vx /= norm;
-    v->vz /= norm;
+    v->vy /= mag;
+    v->vx /= mag;
+    v->vz /= mag;
   }
-}
-
-float   dot_product(t_vector *v1, t_vector *v2)
-{
-  return ((v1->vx * v2->vx) + (v1->vy * v2->vy) + (v1->vz * v2->vz));
 }

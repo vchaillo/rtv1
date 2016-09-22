@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/19 21:38:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/05/19 22:10:02 by vchaillo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "rtv1.h"
 
 int		expose_hook(t_env *e)
@@ -20,23 +8,24 @@ int		expose_hook(t_env *e)
 
 int		key_hook(int keycode, t_env *e)
 {
-	if (keycode == 65307 || keycode == 53)
+	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 		exit(0);
-	else if (keycode == 65293)
+	else if (keycode == RETURN)
 		e->background += 0x111111;
-	else if (keycode == 65362)
-		e->camera.y += 1;
-	else if (keycode == 65364)
-		e->camera.y -= 1;
-	else if (keycode == 65363)
+	else if (keycode == D)
 		e->camera.x += 1;
-	else if (keycode == 65361)
+	else if (keycode == Q)
 		e->camera.x -= 1;
-	else if (keycode == 65453)
+	else if (keycode == SPACE)
+		e->camera.y += 1;
+	else if (keycode == CONTROL)
+		e->camera.y -= 1;
+	else if (keycode == S)
 		e->camera.z += 1;
-	else if (keycode == 65451)
+	else if (keycode == Z)
 		e->camera.z -= 1;
-	e->nb_rays = 0;
+	else if (keycode == R)
+		init_all(e);
 	erase_image(e);
 	ft_putnbr(keycode);
 	ft_putchar('\n');

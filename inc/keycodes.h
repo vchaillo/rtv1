@@ -10,26 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#ifndef KEYCODES_H
+# define KEYCODES_H
 
-# define WHITE 0xFFFFFF
-# define BLACK 0x000000
-# define LIGHT_GREY 0x707070
-# define DARK_GREY 0x202020
+# define ESCAPE 65307
+# define ESCAPE_MAC 53
+# define Z 122
+# define Q 113
+# define S 115
+# define D 100
+# define SPACE 32
+# define CONTROL 65507
+# define RETURN 65293
+# define R 114
 
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFFFF00
-# define RED 0xFF0000
-# define BROWN 0x663300
-# define PINK 0xFF00FF
-# define ORANGE 0xFF9900
-
-# define LIGHT_BLUE 0x00CCFF
-# define SEA_BLUE 0x0066FF
-# define GRASS_GREEN 0x669933
-# define MARS_RED 0x8F1B00
-# define MARS_ORANGE 0xAF3B00
-
-#endif
+# endif

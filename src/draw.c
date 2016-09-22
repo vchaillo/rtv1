@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/19 21:44:52 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/05/19 22:09:59 by vchaillo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "rtv1.h"
 
 void	erase_image(t_env *e)
@@ -39,20 +27,18 @@ void	draw(t_env *e)
 	int		y;
 	int		color;
 
+	e->nb_rays = 0;
 	y = 0;
 	while (y < WIN_H)
 	{
 		x = 0;
 		while (x < WIN_W)
 		{
-			color = compute(e, x, y);
+			color = raytracer(e, x, y);
 			fill_pixel(e, color, x, y);
 			x++;
 		}
 		y++;
 	}
 	e->nb_rays += WIN_H * WIN_W;
-	ft_putstr("\nNombre de rayons lancés : ");
-	ft_putnbr(e->nb_rays);
-	ft_putchar('\n');
 }
