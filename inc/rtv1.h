@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rtv1.h                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/19 21:23:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/05/19 21:58:08 by vchaillo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef RTV1_H
 # define RTV1_H
 
@@ -22,30 +10,55 @@
 # include "structs.h"
 # include "keycodes.h"
 
+// basics defines
+# define TRUE 1
+# define FALSE 0
+
+// window and camera defines
 # define WIN_W 800
 # define WIN_H 600
+# define RATIO (float)WIN_W / (float)WIN_H
+# define FOV tan((20 * 3.14) / 180)
+# define FOCALE 1
+
+// objects defines
+# define SPHERE 0
+# define PLAN 1
+
+// lights defines
+# define AMB 0
+# define SPOT 1
+# define DIR 2
 
 // mlx.c functions
-void			start_mlx(t_env *e);
-int				mouse_hook(int button, int x, int y, t_env *e);
-int				key_hook(int keycode, t_env *e);
-int				expose_hook(t_env *e);
-void			fill_pixel(t_env *e, int color, int x, int y);
+void			   start_mlx(t_env *e);
+int				   mouse_hook(int button, int x, int y, t_env *e);
+int				   key_hook(int keycode, t_env *e);
+int				   expose_hook(t_env *e);
+void			   fill_pixel(t_env *e, int color, int x, int y);
 // init.c functions
-void			init_all(t_env *e);
+void			   init_all(t_env *e);
+void			   init_test_scene(t_env *e);
 // draw.c functions
-void			erase_image(t_env *e);
-void			draw(t_env *e);
+void			   erase_image(t_env *e);
+void			   draw(t_env *e);
 // raytracer.c functions
-int				raytracer(t_env *e, int x, int y);
-t_vector	get_ray_dir(t_env *e, int x, int y);
-int 			get_ray_intersection(t_env *e, t_ray *ray);
+int				   raytracer(t_env *e, int x, int y);
+t_vector	   get_ray_dir(t_env *e, int x, int y);
+int 			   get_ray_intersection(t_env *e, t_ray *ray);
 // vector.c functions
-void			normalize(t_vector *vector);
+t_vector	   normalize(t_vector vector);
+t_vector	   vector_add(t_vector v1, t_vector v2);
+float        dot_product(t_vector v1, t_vector v2);
 // sphere.c functions
-float			solve_deg2(double a, double b, double c);
-float     hit_sphere(t_env *e, t_ray *ray);
+float			   solve_deg2(double a, double b, double c);
+float        hit_sphere(t_env *e, t_ray *ray);
+t_vector	   get_sphere_hitpoint_norm(t_sphere sphere, t_hitpoint hitpoint);
 // plan.c functions
-float     hit_plan(t_env *e, t_ray *ray);
+float        hit_plan(t_env *e, t_ray *ray);
+// light.c functions
+int          illuminate(t_env *e, t_ray *ray);
+int          amb(t_light amb, t_hitpoint hitpoint);
+int          spot(t_light spot, t_hitpoint hitpoint);
 
 #endif

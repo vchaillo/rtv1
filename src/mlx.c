@@ -11,19 +11,19 @@ int		key_hook(int keycode, t_env *e)
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 		exit(0);
 	else if (keycode == RETURN)
-		e->background += 0x111111;
+		e->background_color += 0x111111;
 	else if (keycode == D)
-		e->camera.x += 1;
+		e->camera.pos.x += 1;
 	else if (keycode == Q)
-		e->camera.x -= 1;
+		e->camera.pos.x -= 1;
 	else if (keycode == SPACE)
-		e->camera.y += 1;
+		e->camera.pos.y += 1;
 	else if (keycode == CONTROL)
-		e->camera.y -= 1;
+		e->camera.pos.y -= 1;
 	else if (keycode == S)
-		e->camera.z += 1;
+		e->camera.pos.z += 1;
 	else if (keycode == Z)
-		e->camera.z -= 1;
+		e->camera.pos.z -= 1;
 	else if (keycode == R)
 		init_all(e);
 	erase_image(e);

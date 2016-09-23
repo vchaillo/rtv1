@@ -24,7 +24,18 @@ float			solve_deg2(double a, double b, double c)
 	return (res);
 }
 
-float     hit_sphere(t_env *e, t_ray *ray)
+t_vector 		get_sphere_hitpoint_norm(t_sphere sphere, t_hitpoint hitpoint)
+{
+	t_vector			norm;
+
+	hitpoint.norm.vx = hitpoint.pos.x + -sphere.pos.x;
+	hitpoint.norm.vy = hitpoint.pos.y + -sphere.pos.y;
+	hitpoint.norm.vz = hitpoint.pos.z + -sphere.pos.z;
+	norm = normalize(norm);
+	return (norm);
+}
+
+float  		  hit_sphere(t_env *e, t_ray *ray)
 {
   float				t;
 	double			a;
@@ -32,15 +43,20 @@ float     hit_sphere(t_env *e, t_ray *ray)
 	double			c;
 
   a = ray->d.vx * ray->d.vx + ray->d.vy * ray->d.vy + ray->d.vz * ray->d.vz;
-	b = 2 * ray->d.vx * (ray->o.x - e->sphere.x);
-	b += 2 * ray->d.vy * (ray->o.y - e->sphere.y);
-	b += 2 * ray->d.vz * (ray->o.z - e->sphere.z);
-	c = (ray->o.x - e->sphere.x) * (ray->o.x - e->sphere.x);
-	c += (ray->o.y - e->sphere.y) * (ray->o.y - e->sphere.y);
-	c += (ray->o.z - e->sphere.z) * (ray->o.z - e->sphere.z);
+	b = 2 * ray->d.vx * (ray->o.x - e->sphere.pos.x);
+	b += 2 * ray->d.vy * (ray->o.y - e->sphere.pos.y);
+	b += 2 * ray->d.vz * (ray->o.z - e->sphere.pos.z);
+	c = (ray->o.x - e->sphere.pos.x) * (ray->o.x - e->sphere.pos.x);
+	c += (ray->o.y - e->sphere.pos.y) * (ray->o.y - e->sphere.pos.y);
+	c += (ray->o.z - e->sphere.pos.z) * (ray->o.z - e->sphere.pos.z);
 	c -= e->sphere.r * e->sphere.r;
 	t = solve_deg2(a, b, c);
-  if (t < 0.01)
-    t = 0;
+	if (t > 0)
+	{
+		ray->hitpoint.pos.x = ray->o.x + ray->d.vx * t;
+		ray->hitpoint.pos.y = ray->o.y + ray->d.vy * t;
+		ray->hitpoint.pos.z = ray->o.z + ray->d.vz * t;
+		ray->hitpoint.norm = get_sphere_hitpoint_norm(e->sphere, ray->hitpoint);
+	}
   return (t);
 }

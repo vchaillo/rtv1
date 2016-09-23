@@ -24,6 +24,7 @@ SRC	= 	main.c \
 		vector.c\
 		sphere.c\
 		plan.c\
+		light.c\
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
