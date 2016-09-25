@@ -3,8 +3,8 @@
 
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
-# define LIGHT_GREY 0x707070
-# define DARK_GREY 0x202020
+# define LIGHT_GREY 0xAAAAAA
+# define DARK_GREY 0x222222
 
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF

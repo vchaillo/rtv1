@@ -10,8 +10,8 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 		exit(0);
-	else if (keycode == RETURN)
-		e->background_color += 0x111111;
+	// else if (keycode == RETURN)
+		// e->background_color = add_color(e->background_color, new_color(111111));
 	else if (keycode == D)
 		e->camera.pos.x += 1;
 	else if (keycode == Q)
@@ -51,7 +51,6 @@ void	start_mlx(t_env *e)
 	e->win = mlx_new_window(e->mlx, WIN_W, WIN_H, "rtv1");
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
-	ft_putnbr(e->bpp);
 	init_all(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);

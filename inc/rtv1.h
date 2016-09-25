@@ -35,7 +35,7 @@ void			   start_mlx(t_env *e);
 int				   mouse_hook(int button, int x, int y, t_env *e);
 int				   key_hook(int keycode, t_env *e);
 int				   expose_hook(t_env *e);
-void			   fill_pixel(t_env *e, int color, int x, int y);
+void			   fill_pixel(t_env *e, t_color color, int x, int y);
 // init.c functions
 void			   init_all(t_env *e);
 void			   init_test_scene(t_env *e);
@@ -43,7 +43,7 @@ void			   init_test_scene(t_env *e);
 void			   erase_image(t_env *e);
 void			   draw(t_env *e);
 // raytracer.c functions
-int				   raytracer(t_env *e, int x, int y);
+t_color			 raytracer(t_env *e, int x, int y);
 t_vector	   get_ray_dir(t_env *e, int x, int y);
 int 			   get_ray_intersection(t_env *e, t_ray *ray);
 // vector.c functions
@@ -57,8 +57,14 @@ t_vector	   get_sphere_hitpoint_norm(t_sphere sphere, t_hitpoint hitpoint);
 // plan.c functions
 float        hit_plan(t_env *e, t_ray *ray);
 // light.c functions
-int          illuminate(t_env *e, t_ray *ray);
-int          amb(t_light amb, t_hitpoint hitpoint);
-int          spot(t_light spot, t_hitpoint hitpoint);
+t_color      illuminate(t_env *e, t_ray *ray);
+t_color      ambient(t_light amb, t_hitpoint hitpoint);
+t_color      spot(t_light spot, t_hitpoint hitpoint);
+// color.c functions
+t_color      scalar_color(float scalar, t_color color);
+t_color      add_color(t_color color1, t_color color2);
+t_color      mult_color(t_color color1, t_color color2);
+t_color      new_color(int color);
+int         get_color_value(t_color color);
 
 #endif

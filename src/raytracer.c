@@ -37,7 +37,7 @@ t_vector	get_ray_dir(t_env *e, int x, int y)
 	return (dir);
 }
 
-int				raytracer(t_env *e, int x, int y)
+t_color		raytracer(t_env *e, int x, int y)
 {
 	t_ray	ray;
 
@@ -47,9 +47,8 @@ int				raytracer(t_env *e, int x, int y)
 
 	if (ray.hit)
 	{
-		ray.hitpoint.diffuse_color = illuminate(e, &ray);
+		// ray.hitpoint.diffuse_color = illuminate(e, &ray);
 		return (ray.hitpoint.diffuse_color);
 	}
-	else
-		return (e->background_color);
+	return (e->background_color);
 }

@@ -1,6 +1,13 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+typedef struct	s_color
+{
+	int						r;
+	int						g;
+	int						b;
+}								t_color;
+
 typedef struct  s_point
 {
 	float         x;
@@ -19,7 +26,7 @@ typedef struct	s_sphere
 {
 	t_point				pos;
   float			    r;
-  int				    color;
+  t_color		    color;
 
 }			        	t_sphere;
 
@@ -27,7 +34,7 @@ typedef struct	s_plan
 {
 	t_vector			norm;
   float			    d;
-  int				    color;
+	t_color		    color;
 }			        	t_plan;
 
 // typedef struct	s_object
@@ -36,23 +43,23 @@ typedef struct	s_plan
 // 	int						material;
 // 	t_sphere			sphere;
 // 	t_plan				plan;
-//   int				    color;
-//
-// }			        	t_object;
+//  t_color		    color;
+// }			        t_object;
 
 // typedef struct	s_material
 // {
 // 	int						type;
 // 	int				    ambient_color;
-// 	int				    diffuse_color;
-// 	int				    specular_color;
-// }			        	t_material;
+// 	t_color		    diffuse_color;
+// 	t_color		    specular_color;
+// }			        t_material;
 
 typedef struct	s_hitpoint
 {
 	t_point				pos;
 	t_vector			norm;
-	int						diffuse_color;
+	t_color				diffuse_color;
+	t_color				ambient_color;
 }								t_hitpoint;
 
 typedef struct	s_light
@@ -60,7 +67,7 @@ typedef struct	s_light
 	int						type;
 	t_point				pos;
 	t_vector			dir;
-	int						color;
+	t_color				color;
 }				        t_light;
 
 typedef struct	s_ray
@@ -94,7 +101,7 @@ typedef struct	s_env
 	t_plan		    plan;
 	t_light		    amb;
   t_light		    spot;
-  int			      background_color;
+  t_color		    background_color;
   double        nb_rays;
 }				        t_env;
 

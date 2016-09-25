@@ -28,11 +28,10 @@ t_vector 		get_sphere_hitpoint_norm(t_sphere sphere, t_hitpoint hitpoint)
 {
 	t_vector			norm;
 
-	hitpoint.norm.vx = hitpoint.pos.x + -sphere.pos.x;
-	hitpoint.norm.vy = hitpoint.pos.y + -sphere.pos.y;
-	hitpoint.norm.vz = hitpoint.pos.z + -sphere.pos.z;
-	norm = normalize(norm);
-	return (norm);
+	norm.vx = hitpoint.pos.x - sphere.pos.x;
+	norm.vy = hitpoint.pos.y - sphere.pos.y;
+	norm.vz = hitpoint.pos.z - sphere.pos.z;
+	return (normalize(norm));
 }
 
 float  		  hit_sphere(t_env *e, t_ray *ray)

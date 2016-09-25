@@ -9,23 +9,25 @@ void	erase_image(t_env *e)
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }
 
-void	fill_pixel(t_env *e, int color, int x, int y)
+void	fill_pixel(t_env *e, t_color color, int x, int y)
 {
 	int		i;
+	int 	color_int;
 
+	color_int = get_color_value(color);
 	i = x * 4 + y * e->size;
-	e->data[i] = color % 256;
-	color /= 256;
-	e->data[i + 1] = color % 256;
-	color /= 256;
-	e->data[i + 2] = color % 256;
+	e->data[i] = (color_int % 256);
+	color_int /= 256;
+	e->data[i + 1] = (color_int % 256);
+	color_int /= 256;
+	e->data[i + 2] = (color_int % 256);
 }
 
 void	draw(t_env *e)
 {
-	int		x;
-	int		y;
-	int		color;
+	int				x;
+	int				y;
+	t_color		color;
 
 	e->nb_rays = 0;
 	y = 0;
