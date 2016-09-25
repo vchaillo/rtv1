@@ -19,13 +19,13 @@ void init_test_scene(t_env *e)
 	e->sphere.pos.y = 1;
 	e->sphere.pos.z = 0;
 	e->sphere.r = 1;
-	e->sphere.color = new_color(BROWN);
+	e->sphere.color = new_color(RED);
 
 	e->plan.norm.vx = 0;
 	e->plan.norm.vy = 1;
 	e->plan.norm.vz = 0;
 	e->plan.d = 0;
-	e->plan.color = new_color(BLUE);
+	e->plan.color = new_color(DARK_GREY);
 }
 
 void	init_all(t_env *e)

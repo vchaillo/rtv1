@@ -1,6 +1,6 @@
 #include "rtv1.h"
 
-float         hit_plan(t_env *e,t_ray *ray)
+float         hit_plan(t_env *e, t_ray *ray)
 {
   float       t;
   t_vector    p_norm;
