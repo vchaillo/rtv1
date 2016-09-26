@@ -58,8 +58,9 @@ typedef struct	s_hitpoint
 {
 	t_point				pos;
 	t_vector			norm;
-	t_color				diffuse_color;
-	t_color				ambient_color;
+	t_color				color;
+	float					diffuse;
+	float					ambient;
 }								t_hitpoint;
 
 typedef struct	s_light
@@ -67,6 +68,7 @@ typedef struct	s_light
 	int						type;
 	t_point				pos;
 	t_vector			dir;
+	float					intensity;
 	t_color				color;
 }				        t_light;
 

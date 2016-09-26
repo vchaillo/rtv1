@@ -1,36 +1,36 @@
 #include "rtv1.h"
 
-// t_color      ambient(t_light amb, t_hitpoint hitpoint)
-// {
-//   t_color    color;
-//
-//   color = hitpoint.diffuse_color;
-//   if ((mult_color(hitpoint.ambient_color, amb.color)) > hitpoint.diffuse_color)
-//     color = hitpoint.ambient_color;
-//   else
-//     color += color * amb.color;
-//   return (color);
-// }
-
-t_color     spot(t_light spot, t_hitpoint hitpoint)
+t_color      ambient(t_light amb)
 {
+  t_color    color;
+
+  color = scalar_color(amb.intensity, amb.color);
+  return (color);
+}
+
+t_color     spot(t_env *e, t_light spot, t_hitpoint hitpoint)
+{
+  // t_ray       ray;
+  (void)e;
   t_color     color;
   t_vector    spot_dir;
-  float       angle;
+  float       cos_angle;
 
   // ray to the spot direction
-  spot_dir.vx =  spot.pos.x - hitpoint.pos.x;
-  spot_dir.vy =  spot.pos.y - hitpoint.pos.y;
-  spot_dir.vz =  spot.pos.z - hitpoint.pos.z;
+  spot_dir.vx = spot.pos.x - hitpoint.pos.x;
+  spot_dir.vy = spot.pos.y - hitpoint.pos.y;
+  spot_dir.vz = spot.pos.z - hitpoint.pos.z;
+
+  // ray.o = spot.pos;
+  // ray.d = spot_dir;
+  // ray.t = get_ray_intersection(e, &ray);
 
   // cacul de l'angle entre le rayon et la normale
-  angle = dot_product(hitpoint.norm, normalize(spot_dir));
+  cos_angle = dot_product(hitpoint.norm, normalize(spot_dir));
+  if (cos_angle < 0)
+    cos_angle = 0;
   // printf("angle : %f\n", angle);
-  if (angle > 0)
-    angle = 0;
-
-  color = scalar_color(angle, mult_color(hitpoint.diffuse_color, spot.color));
-  // printf("color : %d\n", color);
+  color = scalar_color(cos_angle, add_color(hitpoint.color, spot.color));
   return (color);
 }
 
@@ -38,13 +38,13 @@ t_color     illuminate(t_env *e, t_ray *ray)
 {
   t_color     color;
 
-  //spot light
-  color = scalar_color(0, ray->hitpoint.diffuse_color);
-  color = add_color(spot(e->spot, ray->hitpoint), color);
-
   // ambient light
-  // ray->hitpoint.ambient_color = WHITE;
-  // color *= ambient(e->amb, ray->hitpoint);
+  ray->hitpoint.ambient = 0.5;
+  ray->hitpoint.diffuse = 0.4;
+  color = scalar_color(ray->hitpoint.ambient, mult_color(e->amb.color, ray->hitpoint.color));
+
+  //spot light
+  color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot, ray->hitpoint)), color);
 
   //directional light
   return (color);

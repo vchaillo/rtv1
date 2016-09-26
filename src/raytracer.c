@@ -1,6 +1,14 @@
 #include "rtv1.h"
 
-int			get_ray_intersection(t_env *e, t_ray *ray)
+t_point		get_hitpoint_pos(t_ray *ray, float t)
+{
+	ray->hitpoint.pos.x = ray->o.x + ray->d.vx * t;
+	ray->hitpoint.pos.y = ray->o.y + ray->d.vy * t;
+	ray->hitpoint.pos.z = ray->o.z + ray->d.vz * t;
+	return (ray->hitpoint.pos);
+}
+
+int				get_ray_intersection(t_env *e, t_ray *ray)
 {
 	float				t;
 	float				tsphere;
@@ -11,17 +19,26 @@ int			get_ray_intersection(t_env *e, t_ray *ray)
 	tsphere = hit_sphere(e, ray);
 	if (tsphere > 0)
 	{
-		ray->hit = TRUE;
-		ray->hitpoint.diffuse_color = e->sphere.color;
 		t = tsphere;
+		ray->hit = TRUE;
+		ray->hitpoint.pos = get_hitpoint_pos(ray, t);
+		ray->hitpoint.norm.vx = ray->hitpoint.pos.x - e->sphere.pos.x;
+		ray->hitpoint.norm.vy = ray->hitpoint.pos.y - e->sphere.pos.y;
+		ray->hitpoint.norm.vz = ray->hitpoint.pos.z - e->sphere.pos.z;
+		normalize(ray->hitpoint.norm);
+		ray->hitpoint.color = e->sphere.color;
 	}
-
 	tplan = hit_plan(e, ray);
 	if (tplan > 0 && tplan < t)
 	{
-		ray->hit = TRUE;
-		ray->hitpoint.diffuse_color = e->plan.color;
 		t = tplan;
+		ray->hit = TRUE;
+		get_hitpoint_pos(ray, t);
+		ray->hitpoint.norm.vx = e->plan.norm.vx;
+		ray->hitpoint.norm.vy = e->plan.norm.vy;
+		ray->hitpoint.norm.vz = e->plan.norm.vz;
+		normalize(ray->hitpoint.norm);
+		ray->hitpoint.color = e->plan.color;
 	}
 	return (t);
 }
@@ -47,8 +64,8 @@ t_color		raytracer(t_env *e, int x, int y)
 
 	if (ray.hit)
 	{
-		// ray.hitpoint.diffuse_color = illuminate(e, &ray);
-		return (ray.hitpoint.diffuse_color);
+		ray.hitpoint.color = illuminate(e, &ray);
+		return (ray.hitpoint.color);
 	}
 	return (e->background_color);
 }

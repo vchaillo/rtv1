@@ -12,15 +12,11 @@ void	erase_image(t_env *e)
 void	fill_pixel(t_env *e, t_color color, int x, int y)
 {
 	int		i;
-	int 	color_int;
 
-	color_int = get_color_value(color);
 	i = x * 4 + y * e->size;
-	e->data[i] = (color_int % 256);
-	color_int /= 256;
-	e->data[i + 1] = (color_int % 256);
-	color_int /= 256;
-	e->data[i + 2] = (color_int % 256);
+	e->data[i] = (color.b);
+	e->data[i + 1] = (color.g);
+	e->data[i + 2] = (color.r);
 }
 
 void	draw(t_env *e)

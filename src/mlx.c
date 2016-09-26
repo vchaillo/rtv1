@@ -11,7 +11,7 @@ int		key_hook(int keycode, t_env *e)
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 		exit(0);
 	else if (keycode == RETURN)
-		e->background_color = add_color(e->background_color, new_color(0x111111));
+		e->amb.intensity += 0.1;
 	else if (keycode == D)
 		e->camera.pos.x += 1;
 	else if (keycode == Q)

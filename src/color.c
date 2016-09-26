@@ -39,15 +39,3 @@ t_color     new_color(int color)
   new_color.r = (color % 256);
   return (new_color);
 }
-
-int         get_color_value(t_color color)
-{
-  int       result;
-
-  result = color.r;
-  result *= 256;
-  result += color.g;
-  result *= 256;
-  result += color.b;
-  return (result);
-}

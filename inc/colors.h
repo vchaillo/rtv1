@@ -6,15 +6,15 @@
 # define LIGHT_GREY 0xAAAAAA
 # define DARK_GREY 0x222222
 
+# define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define YELLOW 0xFFFF00
-# define RED 0xFF0000
-# define BROWN 0x663300
+# define LIGHT_BLUE 0x00FFFF
 # define PINK 0xFF00FF
-# define ORANGE 0xFF9900
 
-# define LIGHT_BLUE 0x00CCFF
+# define BROWN 0x666600
+# define ORANGE 0xFF9900
 # define LIGHT_GREEN 0x0CFE78
 # define SEA_BLUE 0x0066FF
 # define GRASS_GREEN 0x669933
