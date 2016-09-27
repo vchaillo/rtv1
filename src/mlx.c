@@ -10,21 +10,21 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 		exit(0);
-	else if (keycode == RETURN)
+	else if (keycode == RETURN || keycode == RETURN_MAC)
 		e->amb.intensity += 0.1;
-	else if (keycode == D)
+	else if (keycode == D || keycode == D_MAC)
 		e->camera.pos.x += 1;
-	else if (keycode == Q)
+	else if (keycode == Q || keycode == Q_MAC)
 		e->camera.pos.x -= 1;
-	else if (keycode == SPACE)
+	else if (keycode == SPACE || keycode == SPACE_MAC)
 		e->camera.pos.y += 1;
-	else if (keycode == CONTROL)
+	else if (keycode == CONTROL || keycode == CONTROL_MAC)
 		e->camera.pos.y -= 1;
-	else if (keycode == S)
+	else if (keycode == S || keycode == S_MAC)
 		e->camera.pos.z += 1;
-	else if (keycode == Z)
+	else if (keycode == Z || keycode == Z_MAC)
 		e->camera.pos.z -= 1;
-	else if (keycode == R)
+	else if (keycode == R || keycode == R_MAC)
 		init_all(e);
 	erase_image(e);
 	ft_putnbr(keycode);

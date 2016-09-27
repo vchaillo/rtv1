@@ -42,3 +42,22 @@ float  		  hit_sphere(t_env *e, t_ray *ray)
 	t = solve_deg2(a, b, c);
   return (t);
 }
+
+float  		  hit_sphere2(t_env *e, t_ray *ray)
+{
+  float				t;
+	double			a;
+	double			b;
+	double			c;
+
+  a = ray->d.vx * ray->d.vx + ray->d.vy * ray->d.vy + ray->d.vz * ray->d.vz;
+	b = 2 * ray->d.vx * (ray->o.x - e->sphere2.pos.x);
+	b += 2 * ray->d.vy * (ray->o.y - e->sphere2.pos.y);
+	b += 2 * ray->d.vz * (ray->o.z - e->sphere2.pos.z);
+	c = (ray->o.x - e->sphere2.pos.x) * (ray->o.x - e->sphere2.pos.x);
+	c += (ray->o.y - e->sphere2.pos.y) * (ray->o.y - e->sphere2.pos.y);
+	c += (ray->o.z - e->sphere2.pos.z) * (ray->o.z - e->sphere2.pos.z);
+	c -= e->sphere2.r * e->sphere2.r;
+	t = solve_deg2(a, b, c);
+  return (t);
+}

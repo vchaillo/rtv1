@@ -28,6 +28,20 @@ int				get_ray_intersection(t_env *e, t_ray *ray)
 		normalize(ray->hitpoint.norm);
 		ray->hitpoint.color = e->sphere.color;
 	}
+
+	tsphere = hit_sphere2(e, ray);
+	if (tsphere > 0 && tsphere < t)
+	{
+		t = tsphere;
+		ray->hit = TRUE;
+		ray->hitpoint.pos = get_hitpoint_pos(ray, t);
+		ray->hitpoint.norm.vx = ray->hitpoint.pos.x - e->sphere2.pos.x;
+		ray->hitpoint.norm.vy = ray->hitpoint.pos.y - e->sphere2.pos.y;
+		ray->hitpoint.norm.vz = ray->hitpoint.pos.z - e->sphere2.pos.z;
+		normalize(ray->hitpoint.norm);
+		ray->hitpoint.color = e->sphere2.color;
+	}
+
 	tplan = hit_plan(e, ray);
 	if (tplan > 0 && tplan < t)
 	{

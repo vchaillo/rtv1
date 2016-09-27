@@ -36,7 +36,7 @@ t_color     illuminate(t_env *e, t_ray *ray)
   color = scalar_color(ray->hitpoint.ambient, mult_color(e->amb.color, ray->hitpoint.color));
 
   //spot light
-  // color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot, ray->hitpoint)), color);
+  color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot, ray->hitpoint)), color);
   color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot2, ray->hitpoint)), color);
 
   //directional light

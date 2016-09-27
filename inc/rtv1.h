@@ -15,8 +15,8 @@
 # define FALSE 0
 
 // window and camera defines
-# define WIN_W 1920
-# define WIN_H 1080
+# define WIN_W 1080
+# define WIN_H 720
 # define RATIO (float)WIN_W / (float)WIN_H
 # define FOV tan((20 * 3.14) / 180)
 # define FOCALE 1
@@ -54,6 +54,7 @@ float        dot_product(t_vector v1, t_vector v2);
 // sphere.c functions
 float			   solve_deg2(double a, double b, double c);
 float        hit_sphere(t_env *e, t_ray *ray);
+float  		   hit_sphere2(t_env *e, t_ray *ray);
 // plan.c functions
 float        hit_plan(t_env *e, t_ray *ray);
 // light.c functions

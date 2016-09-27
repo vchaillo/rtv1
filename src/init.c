@@ -15,7 +15,7 @@ void init_test_scene(t_env *e)
 	e->spot.pos.y = 20;
 	e->spot.pos.z = 25;
 	e->spot.intensity = 0.5;
-	e->spot.color = scalar_color(e->spot.intensity, new_color(WHITE));
+	e->spot.color = scalar_color(e->spot.intensity, new_color(GREEN));
 
 	e->spot2.type = SPOT;
 	e->spot2.pos.x = -25;
@@ -24,17 +24,17 @@ void init_test_scene(t_env *e)
 	e->spot2.intensity = 0.5;
 	e->spot2.color = scalar_color(e->spot2.intensity, new_color(BLUE));
 
-	e->sphere.pos.x = 0;
+	e->sphere.pos.x = -2;
 	e->sphere.pos.y = 2;
 	e->sphere.pos.z = 0;
 	e->sphere.r = 2;
-	e->sphere.color = new_color(PINK);
+	e->sphere.color = new_color(WHITE);
 
-	e->sphere2.pos.x = 0;
-	e->sphere2.pos.y = 2;
+	e->sphere2.pos.x = 4;
+	e->sphere2.pos.y = 4;
 	e->sphere2.pos.z = 0;
-	e->sphere2.r = 2;
-	e->sphere.color = new_color(YELLOW);
+	e->sphere2.r = 3;
+	e->sphere2.color = new_color(WHITE);
 
 	e->plan.norm.vx = 0;
 	e->plan.norm.vy = 1;

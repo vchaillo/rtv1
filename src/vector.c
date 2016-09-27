@@ -5,13 +5,10 @@ t_vector   normalize(t_vector v)
   t_vector    norm;
   float       mag;
 
-  mag = abs(sqrt((v.vx * v.vx) + (v.vy * v.vy) + (v.vz * v.vz)));
-  if (mag)
-  {
-    norm.vx = v.vx / mag;
-    norm.vy = v.vy / mag;
-    norm.vz = v.vz / mag;
-  }
+  mag = fabs(sqrt((v.vx * v.vx) + (v.vy * v.vy) + (v.vz * v.vz)));
+  norm.vx = v.vx / mag;
+  norm.vy = v.vy / mag;
+  norm.vz = v.vz / mag;
   return (norm);
 }
 
