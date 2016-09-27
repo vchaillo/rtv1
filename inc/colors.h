@@ -15,10 +15,8 @@
 
 # define BROWN 0x666600
 # define ORANGE 0xFF9900
-# define LIGHT_GREEN 0x0CFE78
+# define LIGHT_GREEN 0x00FF88
 # define SEA_BLUE 0x0066FF
 # define GRASS_GREEN 0x669933
-# define MARS_RED 0x8F1B00
-# define MARS_ORANGE 0xAF3B00
 
 #endif

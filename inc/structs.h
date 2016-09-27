@@ -100,9 +100,13 @@ typedef struct	s_env
   int           bpp;
   t_camera      camera;
 	t_sphere	    sphere;
+	t_sphere	    sphere2;
 	t_plan		    plan;
+	t_plan		    plan2;
 	t_light		    amb;
-  t_light		    spot;
+	t_light		    spot;
+	t_light		    spot2;
+  t_light		    spot3;
   t_color		    background_color;
   double        nb_rays;
 }				        t_env;

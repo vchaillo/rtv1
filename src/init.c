@@ -8,20 +8,33 @@ void init_test_scene(t_env *e)
 
 	e->amb.type = AMB;
 	e->amb.intensity = 0.1;
-	e->amb.color = scalar_color(1 - e->amb.intensity, new_color(WHITE));
+	e->amb.color = scalar_color(e->amb.intensity, new_color(WHITE));
 
 	e->spot.type = SPOT;
 	e->spot.pos.x = 25;
-	e->spot.pos.y = 50;
-	e->spot.pos.z = 50;
-	e->spot.intensity = 0.1;
+	e->spot.pos.y = 20;
+	e->spot.pos.z = 25;
+	e->spot.intensity = 0.5;
 	e->spot.color = scalar_color(e->spot.intensity, new_color(WHITE));
+
+	e->spot2.type = SPOT;
+	e->spot2.pos.x = -25;
+	e->spot2.pos.y = 20;
+	e->spot2.pos.z = 25;
+	e->spot2.intensity = 0.5;
+	e->spot2.color = scalar_color(e->spot2.intensity, new_color(BLUE));
 
 	e->sphere.pos.x = 0;
 	e->sphere.pos.y = 2;
 	e->sphere.pos.z = 0;
 	e->sphere.r = 2;
-	e->sphere.color = new_color(LIGHT_BLUE);
+	e->sphere.color = new_color(PINK);
+
+	e->sphere2.pos.x = 0;
+	e->sphere2.pos.y = 2;
+	e->sphere2.pos.z = 0;
+	e->sphere2.r = 2;
+	e->sphere.color = new_color(YELLOW);
 
 	e->plan.norm.vx = 0;
 	e->plan.norm.vy = 1;

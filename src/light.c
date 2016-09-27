@@ -1,13 +1,5 @@
 #include "rtv1.h"
 
-t_color      ambient(t_light amb)
-{
-  t_color    color;
-
-  color = scalar_color(amb.intensity, amb.color);
-  return (color);
-}
-
 t_color     spot(t_env *e, t_light spot, t_hitpoint hitpoint)
 {
   // t_ray       ray;
@@ -30,7 +22,7 @@ t_color     spot(t_env *e, t_light spot, t_hitpoint hitpoint)
   if (cos_angle < 0)
     cos_angle = 0;
   // printf("angle : %f\n", angle);
-  color = scalar_color(cos_angle, add_color(hitpoint.color, spot.color));
+  color = scalar_color(cos_angle, mult_color(hitpoint.color, spot.color));
   return (color);
 }
 
@@ -38,13 +30,14 @@ t_color     illuminate(t_env *e, t_ray *ray)
 {
   t_color     color;
 
+  ray->hitpoint.ambient = 0.06;
+  ray->hitpoint.diffuse = 0.9;
   // ambient light
-  ray->hitpoint.ambient = 0.5;
-  ray->hitpoint.diffuse = 0.4;
   color = scalar_color(ray->hitpoint.ambient, mult_color(e->amb.color, ray->hitpoint.color));
 
   //spot light
-  color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot, ray->hitpoint)), color);
+  // color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot, ray->hitpoint)), color);
+  color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot2, ray->hitpoint)), color);
 
   //directional light
   return (color);

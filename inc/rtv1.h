@@ -15,8 +15,8 @@
 # define FALSE 0
 
 // window and camera defines
-# define WIN_W 800
-# define WIN_H 600
+# define WIN_W 1920
+# define WIN_H 1080
 # define RATIO (float)WIN_W / (float)WIN_H
 # define FOV tan((20 * 3.14) / 180)
 # define FOCALE 1
@@ -58,12 +58,12 @@ float        hit_sphere(t_env *e, t_ray *ray);
 float        hit_plan(t_env *e, t_ray *ray);
 // light.c functions
 t_color      illuminate(t_env *e, t_ray *ray);
-t_color      ambient(t_light amb);
 t_color      spot(t_env *e, t_light spot, t_hitpoint hitpoint);
 // color.c functions
 t_color      scalar_color(float scalar, t_color color);
 t_color      add_color(t_color color1, t_color color2);
 t_color      mult_color(t_color color1, t_color color2);
 t_color      new_color(int color);
+t_color      limit_color(t_color color);
 
 #endif
