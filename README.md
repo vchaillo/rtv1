@@ -5,25 +5,25 @@ rtv1
 
 ### Liste des fonctionnalitees
 
-### Objets
+### Objects
 - [x] Sphere
-- [x] Plan
-- [ ] Cylindre
+- [x] Plane
+- [ ] Cylinder
 - [ ] Cone
 
-### Lumieres
-- [x] Lumiere ambiante
-- [x] Lumiere type spot
-- [ ] Lumiere directionnelle
-- [x] Diffusion de la lumiere
-- [ ] Reflexion speculaire
-- [ ] Ombres
+### Lights
+- [x] Ambient light
+- [x] Spot light
+- [ ] Directional light
+- [x] Diffuse
+- [ ] Specular
+- [ ] Shadows
 - [x] Multispots
 
-### Autre
-- [ ] Translation et rotation des objets
-- [ ] Translation et rotation de la camera
-- [ ] Parsing de fichiers de scenes
+### Other
+- [ ] Objects translations and rotations
+- [ ] Camera translations and rotations
+- [ ] Parsing of description scene file
 
 =============
 Project of 42
