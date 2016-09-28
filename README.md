@@ -8,6 +8,7 @@ rtv1
 - [x] Plan
 - [ ] Cylindre
 - [ ] Cone
+
 ### Lumieres
 - [x] Lumiere ambiante
 - [x] Lumiere type spot
@@ -16,6 +17,7 @@ rtv1
 - [ ] Reflexion speculaire
 - [ ] Ombres
 - [x] Multispots
+
 ### Autre
 - [ ] Translation et rotation des objets
 - [ ] Translation et rotation de la camera
