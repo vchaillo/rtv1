@@ -17,7 +17,7 @@ int				get_ray_intersection(t_env *e, t_ray *ray)
 	t = 1000;
 	ray->hit = FALSE;
 	tsphere = hit_sphere(e, ray);
-	if (tsphere > 0)
+	if (tsphere > 0.01)
 	{
 		t = tsphere;
 		ray->hit = TRUE;
@@ -30,7 +30,7 @@ int				get_ray_intersection(t_env *e, t_ray *ray)
 	}
 
 	tsphere = hit_sphere2(e, ray);
-	if (tsphere > 0 && tsphere < t)
+	if (tsphere > 0.01 && tsphere < t)
 	{
 		t = tsphere;
 		ray->hit = TRUE;
