@@ -3,7 +3,7 @@ rtv1
 
 * [Subject] (https://github.com/vchaillo/rtv1/blob/master/rtv1.pdf)
 
-# Functionalities
+## Functionalities
 
 ### Objects
 - [x] Sphere
