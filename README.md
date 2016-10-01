@@ -10,6 +10,7 @@ rtv1
 - [x] Plane
 - [ ] Cylinder
 - [ ] Cone
+- [x] Multi objects
 
 #### Lights
 - [x] Ambient light
@@ -18,7 +19,7 @@ rtv1
 - [x] Diffuse
 - [ ] Specular
 - [ ] Shadows
-- [x] Multispots
+- [x] Multi spots
 
 #### Other
 - [ ] Objects translations and rotations

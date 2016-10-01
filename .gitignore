@@ -1,5 +1,6 @@
 obj/*
-lib/*.o
-rtv2/lib/*.o
 rtv1
 ._*
+
+rtv2/obj/*
+rtv2/rtv2
