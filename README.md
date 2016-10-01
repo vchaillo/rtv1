@@ -5,13 +5,13 @@ rtv1
 
 ## Functionalities
 
-#### Objects
+### Objects
 - [x] Sphere
 - [x] Plane
 - [ ] Cylinder
 - [ ] Cone
 
-#### Lights
+### Lights
 - [x] Ambient light
 - [x] Spot light
 - [ ] Directional light
@@ -20,7 +20,7 @@ rtv1
 - [ ] Shadows
 - [x] Multispots
 
-#### Other
+### Other
 - [ ] Objects translations and rotations
 - [ ] Camera translations and rotations
 - [ ] Parsing of description scene file
