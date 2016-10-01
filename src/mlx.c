@@ -27,6 +27,7 @@ int		key_hook(int keycode, t_env *e)
 	else if (keycode == R || keycode == R_MAC)
 		init_all(e);
 	erase_image(e);
+	ft_putstr("keycode : ");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
 	return (0);

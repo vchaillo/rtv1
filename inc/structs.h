@@ -30,12 +30,12 @@ typedef struct	s_sphere
 
 }			        	t_sphere;
 
-typedef struct	s_plan
+typedef struct	s_plane
 {
 	t_vector			norm;
   float			    d;
 	t_color		    color;
-}			        	t_plan;
+}			        	t_plane;
 
 // typedef struct	s_object
 // {
@@ -101,8 +101,8 @@ typedef struct	s_env
   t_camera      camera;
 	t_sphere	    sphere;
 	t_sphere	    sphere2;
-	t_plan		    plan;
-	t_plan		    plan2;
+	t_plane		    plan;
+	t_plane		    plan2;
 	t_light		    amb;
 	t_light		    spot;
 	t_light		    spot2;

@@ -1,0 +1,54 @@
+#include "rtv1.h"
+
+t_object        *new_object(int type, void *object, t_color color)
+{
+  t_object      *new_object;
+
+  if (!(new_object = (t_object*)malloc(sizeof(t_object))))
+    exit (0);
+  new_object->type = type;
+  new_object->object = object;
+  new_object->color = color;
+  return (new_object);
+}
+
+void            add_object(t_scene *scene, t_object *new)
+{
+  if (scene->objects == NULL)
+  {
+    scene->objects = new;
+    scene->objects->next = NULL;
+  }
+  else
+  {
+    new->next = scene->objects;
+    scene->objects = new;
+  }
+}
+
+void            display_objects(t_scene *scene)
+{
+  t_object      *obj;
+
+  obj = scene->objects;
+  ft_putendl("\nObjects in scene");
+  ft_putendl("----------------");
+  while (obj != NULL)
+  {
+    if (obj->type == SPHERE)
+    {
+      t_sphere  *s;
+      s = (t_sphere*)obj->object;
+      printf("- SPHERE (%d, %d, %d, %d)\n", (int)s->pos->x, (int)s->pos->y, (int)s->pos->z, (int)s->r);
+    }
+    else if (obj->type == PLANE)
+    {
+      t_plane  *p;
+      p = (t_plane*)obj->object;
+      printf("- PLANE (%d, %d, %d, %d)\n", (int)p->normal->x, (int)p->normal->y, (int)p->normal->z, (int)p->d);
+    }
+    printf("  -> COLOR (r:%x, g:%x, b:%x)\n", obj->color.r, obj->color.g, obj->color.b);
+    obj = obj->next;
+  }
+  ft_putchar('\n');
+}

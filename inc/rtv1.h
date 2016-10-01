@@ -55,8 +55,8 @@ float        dot_product(t_vector v1, t_vector v2);
 float			   solve_deg2(double a, double b, double c);
 float        hit_sphere(t_env *e, t_ray *ray);
 float  		   hit_sphere2(t_env *e, t_ray *ray);
-// plan.c functions
-float        hit_plan(t_env *e, t_ray *ray);
+// plane.c functions
+float        hit_plane(t_env *e, t_ray *ray);
 // light.c functions
 t_color      illuminate(t_env *e, t_ray *ray);
 t_color      spot(t_env *e, t_light spot, t_hitpoint hitpoint);

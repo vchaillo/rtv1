@@ -6,7 +6,6 @@ void	erase_image(t_env *e)
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	draw(e);
-	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }
 
 void	fill_pixel(t_env *e, t_color color, int x, int y)
@@ -39,4 +38,5 @@ void	draw(t_env *e)
 		y++;
 	}
 	e->nb_rays += WIN_H * WIN_W;
+	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }

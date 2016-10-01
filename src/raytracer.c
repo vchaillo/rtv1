@@ -12,7 +12,7 @@ int				get_ray_intersection(t_env *e, t_ray *ray)
 {
 	float				t;
 	float				tsphere;
-	float				tplan;
+	float				tplane;
 
 	t = 1000;
 	ray->hit = FALSE;
@@ -42,10 +42,10 @@ int				get_ray_intersection(t_env *e, t_ray *ray)
 		ray->hitpoint.color = e->sphere2.color;
 	}
 
-	tplan = hit_plan(e, ray);
-	if (tplan > 0 && tplan < t)
+	tplane = hit_plane(e, ray);
+	if (tplane > 0 && tplane < t)
 	{
-		t = tplan;
+		t = tplane;
 		ray->hit = TRUE;
 		get_hitpoint_pos(ray, t);
 		ray->hitpoint.norm.vx = e->plan.norm.vx;
