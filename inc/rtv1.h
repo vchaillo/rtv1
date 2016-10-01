@@ -23,19 +23,12 @@
 
 // objects defines
 # define SPHERE 0
-# define PLANE 1
-# define CYLINDER 2
-# define CONE 3
+# define PLAN 1
 
 // lights defines
 # define AMB 0
 # define SPOT 1
 # define DIR 2
-
-// materials defines
-# define BASIC 0
-# define PLASTIC 1
-# define GLASS 2
 
 // mlx.c functions
 void			   start_mlx(t_env *e);
@@ -45,9 +38,7 @@ int				   expose_hook(t_env *e);
 void			   fill_pixel(t_env *e, t_color color, int x, int y);
 // init.c functions
 void			   init_all(t_env *e);
-void			   init_camera(t_env *e);
-void			   init_lights(t_env *e);
-void			   init_objects(t_env *e);
+void			   init_test_scene(t_env *e);
 // draw.c functions
 void			   erase_image(t_env *e);
 void			   draw(t_env *e);
@@ -64,8 +55,8 @@ float        dot_product(t_vector v1, t_vector v2);
 float			   solve_deg2(double a, double b, double c);
 float        hit_sphere(t_env *e, t_ray *ray);
 float  		   hit_sphere2(t_env *e, t_ray *ray);
-// plane.c functions
-float        hit_plane(t_env *e, t_ray *ray);
+// plan.c functions
+float        hit_plan(t_env *e, t_ray *ray);
 // light.c functions
 t_color      illuminate(t_env *e, t_ray *ray);
 t_color      spot(t_env *e, t_light spot, t_hitpoint hitpoint);
