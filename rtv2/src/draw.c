@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 12:24:06 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/04 20:07:16 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	erase_image(t_env *e)
 
 void	fill_pixel(t_env *e, t_color *color, int x, int y)
 {
-	int		i;
+	int			i;
 
 	i = x * 4 + y * e->size;
 	e->data[i] = (color->b);
@@ -32,8 +32,8 @@ void	fill_pixel(t_env *e, t_color *color, int x, int y)
 
 void	draw(t_env *e)
 {
-	int				x;
-	int				y;
+	int			x;
+	int			y;
 	t_color		*color;
 
 	e->nb_rays = 0;
@@ -43,8 +43,7 @@ void	draw(t_env *e)
 		x = 0;
 		while (x < WIN_W)
 		{
-			// color = raytracer(e, x, y);
-			color = new_color(LIGHT_GREEN);
+			color = raytracer(e->scene, x, y);
 			fill_pixel(e, color, x, y);
 			x++;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 12:24:19 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/04 20:05:50 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int		expose_hook(t_env *e)
 int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
-		exit(0);
+	{
+		// delete_scene(e->scene);
+		exit (0);
+	}
 	else if (keycode == RETURN || keycode == RETURN_MAC)
 	{
 		if (e->amb == ACTIVE)
@@ -70,6 +73,7 @@ void	start_mlx(t_env *e)
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	init_all(e);
+	draw(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 3, 3, key_hook, e);

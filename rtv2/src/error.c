@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_sphere.c                                         :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/04 12:25:01 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 20:03:54 by vchaillo         ###   ########.fr       */
+/*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/04 16:31:32 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_sphere		*new_sphere(float x, float y, float z, float r)
+void			print_error(int error_code)
 {
-	t_sphere      *sphere;
-
-	if (!(sphere = (t_sphere*)malloc(sizeof(t_sphere))))
-		print_error(MALLOC_ERROR);
-	sphere->pos = new_vector(x, y, z);
-	sphere->r = r;
-	return (sphere);
-}
-
-void			delete_sphere(t_sphere *sphere)
-{
-	delete_vector(sphere->pos);
-	free(sphere);
+	if (error_code == MLX_ERROR)
+		ft_putendl("Mlx initialization failed");
+	else if (error_code == MALLOC_ERROR)
+	{
+		ft_putendl("Memory allocation failed");
+		// delete_scene(e->scene);
+	}
+	exit (0);
 }

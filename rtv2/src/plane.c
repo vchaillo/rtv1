@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_sphere.c                                         :+:      :+:    :+:   */
+/*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/04 12:25:01 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 20:03:54 by vchaillo         ###   ########.fr       */
+/*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/04 20:54:23 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_sphere		*new_sphere(float x, float y, float z, float r)
+float			hit_plane(t_plane *plane, t_ray *ray)
 {
-	t_sphere      *sphere;
+	float		t;
+	t_vector	*nor;
+	t_vector	*ro;
+	t_vector	*rd;
 
-	if (!(sphere = (t_sphere*)malloc(sizeof(t_sphere))))
-		print_error(MALLOC_ERROR);
-	sphere->pos = new_vector(x, y, z);
-	sphere->r = r;
-	return (sphere);
-}
-
-void			delete_sphere(t_sphere *sphere)
-{
-	delete_vector(sphere->pos);
-	free(sphere);
+	nor = plane->normal;
+	ro = ray->o;
+	rd = ray->d;
+	t = -(nor->x * ro->x + nor->y * ro->y + nor->z * ro->z + plane->offset);
+	t /= (nor->x * rd->x + nor->y * rd->y + nor->z + rd->z);
+	return (t);
 }

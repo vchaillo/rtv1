@@ -53,6 +53,7 @@ void	start_mlx(t_env *e)
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	init_all(e);
+	draw(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 3, 3, key_hook, e);

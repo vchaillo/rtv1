@@ -36,10 +36,10 @@ void init_test_scene(t_env *e)
 	e->sphere2.r = 3;
 	e->sphere2.color = new_color(WHITE);
 
-	e->plan.norm.vx = 0;
+	e->plan.norm.vx = 0.5;
 	e->plan.norm.vy = 1;
 	e->plan.norm.vz = 0;
-	e->plan.d = 0;
+	e->plan.d = -2;
 	e->plan.color = new_color(WHITE);
 }
 

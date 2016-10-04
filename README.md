@@ -26,5 +26,9 @@ rtv1
 - [ ] Camera translations and rotations
 - [ ] Parsing of description scene file
 
+## TodoList
+- [ ] Check memory leaks for hitpoints and rest
+- [ ] Normalize all files
+
 =============
 Project of 42

@@ -9,7 +9,11 @@ SRC	= 	main.c \
 		draw.c\
 		init.c\
 		vector.c\
+		raytracer.c\
+		sphere.c\
+		plane.c\
 		color.c\
+		error.c\
 		t_vector.c\
 		t_scene.c\
 		t_camera.c\

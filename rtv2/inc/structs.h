@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 12:23:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/04 20:36:25 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ typedef struct				s_sphere
 {
 	t_vector				*pos;
 	float					r;
-	t_color					*color;
 }							t_sphere;
 
 typedef struct				s_plane
 {
 	t_vector				*normal;
-	float					d;
-	t_color					*color;
+	float					offset;
 }							t_plane;
 
 typedef struct				s_object
@@ -63,7 +61,6 @@ typedef struct				s_ray
 	t_vector				*o;
 	t_vector				*d;
 	float					t;
-	int						hit;
 	t_hitpoint				hitpoint;
 }							t_ray;
 

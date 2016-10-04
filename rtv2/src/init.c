@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 12:24:10 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/04 20:50:23 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void 				init_objects(t_scene *scene)
 {
-	add_object(scene, new_object(SPHERE, new_sphere(-3, 2, 0, 2), new_color(WHITE)));
-	add_object(scene, new_object(SPHERE, new_sphere(3, 2, 0, 2), new_color(WHITE)));
+	add_object(scene, new_object(SPHERE, new_sphere(-3, 2, 0, 2), new_color(BLUE)));
+	add_object(scene, new_object(SPHERE, new_sphere(3, 2, 0, 2), new_color(GREEN)));
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0), new_color(WHITE)));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0), new_color(WHITE)));
-	add_object(scene, new_object(PLANE, new_plane(1, 1, 0, 0), new_color(BLUE)));
 }
 
 void 				init_lights(t_scene *scene)

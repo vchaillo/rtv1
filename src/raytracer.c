@@ -63,7 +63,7 @@ t_vector	get_ray_dir(t_env *e, int x, int y)
 
 	dir.vx = (2.0 * ((x + 0.5) / WIN_W) - 1.0) * e->camera.ratio * e->camera.fov;
 	dir.vy = (1.0 - 2.0 * ((y + 0.5) / WIN_H)) * e->camera.fov;
-	dir.vz = -1;
+	dir.vz = -e->camera.focale;
 	dir = normalize(dir);
 	return (dir);
 }
