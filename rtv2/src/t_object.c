@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_object.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/04 12:24:47 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
-t_object        *new_object(int type, void *object, t_color color)
+t_object        *new_object(int type, void *object, t_color *color)
 {
   t_object      *new_object;
 
@@ -47,7 +59,7 @@ void            display_objects(t_scene *scene)
       p = (t_plane*)obj->object;
       printf("- PLANE (%d, %d, %d, %d)\n", (int)p->normal->x, (int)p->normal->y, (int)p->normal->z, (int)p->d);
     }
-    printf("  -> COLOR (r:%x, g:%x, b:%x)\n", obj->color.r, obj->color.g, obj->color.b);
+    printf("  -> COLOR (r:%x, g:%x, b:%x)\n", obj->color->r, obj->color->g, obj->color->b);
     obj = obj->next;
   }
   ft_putchar('\n');

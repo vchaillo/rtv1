@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/04 12:24:06 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
 void	erase_image(t_env *e)
@@ -8,21 +20,21 @@ void	erase_image(t_env *e)
 	draw(e);
 }
 
-void	fill_pixel(t_env *e, t_color color, int x, int y)
+void	fill_pixel(t_env *e, t_color *color, int x, int y)
 {
 	int		i;
 
 	i = x * 4 + y * e->size;
-	e->data[i] = (color.b);
-	e->data[i + 1] = (color.g);
-	e->data[i + 2] = (color.r);
+	e->data[i] = (color->b);
+	e->data[i + 1] = (color->g);
+	e->data[i + 2] = (color->r);
 }
 
 void	draw(t_env *e)
 {
 	int				x;
 	int				y;
-	t_color		color;
+	t_color		*color;
 
 	e->nb_rays = 0;
 	y = 0;
@@ -32,6 +44,7 @@ void	draw(t_env *e)
 		while (x < WIN_W)
 		{
 			// color = raytracer(e, x, y);
+			color = new_color(LIGHT_GREEN);
 			fill_pixel(e, color, x, y);
 			x++;
 		}

@@ -33,15 +33,15 @@ ifeq ($(UNAME_S), Linux)
 else
 	UNAME_S = MACOS
 	LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
-	FILE := $(shell ls lib/libft/libft.a)
 endif
+
+FILE := $(shell ls lib/libft/libft.a 2> /dev/null)
 
 LIBFT =	 -Llib/libft/ -lft
 
 INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/include/
 
 OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
-
 
 all:   $(NAME)
 $(NAME): obj $(OBJ)
@@ -70,7 +70,7 @@ fclean:	clean
 
 norm:
 		@echo "[\033[1;32m******  norminette ...  ******\033[0m]"
-		@norminette **/*.[ch]
+		@norminette inc/*.[ch] src/*.[ch]
 
 re: fclean all
 

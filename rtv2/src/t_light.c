@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_light.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/04 12:24:42 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
-t_light        *new_light(int type, float intensity, t_vector *pos, t_vector *dir, t_color color)
+t_light        *new_light(int type, float intensity, t_vector *pos, t_vector *dir, t_color *color)
 {
   t_light      *new_light;
 
@@ -48,7 +60,7 @@ void            display_lights(t_scene *scene)
     else if (light->type == AMB)
       printf("- AMB\n");
     printf("  -> INTENSITY : %f\n", light->intensity);
-    printf("  -> COLOR (r:%x, g:%x, b:%x)\n", light->color.r, light->color.g, light->color.b);
+    printf("  -> COLOR (r:%x, g:%x, b:%x)\n", light->color->r, light->color->g, light->color->b);
     light = light->next;
   }
   ft_putchar('\n');
