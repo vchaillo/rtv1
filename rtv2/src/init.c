@@ -34,7 +34,7 @@ void				init_all(t_env *e)
 	e->dir = ACTIVE;
 	e->spot = ACTIVE;
 
-	e->scene = new_scene(new_color(BLACK), new_camera(0, 2, 15));
+	e->scene = new_scene(new_color(BLACK), new_camera(0, 1, 15));
 	init_objects(e->scene);
 	display_objects(e->scene);
 	init_lights(e->scene);

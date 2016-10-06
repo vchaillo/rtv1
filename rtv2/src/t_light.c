@@ -52,6 +52,7 @@ void			delete_lights(t_light *lights)
 		delete_color(lights->color);
 		lights->next = NULL;
 		free(lights);
+		lights = tmp;
 	}
 }
 

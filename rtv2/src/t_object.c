@@ -52,6 +52,7 @@ void			delete_objects(t_object *objects)
 		delete_color(objects->color);
 		objects->next = NULL;
 		free(objects);
+		objects = tmp;
 	}
 }
 

@@ -33,7 +33,7 @@ float			solve_deg2(double a, double b, double c)
 		res = -b / (2 * a);
 	else
 		res = 0;
-	printf("delta : %f\n", delta);
+	// printf("delta : %f\n", delta);
 	return (res);
 }
 
