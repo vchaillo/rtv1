@@ -47,7 +47,7 @@ ifneq ($(FILE), lib/libft/libft.a)
 	@make -C lib/libft/ > /dev/null
 endif
 
-		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
+		@echo "[\033[1;34m******  Creating $(UNAME_S) executable  ******\033[m]"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 
 obj/%.o: src/%.c
@@ -66,8 +66,8 @@ fclean:	clean
 		@$(RM) $(NAME)
 
 norm:
-		@echo "[\033[1;32m******  norminette ...  ******\033[0m]"
-		@norminette inc/*.[ch] src/*.[ch]
+		@echo "[\033[1;34m******  Norminette  ******\033[0m]"
+		@norminette inc/*.h src/*.c
 
 re: fclean all
 

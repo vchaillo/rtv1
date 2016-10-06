@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 16:31:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 21:41:41 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_scene			*new_scene(t_color *background_color, t_camera *camera)
 	scene->camera = camera;
 	scene->objects = NULL;
 	scene->lights = NULL;
+	scene->amb = ACTIVE;
+	scene->dir = ACTIVE;
+	scene->spot = ACTIVE;
 	return (scene);
 }
 

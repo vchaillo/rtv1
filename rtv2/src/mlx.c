@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 20:05:50 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 21:40:10 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int		key_hook(int keycode, t_env *e)
 	}
 	else if (keycode == RETURN || keycode == RETURN_MAC)
 	{
-		if (e->amb == ACTIVE)
-			e->amb = INACTIVE;
+		if (e->scene->amb == ACTIVE)
+			e->scene->amb = INACTIVE;
 		else
-			e->amb = ACTIVE;
+			e->scene->amb = ACTIVE;
 	}
 	else if (keycode == D || keycode == D_MAC)
 		e->scene->camera->pos->x += 1;
