@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 20:58:14 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 18:49:52 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@
 # define FOV tan((20 * 3.14) / 180)
 # define FOCALE 1
 # define EPSILON 0.01
-
 
 /*
 ** objects defines
@@ -103,6 +102,7 @@ float			hit_plane(t_plane *plane, t_ray *ray);
 ** 				sphere.c functions
 */
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
+float			solve_deg2(double a, double b, double c);
 /*
 ** 				vector.c functions
 */

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:25:10 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 19:02:00 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 19:01:36 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_vector		*normalize(t_vector *v)
 	float		mag;
 
 	mag = sqrt((v->x * v->x) + (v->y * v->y) + (v->z * v->z));
-	return (new_vector(v->x / mag, v->z / mag, v->z / mag));
+	return (new_vector(v->x / mag, v->y / mag, v->z / mag));
 }
 
 t_vector		*vector_scalar(float scalar, t_vector *v)

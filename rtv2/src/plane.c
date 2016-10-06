@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 20:54:23 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 19:22:10 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ float			hit_plane(t_plane *plane, t_ray *ray)
 	ro = ray->o;
 	rd = ray->d;
 	t = -(nor->x * ro->x + nor->y * ro->y + nor->z * ro->z + plane->offset);
-	t /= (nor->x * rd->x + nor->y * rd->y + nor->z + rd->z);
+	t /= (nor->x * rd->x + nor->y * rd->y + nor->z * rd->z);
 	return (t);
 }

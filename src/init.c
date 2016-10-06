@@ -3,7 +3,7 @@
 void init_test_scene(t_env *e)
 {
 	e->camera.pos.x = 0;
-	e->camera.pos.y = 3;
+	e->camera.pos.y = 5;
 	e->camera.pos.z = 15;
 
 	e->amb.type = AMB;
@@ -24,14 +24,14 @@ void init_test_scene(t_env *e)
 	e->spot2.intensity = 0.5;
 	e->spot2.color = scalar_color(e->spot2.intensity, new_color(BLUE));
 
-	e->sphere.pos.x = -2;
-	e->sphere.pos.y = 2;
+	e->sphere.pos.x = -4;
+	e->sphere.pos.y = 4;
 	e->sphere.pos.z = 0;
 	e->sphere.r = 2;
 	e->sphere.color = new_color(WHITE);
 
 	e->sphere2.pos.x = 4;
-	e->sphere2.pos.y = 4;
+	e->sphere2.pos.y = 5;
 	e->sphere2.pos.z = 0;
 	e->sphere2.r = 3;
 	e->sphere2.color = new_color(WHITE);
