@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 19:24:31 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 20:11:26 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_color			*raytracer(t_scene *scene, int x, int y)
 
 	if (ray.hitpoint.object)
 	{
-		// ray.hitpoint.color = illuminate(e, &ray);
+		ray.hitpoint.color = illuminate(scene, ray.hitpoint);
 		return (ray.hitpoint.color);
 	}
 	return (scene->background_color);

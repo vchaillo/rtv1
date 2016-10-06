@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 18:49:52 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 20:10:33 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define WIN_W 1080
 # define WIN_H 720
 # define RATIO (float)WIN_W / (float)WIN_H
-# define FOV tan((20 * 3.14) / 180)
+# define FOV tan((40 * 3.14) / 180)
 # define FOCALE 1
 # define EPSILON 0.01
 
@@ -103,6 +103,11 @@ float			hit_plane(t_plane *plane, t_ray *ray);
 */
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			solve_deg2(double a, double b, double c);
+/*
+** 				light.c functions
+*/
+t_color			*spot(t_object *objects, t_light *spot, t_hitpoint hitpoint);
+t_color			*illuminate(t_scene *scene, t_hitpoint hitpoint);
 /*
 ** 				vector.c functions
 */

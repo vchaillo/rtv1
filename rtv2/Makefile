@@ -10,6 +10,7 @@ SRC	= 	main.c \
 		init.c\
 		vector.c\
 		raytracer.c\
+		light.c\
 		sphere.c\
 		plane.c\
 		color.c\
