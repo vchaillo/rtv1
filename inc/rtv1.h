@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 22:36:37 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 23:02:26 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 # define FOCALE 1
 # define EPSILON 0.001
 # define MAX_DIST 500
+
 /*
 ** objects defines
 */
@@ -168,7 +169,6 @@ void			delete_plane(t_plane *plane);
 t_object		*new_object(int type, void *object, t_color *color);
 void			add_object(t_scene *scene, t_object *new);
 void			delete_objects(t_object *objects);
-void			display_objects(t_scene *scene);
 /*
 ** 				t_light.c functions
 */
@@ -176,6 +176,5 @@ t_light			*new_light(int type, float intensity, t_vector *pos,
 							t_vector *dir, t_color *color);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
-void			display_lights(t_scene *scene);
 
 #endif

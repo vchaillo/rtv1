@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/10/06 22:40:21 by vchaillo         ###   ########.fr        #
+#    Updated: 2016/10/06 22:44:32 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ all:   $(NAME)
 $(NAME): obj $(OBJ)
 
 ifneq ($(FILE), lib/libft/libft.a)
-	@make -C lib/libft/ > /dev/null
+		@make -C lib/libft/ > /dev/null
 endif
 
 		@echo "[\033[1;34m******  Creating $(UNAME_S) executable  ******\033[m]"

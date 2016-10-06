@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 16:31:32 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 22:48:21 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void			print_error(int error_code)
 	else if (error_code == MALLOC_ERROR)
 	{
 		ft_putendl("Memory allocation failed");
-		// delete_scene(e->scene);
 	}
-	exit (0);
+	exit(0);
 }

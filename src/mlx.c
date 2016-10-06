@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 21:40:10 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 22:53:38 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 	{
-		// delete_scene(e->scene);
-		exit (0);
+		exit(0);
 	}
 	else if (keycode == RETURN || keycode == RETURN_MAC)
 	{

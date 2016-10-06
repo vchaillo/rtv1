@@ -30,6 +30,9 @@ rtv1
 ## TodoList
 - [ ] Check memory leaks
 - [ ] Normalize all files
+- [ ] Distance to the light coefficient
+- [ ] Create a key_hook.c file
+- [ ] Create a get_hitpoint function in raytracer.c
 
 =============
 Project of 42

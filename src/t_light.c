@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 16:30:56 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 23:02:20 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,27 +54,4 @@ void			delete_lights(t_light *lights)
 		free(lights);
 		lights = tmp;
 	}
-}
-
-
-void			display_lights(t_scene *scene)
-{
-	t_light		*light;
-
-	light = scene->lights;
-	ft_putendl("Lights in scene");
-	ft_putendl("----------------");
-	while (light != NULL)
-	{
-		if (light->type == SPOT)
-			printf("- SPOT (%d, %d, %d)\n", (int)light->pos->x, (int)light->pos->y, (int)light->pos->z);
-		else if (light->type == DIR)
-			printf("- DIR (%d, %d, %d)\n", (int)light->dir->x, (int)light->dir->y, (int)light->dir->z);
-		else if (light->type == AMB)
-			printf("- AMB\n");
-		printf("  -> INTENSITY : %f\n", light->intensity);
-		printf("  -> COLOR (r:%x, g:%x, b:%x)\n", light->color->r, light->color->g, light->color->b);
-		light = light->next;
-	}
-	ft_putchar('\n');
 }

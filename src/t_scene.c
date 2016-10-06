@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 21:41:41 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 22:58:41 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_scene			*new_scene(t_color *background_color, t_camera *camera)
 {
-	t_scene      *scene;
+	t_scene		*scene;
 
 	if (!(scene = (t_scene*)malloc(sizeof(t_scene))))
 		print_error(MALLOC_ERROR);

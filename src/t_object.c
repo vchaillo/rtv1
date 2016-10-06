@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 20:08:34 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 23:02:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,4 @@ void			delete_objects(t_object *objects)
 		free(objects);
 		objects = tmp;
 	}
-}
-
-void			display_objects(t_scene *scene)
-{
-	t_object      *obj;
-
-	obj = scene->objects;
-	ft_putendl("\nObjects in scene");
-	ft_putendl("----------------");
-	while (obj != NULL)
-	{
-		if (obj->type == SPHERE)
-		{
-			t_sphere  *s;
-			s = (t_sphere*)obj->object;
-			printf("- SPHERE (%d, %d, %d, %d)\n", (int)s->pos->x, (int)s->pos->y, (int)s->pos->z, (int)s->r);
-		}
-		else if (obj->type == PLANE)
-		{
-			t_plane  *p;
-			p = (t_plane*)obj->object;
-			printf("- PLANE (%d, %d, %d, %d)\n", (int)p->normal->x, (int)p->normal->y, (int)p->normal->z, (int)p->offset);
-		}
-		printf("  -> COLOR (r:%x, g:%x, b:%x)\n", obj->color->r, obj->color->g, obj->color->b);
-		obj = obj->next;
-	}
-	ft_putchar('\n');
 }
