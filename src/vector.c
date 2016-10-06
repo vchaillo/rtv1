@@ -1,31 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vector.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/04 12:25:10 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/06 19:01:36 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
-t_vector   normalize(t_vector v)
+t_vector		*normalize(t_vector *v)
 {
-  t_vector    norm;
-  float       mag;
+	float		mag;
 
-  mag = fabs(sqrt((v.vx * v.vx) + (v.vy * v.vy) + (v.vz * v.vz)));
-  norm.vx = v.vx / mag;
-  norm.vy = v.vy / mag;
-  norm.vz = v.vz / mag;
-  return (norm);
+	mag = sqrt((v->x * v->x) + (v->y * v->y) + (v->z * v->z));
+	return (new_vector(v->x / mag, v->y / mag, v->z / mag));
 }
 
-t_vector    vector_add(t_vector v1, t_vector v2)
+t_vector		*vector_scalar(float scalar, t_vector *v)
 {
-  t_vector  sum;
-
-  sum.vx = v1.vx + v2.vx;
-  sum.vy = v1.vy + v2.vy;
-  sum.vz = v1.vz + v2.vz;
-  return (sum);
+	return (new_vector(scalar * v->x, scalar * v->y, scalar * v->z));
 }
 
-float     dot_product(t_vector v1, t_vector v2)
+t_vector		*vector_add(t_vector *v1, t_vector *v2)
 {
-  float     product;
+	return (new_vector(v1->x + v2->x, v1->y + v2->y, v1->z + v2->z));
+}
 
-  product = v1.vx * v2.vx + v1.vy * v2.vy + v1.vz * v2.vz;
-  return (product);
+t_vector		*vector_sub(t_vector *v1, t_vector *v2)
+{
+	return (new_vector(v1->x - v2->x, v1->y - v2->y, v1->z - v2->z));
+}
+
+float			dot_product(t_vector *v1, t_vector *v2)
+{
+	float		product;
+
+	product = v1->x * v2->x + v1->y * v2->y + v1->z * v2->z;
+	return (product);
 }

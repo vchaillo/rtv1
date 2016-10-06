@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbarbie <jbarbie@student.42.fr>            +#+  +:+       +#+         #
+#    By: vchaillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/02/20 18:44:07 by jbarbie           #+#    #+#              #
-#    Updated: 2016/05/19 22:04:36 by vchaillo         ###   ########.fr        #
+#    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
+#    Updated: 2016/10/06 22:40:21 by vchaillo         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME =	rtv1
 
@@ -20,12 +20,21 @@ SRC	= 	main.c \
 		mlx.c\
 		draw.c\
 		init.c\
-		raytracer.c\
 		vector.c\
+		raytracer.c\
+		light.c\
 		sphere.c\
 		plane.c\
-		light.c\
 		color.c\
+		error.c\
+		t_vector.c\
+		t_scene.c\
+		t_camera.c\
+		t_sphere.c\
+		t_plane.c\
+		t_object.c\
+		t_light.c\
+		t_color.c\
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
@@ -50,7 +59,7 @@ ifneq ($(FILE), lib/libft/libft.a)
 	@make -C lib/libft/ > /dev/null
 endif
 
-		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
+		@echo "[\033[1;34m******  Creating $(UNAME_S) executable  ******\033[m]"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 
 obj/%.o: src/%.c
@@ -69,8 +78,8 @@ fclean:	clean
 		@$(RM) $(NAME)
 
 norm:
-		@echo "[\033[1;32m******  norminette ...  ******\033[0m]"
-		@norminette inc/*.[ch] src/*.[ch]
+		@echo "[\033[1;34m******  Norminette  ******\033[0m]"
+		@norminette inc/*.h src/*.c
 
 re: fclean all
 

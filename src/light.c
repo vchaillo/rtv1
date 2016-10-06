@@ -1,44 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   light.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/06 22:41:33 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
-t_color     spot(t_env *e, t_light spot, t_hitpoint hitpoint)
+t_color			*diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint)
 {
-  // t_ray       ray;
-  (void)e;
-  t_color     color;
-  t_vector    spot_dir;
-  float       cos_angle;
+	t_color		*color;
+	t_ray		ray;
+	float		cos_angle;
 
-  // ray to the spot direction
-  spot_dir.vx = spot.pos.x - hitpoint.pos.x;
-  spot_dir.vy = spot.pos.y - hitpoint.pos.y;
-  spot_dir.vz = spot.pos.z - hitpoint.pos.z;
+	color = new_color(0);
+	ray.o = hitpoint.pos;
+	if (spot->dir == NULL)
+		ray.d = vector_sub(spot->pos, hitpoint.pos);
+	else
+		ray.d = spot->dir;
 
-  // ray.o = spot.pos;
-  // ray.d = spot_dir;
-  // ray.t = get_ray_intersection(e, &ray);
+	ray.t = get_ray_intersection(objects, &ray);
 
-  // cacul de l'angle entre le rayon et la normale
-  cos_angle = dot_product(hitpoint.norm, normalize(spot_dir));
-  if (cos_angle < 0)
-    cos_angle = 0;
-  // printf("angle : %f\n", angle);
-  color = scalar_color(cos_angle, mult_color(hitpoint.color, spot.color));
-  return (color);
+	if (ray.t == 1000)
+	{
+		ray.t = sqrt((ray.d->x * ray.d->x) + (ray.d->y * ray.d->y) + (ray.d->z * ray.d->z));
+		if (ray.t < MAX_DIST)
+		{
+			cos_angle = dot_product(hitpoint.normal, normalize(ray.d));
+			if (cos_angle < 0)
+				cos_angle = 0;
+			color = scalar_color(cos_angle, mult_color(hitpoint.color, spot->color));
+		}
+	}
+	return (color);
 }
 
-t_color     illuminate(t_env *e, t_ray *ray)
+t_color			*illuminate(t_scene *scene, t_hitpoint hitpoint)
 {
-  t_color     color;
+	t_color		*color;
+	t_light		*light;
 
-  ray->hitpoint.ambient = 0.06;
-  ray->hitpoint.diffuse = 0.9;
-  // ambient light
-  color = scalar_color(ray->hitpoint.ambient, mult_color(e->amb.color, ray->hitpoint.color));
-
-  //spot light
-  color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot, ray->hitpoint)), color);
-  color = add_color(scalar_color(ray->hitpoint.diffuse, spot(e, e->spot2, ray->hitpoint)), color);
-
-  //directional light
-  return (color);
+	color = new_color(0);
+	light = scene->lights;
+	while (light != NULL)
+	{
+		if (light->type == AMB && scene->amb == ACTIVE)
+			color = add_color(scalar_color(0.01, mult_color(light->color, hitpoint.color)), color);
+		else if (light->type == SPOT && scene->spot == ACTIVE)
+			color = add_color(scalar_color(0.9, diffuse(scene->objects, light, hitpoint)), color);
+		else if (light->type == DIR && scene->dir == ACTIVE)
+			color = add_color(scalar_color(0.9, diffuse(scene->objects, light, hitpoint)), color);
+		light = light->next;
+	}
+	return (color);
 }

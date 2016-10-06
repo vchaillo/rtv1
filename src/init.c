@@ -1,56 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/06 22:42:06 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
-void init_test_scene(t_env *e)
+void 				init_objects(t_scene *scene)
 {
-	e->camera.pos.x = 0;
-	e->camera.pos.y = 5;
-	e->camera.pos.z = 15;
-
-	e->amb.type = AMB;
-	e->amb.intensity = 0.1;
-	e->amb.color = scalar_color(e->amb.intensity, new_color(WHITE));
-
-	e->spot.type = SPOT;
-	e->spot.pos.x = 25;
-	e->spot.pos.y = 20;
-	e->spot.pos.z = 25;
-	e->spot.intensity = 0.5;
-	e->spot.color = scalar_color(e->spot.intensity, new_color(GREEN));
-
-	e->spot2.type = SPOT;
-	e->spot2.pos.x = -25;
-	e->spot2.pos.y = 20;
-	e->spot2.pos.z = 25;
-	e->spot2.intensity = 0.5;
-	e->spot2.color = scalar_color(e->spot2.intensity, new_color(BLUE));
-
-	e->sphere.pos.x = -4;
-	e->sphere.pos.y = 4;
-	e->sphere.pos.z = 0;
-	e->sphere.r = 2;
-	e->sphere.color = new_color(WHITE);
-
-	e->sphere2.pos.x = 4;
-	e->sphere2.pos.y = 5;
-	e->sphere2.pos.z = 0;
-	e->sphere2.r = 3;
-	e->sphere2.color = new_color(WHITE);
-
-	e->plan.norm.vx = 0;
-	e->plan.norm.vy = 1;
-	e->plan.norm.vz = 0;
-	e->plan.d = -2;
-	e->plan.color = new_color(WHITE);
+	// add_object(scene, new_object(SPHERE, new_sphere(-3, 2, 0, 2), new_color(BLUE)));
+	// add_object(scene, new_object(SPHERE, new_sphere(-3, 2, 0, 2), new_color(BLUE)));
+	add_object(scene, new_object(SPHERE, new_sphere(5, 2, 0, 2), new_color(WHITE)));
+	add_object(scene, new_object(SPHERE, new_sphere(-10, 10, 8, 8), new_color(WHITE)));
+	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0), new_color(WHITE)));
 }
 
-void	init_all(t_env *e)
+void 				init_lights(t_scene *scene)
 {
-	e->background_color = new_color(BLACK);
+	add_light(scene, new_light(AMB, 0.1, NULL, NULL, new_color(WHITE)));
+	// add_light(scene, new_light(SPOT, 0.5, new_vector(125, 125, 125), NULL, new_color(WHITE)));
+	add_light(scene, new_light(SPOT, 0.5, new_vector(-125, 125, 125), NULL, new_color(WHITE)));
+	// add_light(scene, new_light(SPOT, 0.5, new_vector(0, 25, 25), NULL, new_color(YELLOW)));
+	// add_light(scene, new_light(SPOT, 0.5, new_vector(0, 25, -25), NULL, new_color(GREEN)));
+	// add_light(scene, new_light(DIR, 0.5, NULL, new_vector(1, 1, 2), new_color(ORANGE)));
+}
+
+void				init_all(t_env *e)
+{
 	e->nb_rays = 0;
 
-	e->camera.ratio = RATIO;
-	e->camera.fov = FOV;
-	e->camera.focale = FOCALE;
-
-	init_test_scene(e);
+	e->scene = new_scene(new_color(BLACK), new_camera(0, 15, 100));
+	init_objects(e->scene);
+	init_lights(e->scene);
 }

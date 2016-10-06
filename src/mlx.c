@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
+/*   Updated: 2016/10/06 21:40:10 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
 int		expose_hook(t_env *e)
@@ -9,21 +21,29 @@ int		expose_hook(t_env *e)
 int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
-		exit(0);
+	{
+		// delete_scene(e->scene);
+		exit (0);
+	}
 	else if (keycode == RETURN || keycode == RETURN_MAC)
-		e->amb.intensity += 0.1;
+	{
+		if (e->scene->amb == ACTIVE)
+			e->scene->amb = INACTIVE;
+		else
+			e->scene->amb = ACTIVE;
+	}
 	else if (keycode == D || keycode == D_MAC)
-		e->camera.pos.x += 1;
+		e->scene->camera->pos->x += 1;
 	else if (keycode == Q || keycode == Q_MAC)
-		e->camera.pos.x -= 1;
+		e->scene->camera->pos->x -= 1;
 	else if (keycode == SPACE || keycode == SPACE_MAC)
-		e->camera.pos.y += 1;
+		e->scene->camera->pos->y += 1;
 	else if (keycode == CONTROL || keycode == CONTROL_MAC)
-		e->camera.pos.y -= 1;
+		e->scene->camera->pos->y -= 1;
 	else if (keycode == S || keycode == S_MAC)
-		e->camera.pos.z += 1;
+		e->scene->camera->pos->z += 1;
 	else if (keycode == Z || keycode == Z_MAC)
-		e->camera.pos.z -= 1;
+		e->scene->camera->pos->z -= 1;
 	else if (keycode == R || keycode == R_MAC)
 		init_all(e);
 	erase_image(e);
