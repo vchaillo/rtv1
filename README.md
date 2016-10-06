@@ -15,19 +15,20 @@ rtv1
 #### Lights
 - [x] Ambient light
 - [x] Spot light
-- [ ] Directional light
+- [x] Directional light
 - [x] Diffuse
 - [ ] Specular
 - [ ] Shadows
 - [x] Multi spots
 
 #### Other
+- [ ] Materials implementation
 - [ ] Objects translations and rotations
 - [ ] Camera translations and rotations
 - [ ] Parsing of description scene file
 
 ## TodoList
-- [ ] Check memory leaks for hitpoints and rest
+- [ ] Check memory leaks
 - [ ] Normalize all files
 
 =============

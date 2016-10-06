@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 21:47:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/10/06 22:36:37 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@
 # define RATIO (float)WIN_W / (float)WIN_H
 # define FOV tan((20 * 3.14) / 180)
 # define FOCALE 1
-# define EPSILON 0.01
-
+# define EPSILON 0.001
+# define MAX_DIST 500
 /*
 ** objects defines
 */
@@ -106,7 +106,7 @@ float			solve_deg2(double a, double b, double c);
 /*
 ** 				light.c functions
 */
-t_color			*spot_dir(t_object *objects, t_light *spot, t_hitpoint hitpoint);
+t_color			*diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint);
 t_color			*illuminate(t_scene *scene, t_hitpoint hitpoint);
 /*
 ** 				vector.c functions
