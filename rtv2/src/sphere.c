@@ -33,7 +33,7 @@ float			solve_deg2(double a, double b, double c)
 		res = -b / (2 * a);
 	else
 		res = 0;
-	// printf("delta : %f\n", delta);
+		printf("delta : %f\n", delta);
 	return (res);
 }
 
@@ -44,6 +44,7 @@ float			hit_sphere(t_sphere *sphere, t_ray *ray)
 	double		b;
 	double		c;
 
+	// printf("sphere : {%f, %f, %f}\n", sphere->pos->x, sphere->pos->y, sphere->pos->z);
 	a = dot_product(ray->d, ray->d);
 	b = 2 * ray->d->x * (ray->o->x - sphere->pos->x);
 	b += 2 * ray->d->y * (ray->o->y - sphere->pos->y);
@@ -52,6 +53,7 @@ float			hit_sphere(t_sphere *sphere, t_ray *ray)
 	c += (ray->o->y - sphere->pos->y) * (ray->o->y - sphere->pos->y);
 	c += (ray->o->z - sphere->pos->z) * (ray->o->z - sphere->pos->z);
 	c -= sphere->r * sphere->r;
+	// printf("a, b, c : %f, %f, %f\n", a, b, c);
 	t = solve_deg2(a, b, c);
 	return (t);
 }

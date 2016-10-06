@@ -17,8 +17,6 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	float		t;
 	float		tmin;
 	t_object	*object;
-	t_sphere	*sphere;
-	t_plane		*plane;
 
 	tmin = 1000;
 	ray->hitpoint.object = NULL;
@@ -27,11 +25,12 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	{
 		if (object->type == SPHERE)
 		{
-			t = hit_sphere(object->object, ray);
+			t = hit_sphere((t_sphere *)object->object, ray);
+			// printf("sphere : %f, %f, %f\n", ((t_sphere *)object->object)->pos->x, ((t_sphere *)object->object)->pos->y, ((t_sphere *)object->object)->pos->z);
 		}
 		else if (object->type == PLANE)
 		{
-			t = hit_plane(object->object, ray);
+			t = hit_plane((t_plane *)object->object, ray);
 		}
 		if (t > 0.01 && t < tmin)
 		{
@@ -40,13 +39,11 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 			ray->hitpoint.pos = vector_add(ray->o, vector_scalar(t, ray->d));
 			if (object->type == SPHERE)
 			{
-				sphere = (t_sphere *)object->object;
-				ray->hitpoint.normal = vector_sub(ray->hitpoint.pos, sphere->pos);
+				ray->hitpoint.normal = vector_sub(ray->hitpoint.pos, ((t_sphere *)object->object)->pos);
 			}
 			else if (object->type == PLANE)
 			{
-				plane = (t_plane *)object->object;
-				ray->hitpoint.normal = plane->normal;
+				ray->hitpoint.normal = ((t_plane *)object->object)->normal;
 			}
 			ray->hitpoint.color = object->color;
 		}
@@ -78,6 +75,7 @@ t_color			*raytracer(t_scene *scene, int x, int y)
 	if (ray.hitpoint.object)
 	{
 		// ray.hitpoint.color = illuminate(e, &ray);
+		printf("color :%x%x%x\n", ray.hitpoint.color->r, ray.hitpoint.color->g, ray.hitpoint.color->b);
 		return (ray.hitpoint.color);
 	}
 	return (scene->background_color);

@@ -47,7 +47,7 @@
 # define WIN_H 720
 # define RATIO (float)WIN_W / (float)WIN_H
 # define FOV tan((20 * 3.14) / 180)
-# define FOCALE -1
+# define FOCALE 1
 # define EPSILON 0.01
 
 
