@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 23:02:26 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/21 13:54:38 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,54 +21,7 @@
 # include "colors.h"
 # include "structs.h"
 # include "keycodes.h"
-
-/*
-*******************************************************************************
-*/
-
-/*
-** basics defines
-*/
-# define TRUE 1
-# define FALSE 0
-# define ACTIVE 1
-# define INACTIVE 0
-
-/*
-** errors defines
-*/
-# define MALLOC_ERROR 0
-# define MLX_ERROR 1
-
-/*
-** window and camera defines
-*/
-# define WIN_W 1080
-# define WIN_H 720
-# define RATIO (float)WIN_W / (float)WIN_H
-# define FOV tan((20 * 3.14) / 180)
-# define FOCALE 1
-# define EPSILON 0.001
-# define MAX_DIST 500
-
-/*
-** objects defines
-*/
-# define SPHERE 0
-# define PLANE 1
-# define CYLINDER 2
-# define CONE 3
-
-/*
-** lights defines
-*/
-# define AMB 0
-# define SPOT 1
-# define DIR 2
-
-/*
-*******************************************************************************
-*/
+# include "macros.h"
 
 /*
 ** 				mlx.c functions
