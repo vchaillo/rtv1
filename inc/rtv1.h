@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/21 13:54:38 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/21 18:16:17 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ float			solve_deg2(double a, double b, double c);
 /*
 ** 				light.c functions
 */
+int				is_in_shadow(t_object *objects, t_ray *ray);
 t_color			*diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint);
 t_color			*illuminate(t_scene *scene, t_hitpoint hitpoint);
 /*
@@ -74,6 +75,7 @@ float			dot_product(t_vector *v1, t_vector *v2);
 ** 				color.c functions
 */
 t_color			*limit_color(t_color *color);
+t_color			*average_color(t_color *color);
 t_color			*scalar_color(float scalar, t_color *color);
 t_color			*add_color(t_color *color1, t_color *color2);
 t_color			*mult_color(t_color *color1, t_color *color2);

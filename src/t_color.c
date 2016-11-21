@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:34 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/04 16:14:29 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/21 17:20:30 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_color			*new_color(int color)
 	color /= 256;
 	new_color->g = (color % 256);
 	color /= 256;
-	new_color->r = (color % 256);
+	new_color->r = color;
 	return (limit_color(new_color));
 }
 

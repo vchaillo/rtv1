@@ -18,8 +18,9 @@ rtv1
 - [x] Directional light
 - [x] Diffuse
 - [ ] Specular
-- [ ] Shadows
+- [x] Shadows
 - [x] Multi spots
+- [ ] Intensity modulation with distance
 
 #### Other
 - [ ] Materials implementation
