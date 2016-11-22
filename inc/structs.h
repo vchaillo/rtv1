@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 21:36:14 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/22 00:57:41 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct				s_object
 	int						type;
 	int						material;
 	void					*object;
-	t_color					*color;
+	t_color					color;
 	struct s_object			*next;
 }							t_object;
 
@@ -52,7 +52,7 @@ typedef struct				s_hitpoint
 {
 	t_vector				*pos;
 	t_vector				*normal;
-	t_color					*color;
+	t_color					color;
 	t_object				*object;
 }							t_hitpoint;
 
@@ -70,7 +70,7 @@ typedef struct				s_light
 	float					intensity;
 	t_vector				*pos;
 	t_vector				*dir;
-	t_color					*color;
+	t_color					color;
 	struct s_light			*next;
 }							t_light;
 
@@ -84,7 +84,7 @@ typedef struct				s_camera
 
 typedef struct				s_scene
 {
-	t_color					*background_color;
+	t_color					background_color;
 	t_camera				*camera;
 	t_object				*objects;
 	t_light					*lights;

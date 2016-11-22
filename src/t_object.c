@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 23:02:14 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:02:57 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_object		*new_object(int type, void *object, t_color *color)
+t_object		*new_object(int type, void *object, t_color color)
 {
 	t_object	*new_object;
 
@@ -49,7 +49,6 @@ void			delete_objects(t_object *objects)
 			delete_sphere(objects->object);
 		else if (objects->type == PLANE)
 			delete_plane(objects->object);
-		delete_color(objects->color);
 		objects->next = NULL;
 		free(objects);
 		objects = tmp;

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/21 20:59:51 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:08:44 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void				init_objects(t_scene *scene)
 {
 	add_object(scene, new_object(SPHERE, new_sphere(0, 2, 0, 2), new_color(PASTEL_BLUE)));
-	add_object(scene, new_object(SPHERE, new_sphere(0, 4.8, 0, 1), new_color(ORANGE)));
+	add_object(scene, new_object(SPHERE, new_sphere(-2, 1, -1, 1), new_color(ORANGE)));
 	add_object(scene, new_object(SPHERE, new_sphere(-1, 1, 2, 1), new_color(LIGHT_GREEN)));
 	add_object(scene, new_object(SPHERE, new_sphere(3, 1, -4, 1), new_color(YELLOW)));
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0), new_color(DARK_GREY)));
 // 	add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 6), new_color(LIGHT_GREY)));
-// 	add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 4), new_color(LIGHT_GREY)));
+	add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 4), new_color(LIGHT_GREY)));
 // 	add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 4), new_color(LIGHT_GREY)));
 // 	add_object(scene, new_object(PLANE, new_plane(0, 0, 1, 4), new_color(LIGHT_GREY)));
 }

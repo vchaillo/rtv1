@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/21 20:59:35 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:01:16 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int				is_in_shadow(t_object *objects, t_ray *ray)
 	return (0);
 }
 
-t_color			*diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint)
+t_color			diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint)
 {
-	t_color		*color;
+	t_color		color;
 	t_ray		ray;
 	float		cos_angle;
 
-	color = new_color(0);
+	color = new_color(BLACK);
 	ray.o = hitpoint.pos;
 	if (spot->dir == NULL)
 		ray.d = vector_sub(spot->pos, hitpoint.pos);
@@ -55,12 +55,12 @@ t_color			*diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint)
 	return (color);
 }
 
-t_color			*illuminate(t_scene *scene, t_hitpoint hitpoint)
+t_color			illuminate(t_scene *scene, t_hitpoint hitpoint)
 {
-	t_color		*color;
+	t_color		color;
 	t_light		*light;
 
-	color = new_color(0);
+	color = new_color(BLACK);
 	light = scene->lights;
 	while (light != NULL)
 	{

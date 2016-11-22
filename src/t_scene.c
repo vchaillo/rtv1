@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 22:58:41 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:03:09 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_scene			*new_scene(t_color *background_color, t_camera *camera)
+t_scene			*new_scene(t_color background_color, t_camera *camera)
 {
 	t_scene		*scene;
 
@@ -32,7 +32,6 @@ void			delete_scene(t_scene *scene)
 {
 	if (scene)
 	{
-		delete_color(scene->background_color);
 		delete_camera(scene->camera);
 		delete_objects(scene->objects);
 		delete_lights(scene->lights);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/21 18:11:14 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:01:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_vector		*get_ray_dir(t_camera *camera, int x, int y)
 	return (dir);
 }
 
-t_color			*raytracer(t_scene *scene, int x, int y)
+t_color			raytracer(t_scene *scene, int x, int y)
 {
 	t_ray		ray;
 
