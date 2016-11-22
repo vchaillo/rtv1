@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:25:10 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 19:01:36 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:33:02 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,5 @@ t_vector		*vector_sub(t_vector *v1, t_vector *v2)
 
 float			dot_product(t_vector *v1, t_vector *v2)
 {
-	float		product;
-
-	product = v1->x * v2->x + v1->y * v2->y + v1->z * v2->z;
-	return (product);
+	return (v1->x * v2->x + v1->y * v2->y + v1->z * v2->z);
 }
