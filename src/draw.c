@@ -6,19 +6,11 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:00:11 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 03:50:12 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
-
-void	erase_image(t_env *e)
-{
-	mlx_destroy_image(e->mlx, e->img);
-	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
-	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
-	draw(e);
-}
 
 void	fill_pixel(t_env *e, t_color color, int x, int y)
 {
@@ -29,6 +21,15 @@ void	fill_pixel(t_env *e, t_color color, int x, int y)
 	e->data[i + 1] = (color.g);
 	e->data[i + 2] = (color.r);
 }
+
+void	erase_image(t_env *e)
+{
+	mlx_destroy_image(e->mlx, e->img);
+	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
+	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
+	draw(e);
+}
+
 
 void	draw(t_env *e)
 {

@@ -33,8 +33,8 @@ rtv1
 - [ ] Check memory leaks
 - [ ] Normalize all files
 - [ ] Distance to the light coefficient
-- [ ] Create a key_hook.c file
-- [ ] Create a get_hitpoint function in raytracer.c
+- [x] Create a key_hook.c file
+- [x] Create a get_hitpoint function in raytracer.c
 
 =============
 Project of 42

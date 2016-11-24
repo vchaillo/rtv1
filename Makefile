@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/10/06 22:44:32 by vchaillo         ###   ########.fr        #
+#    Updated: 2016/11/24 03:48:25 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ RM	=	rm -Rf
 
 SRC	= 	main.c \
 		mlx.c\
+		key_hook.c\
+		mouse_hook.c\
 		draw.c\
 		init.c\
 		vector.c\

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 22:53:38 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/24 03:59:51 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,8 @@
 
 int		expose_hook(t_env *e)
 {
+	ft_putendl("Expose !");
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	return (0);
-}
-
-int		key_hook(int keycode, t_env *e)
-{
-	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
-	{
-		exit(0);
-	}
-	else if (keycode == RETURN || keycode == RETURN_MAC)
-	{
-		if (e->scene->amb == ACTIVE)
-			e->scene->amb = INACTIVE;
-		else
-			e->scene->amb = ACTIVE;
-	}
-	else if (keycode == D || keycode == D_MAC)
-		e->scene->camera->pos->x += 1;
-	else if (keycode == Q || keycode == Q_MAC)
-		e->scene->camera->pos->x -= 1;
-	else if (keycode == SPACE || keycode == SPACE_MAC)
-		e->scene->camera->pos->y += 1;
-	else if (keycode == CONTROL || keycode == CONTROL_MAC)
-		e->scene->camera->pos->y -= 1;
-	else if (keycode == S || keycode == S_MAC)
-		e->scene->camera->pos->z += 1;
-	else if (keycode == Z || keycode == Z_MAC)
-		e->scene->camera->pos->z -= 1;
-	else if (keycode == R || keycode == R_MAC)
-		init_all(e);
-	erase_image(e);
-	ft_putstr("keycode : ");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
-	return (0);
-}
-
-int		mouse_hook(int button, int x, int y, t_env *e)
-{
-	ft_putnbr(button);
-	ft_putchar('\n');
-	ft_putnbr(x);
-	ft_putchar('\n');
-	ft_putnbr(y);
-	ft_putchar('\n');
-	erase_image(e);
 	return (0);
 }
 

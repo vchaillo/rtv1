@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 00:55:48 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 03:52:21 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@
 ** 				mlx.c functions
 */
 void			start_mlx(t_env *e);
-int				mouse_hook(int button, int x, int y, t_env *e);
-int				key_hook(int keycode, t_env *e);
 int				expose_hook(t_env *e);
-void			fill_pixel(t_env *e, t_color color, int x, int y);
+/*
+** 				key_hook.c functions
+*/
+int				key_hook(int keycode, t_env *e);
+/*
+** 				mouse_hook.c functions
+*/
+int				mouse_hook(int button, int x, int y, t_env *e);
+
 /*
 ** 				init.c functions
 */
@@ -40,11 +46,13 @@ void			init_lights(t_scene *scene);
 /*
 ** 				draw.c functions
 */
+void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			erase_image(t_env *e);
 void			draw(t_env *e);
 /*
 ** 				raytracer.c functions
 */
+void			get_hitpoint(t_object *object, t_ray *ray, float tmin);
 int				get_ray_intersection(t_object *objects, t_ray *ray);
 t_vector		*get_ray_dir(t_camera *camera, int x, int y);
 t_color			raytracer(t_scene *scene, int x, int y);

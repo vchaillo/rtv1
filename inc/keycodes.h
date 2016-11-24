@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/21 13:47:20 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 03:55:14 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define CONTROL 65507
 # define RETURN 65293
 # define R 114
+# define KP0 65438
+# define KP1 65436
 
 # define ESCAPE_MAC 53
 # define Z_MAC 13
@@ -32,5 +34,7 @@
 # define CONTROL_MAC 256
 # define RETURN_MAC 36
 # define R_MAC 15
+# define KP0_MAC 82
+# define KP1_MAC 83
 
 #endif

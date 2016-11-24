@@ -6,11 +6,22 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:01:56 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 03:37:21 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
+
+void			get_hitpoint(t_object *object, t_ray *ray, float tmin)
+{
+	ray->hitpoint.object = object;
+	ray->hitpoint.pos = vector_add(ray->o, vector_scalar(tmin, ray->d));
+	if (object->type == SPHERE)
+		ray->hitpoint.normal = vector_sub(ray->hitpoint.pos, ((t_sphere *)object->object)->pos);
+	else if (object->type == PLANE)
+		ray->hitpoint.normal = ((t_plane *)object->object)->normal;
+	ray->hitpoint.color = object->color;
+}
 
 int				get_ray_intersection(t_object *objects, t_ray *ray)
 {
@@ -30,13 +41,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 		if (t > EPSILON && t < tmin)
 		{
 			tmin = t;
-			ray->hitpoint.object = object;
-			ray->hitpoint.pos = vector_add(ray->o, vector_scalar(t, ray->d));
-			if (object->type == SPHERE)
-				ray->hitpoint.normal = vector_sub(ray->hitpoint.pos, ((t_sphere *)object->object)->pos);
-			else if (object->type == PLANE)
-				ray->hitpoint.normal = ((t_plane *)object->object)->normal;
-			ray->hitpoint.color = object->color;
+			get_hitpoint(object, ray, tmin);
 		}
 		object = object->next;
 	}

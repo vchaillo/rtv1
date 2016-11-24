@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 03:21:58 by valentin         ###   ########.fr       */
+/*   Created: 2016/11/24 03:48:37 by valentin          #+#    #+#             */
+/*   Updated: 2016/11/24 03:58:50 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-void			print_error(int error_code)
+int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	if (error_code == MLX_ERROR)
-		ft_putendl("Mlx initialization failed");
-	else if (error_code == MALLOC_ERROR)
-		ft_putendl("Memory allocation failed");
-	exit(0);
+	ft_putstr("Mouse button : ");
+	ft_putnbr(button);
+	ft_putstr(", x : ");
+	ft_putnbr(x);
+	ft_putstr(", y : ");
+	ft_putnbr(y);
+	ft_putchar('\n');
+	erase_image(e);
+	return (0);
 }
