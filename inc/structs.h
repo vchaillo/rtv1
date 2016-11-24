@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:14:15 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 21:28:57 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ typedef struct				s_scene
 	t_camera				*camera;
 	t_object				*objects;
 	t_light					*lights;
+	t_color					amb_color;
+	float					amb_intensity;
 	int						amb;
 	int						dir;
 	int						spot;

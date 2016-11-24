@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:18:46 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 21:36:10 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,24 @@ t_color			illuminate(t_env *e, t_hitpoint hitpoint)
 	t_light		*light;
 
 	color = new_color(BLACK);
+	if (e->scene->amb == ACTIVE)
+		color = add_color(scalar_color(e->scene->amb_intensity,
+			mult_color(e->scene->amb_color, hitpoint.color)), color);
 	light = e->scene->lights;
 	while (light != NULL)
 	{
-		if (light->type == AMB && e->scene->amb == ACTIVE)
-			color = add_color(scalar_color(light->intensity,
-				mult_color(light->color, hitpoint.color)), color);
-		else if (light->type == SPOT && e->scene->spot == ACTIVE)
+		if (light->type == SPOT && e->scene->spot == ACTIVE)
+		{
 			color = add_color(scalar_color(light->intensity,
 				diffuse(e->scene->objects, light, hitpoint)), color);
+			color = add_color(scalar_color(light->intensity,
+				diffuse(e->scene->objects, light, hitpoint)), color);
+		}
 		else if (light->type == DIR && e->scene->dir == ACTIVE)
+		{
 			color = add_color(scalar_color(light->intensity,
 				diffuse(e->scene->objects, light, hitpoint)), color);
+		}
 		light = light->next;
 		e->nb_light_rays++;
 	}

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2016/11/24 06:17:36 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 21:32:01 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int		key_hook(int keycode, t_env *e)
 			delete_scene(e->scene);
 		exit(0);
 	}
-	else if (keycode == KP0 || keycode == KP0_MAC)
+	else if (keycode == KP0 || keycode == KP0_MAC || keycode == NUM0_MAC)
 	{
 		if (e->scene->amb == ACTIVE)
 			e->scene->amb = INACTIVE;
 		else
 			e->scene->amb = ACTIVE;
 	}
-	else if (keycode == KP1 || keycode == KP1_MAC)
+	else if (keycode == KP1 || keycode == KP1_MAC || keycode == NUM1_MAC)
 	{
 		if (e->scene->spot == ACTIVE)
 			e->scene->spot = INACTIVE;

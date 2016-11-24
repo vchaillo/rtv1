@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 03:55:14 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 21:33:31 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@
 # define R_MAC 15
 # define KP0_MAC 82
 # define KP1_MAC 83
+# define NUM0_MAC 29
+# define NUM1_MAC 18
 
 #endif
