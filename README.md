@@ -1,6 +1,7 @@
 rtv1
 ====
 
+<img src="https://raw.githubusercontent.com/vchaillo/rtv1/master/doc/screenshots/Screenshot_20161121_185127.png"/>
 * [Subject] (https://github.com/vchaillo/rtv1/blob/master/rtv1.pdf)
 
 ## Functionalities
