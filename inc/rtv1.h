@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 03:52:21 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:16:28 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void			draw(t_env *e);
 /*
 ** 				raytracer.c functions
 */
-void			get_hitpoint(t_object *object, t_ray *ray, float tmin);
+void			get_hitpoint(t_object *object, t_ray *ray, float t_min);
 int				get_ray_intersection(t_object *objects, t_ray *ray);
-t_vector		*get_ray_dir(t_camera *camera, int x, int y);
-t_color			raytracer(t_scene *scene, int x, int y);
+t_vector		get_ray_dir(t_camera *camera, int x, int y);
+t_color			raytracer(t_env *e, int x, int y);
 /*
 ** 				plane.c functions
 */
@@ -70,15 +70,15 @@ float			solve_deg2(double a, double b, double c);
 */
 int				is_in_shadow(t_object *objects, t_ray *ray);
 t_color			diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint);
-t_color			illuminate(t_scene *scene, t_hitpoint hitpoint);
+t_color			illuminate(t_env *e, t_hitpoint hitpoint);
 /*
 ** 				vector.c functions
 */
-t_vector		*normalize(t_vector *vector);
-t_vector		*vector_scalar(float scalar, t_vector *v);
-t_vector		*vector_add(t_vector *v1, t_vector *v2);
-t_vector		*vector_sub(t_vector *v1, t_vector *v2);
-float			dot_product(t_vector *v1, t_vector *v2);
+t_vector		normalize(t_vector vector);
+t_vector		vector_scalar(float scalar, t_vector v);
+t_vector		vector_add(t_vector v1, t_vector v2);
+t_vector		vector_sub(t_vector v1, t_vector v2);
+float			dot_product(t_vector v1, t_vector v2);
 /*
 ** 				color.c functions
 */
@@ -103,8 +103,7 @@ t_color			new_color(int color);
 /*
 ** 				t_vector.c functions
 */
-t_vector		*new_vector(float x, float y, float z);
-void			delete_vector(t_vector *vector);
+t_vector		new_vector(float x, float y, float z);
 /*
 ** 				t_scene.c functions
 */
@@ -134,8 +133,8 @@ void			delete_objects(t_object *objects);
 /*
 ** 				t_light.c functions
 */
-t_light			*new_light(int type, float intensity, t_vector *pos,
-							t_vector *dir, t_color color);
+t_light			*new_light(int type, float intensity, t_vector pos,
+							t_vector dir, t_color color);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
 

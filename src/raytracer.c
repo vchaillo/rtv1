@@ -6,16 +6,16 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 03:37:21 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:15:33 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-void			get_hitpoint(t_object *object, t_ray *ray, float tmin)
+void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 {
 	ray->hitpoint.object = object;
-	ray->hitpoint.pos = vector_add(ray->o, vector_scalar(tmin, ray->d));
+	ray->hitpoint.pos = vector_add(ray->o, vector_scalar(t_min, ray->d));
 	if (object->type == SPHERE)
 		ray->hitpoint.normal = vector_sub(ray->hitpoint.pos, ((t_sphere *)object->object)->pos);
 	else if (object->type == PLANE)
@@ -26,10 +26,10 @@ void			get_hitpoint(t_object *object, t_ray *ray, float tmin)
 int				get_ray_intersection(t_object *objects, t_ray *ray)
 {
 	float		t;
-	float		tmin;
+	float		t_min;
 	t_object	*object;
 
-	tmin = MAX_DIST;
+	t_min = MAX_DIST;
 	ray->hitpoint.object = NULL;
 	object = objects;
 	while (object != NULL)
@@ -38,19 +38,19 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 			t = hit_sphere((t_sphere *)object->object, ray);
 		else if (object->type == PLANE)
 			t = hit_plane((t_plane *)object->object, ray);
-		if (t > EPSILON && t < tmin)
+		if (t > EPSILON && t < t_min)
 		{
-			tmin = t;
-			get_hitpoint(object, ray, tmin);
+			t_min = t;
+			get_hitpoint(object, ray, t_min);
 		}
 		object = object->next;
 	}
-	return (tmin);
+	return (t_min);
 }
 
-t_vector		*get_ray_dir(t_camera *camera, int x, int y)
+t_vector		get_ray_dir(t_camera *camera, int x, int y)
 {
-	t_vector	*dir;
+	t_vector	dir;
 	float		dir_x;
 	float		dir_y;
 	float		dir_z;
@@ -63,17 +63,16 @@ t_vector		*get_ray_dir(t_camera *camera, int x, int y)
 	return (dir);
 }
 
-t_color			raytracer(t_scene *scene, int x, int y)
+t_color			raytracer(t_env *e, int x, int y)
 {
 	t_ray		ray;
 
-	ray.o = scene->camera->pos;
-	ray.d = get_ray_dir(scene->camera, x, y);
-	ray.t = get_ray_intersection(scene->objects, &ray);
+	ray.o = e->scene->camera->pos;
+	ray.d = get_ray_dir(e->scene->camera, x, y);
+	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
-	{
-		ray.hitpoint.color = illuminate(scene, ray.hitpoint);
-		return (ray.hitpoint.color);
-	}
-	return (scene->background_color);
+		ray.hitpoint.color = illuminate(e, ray.hitpoint);
+	else
+		ray.hitpoint.color = (e->scene->background_color);
+	return (ray.hitpoint.color);
 }

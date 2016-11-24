@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:50:01 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 19:08:21 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:20:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ float			hit_sphere(t_sphere *sphere, t_ray *ray)
 	double		c;
 
 	a = dot_product(ray->d, ray->d);
-	b = 2 * ray->d->x * (ray->o->x - sphere->pos->x);
-	b += 2 * ray->d->y * (ray->o->y - sphere->pos->y);
-	b += 2 * ray->d->z * (ray->o->z - sphere->pos->z);
-	c = (ray->o->x - sphere->pos->x) * (ray->o->x - sphere->pos->x);
-	c += (ray->o->y - sphere->pos->y) * (ray->o->y - sphere->pos->y);
-	c += (ray->o->z - sphere->pos->z) * (ray->o->z - sphere->pos->z);
+	b = 2 * ray->d.x * (ray->o.x - sphere->pos.x);
+	b += 2 * ray->d.y * (ray->o.y - sphere->pos.y);
+	b += 2 * ray->d.z * (ray->o.z - sphere->pos.z);
+	c = (ray->o.x - sphere->pos.x) * (ray->o.x - sphere->pos.x);
+	c += (ray->o.y - sphere->pos.y) * (ray->o.y - sphere->pos.y);
+	c += (ray->o.z - sphere->pos.z) * (ray->o.z - sphere->pos.z);
 	c -= sphere->r * sphere->r;
 	t = solve_deg2(a, b, c);
 	return (t);

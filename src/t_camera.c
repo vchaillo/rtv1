@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 19:57:10 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:23:26 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ t_camera		*new_camera(float x, float y, float z)
 
 void			delete_camera(t_camera *camera)
 {
-	delete_vector(camera->pos);
 	free(camera);
 }

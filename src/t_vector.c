@@ -6,25 +6,18 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:25:07 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 22:58:22 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:12:29 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_vector		*new_vector(float x, float y, float z)
+t_vector		new_vector(float x, float y, float z)
 {
-	t_vector		*vector;
+	t_vector		vector;
 
-	if (!(vector = (t_vector*)malloc(sizeof(t_vector))))
-		print_error(MALLOC_ERROR);
-	vector->x = x;
-	vector->y = y;
-	vector->z = z;
+	vector.x = x;
+	vector.y = y;
+	vector.z = z;
 	return (vector);
-}
-
-void			delete_vector(t_vector *vector)
-{
-	free(vector);
 }

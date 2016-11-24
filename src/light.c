@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:01:16 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:18:46 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_color			diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint)
 
 	color = new_color(BLACK);
 	ray.o = hitpoint.pos;
-	if (spot->dir == NULL)
+	if (spot->type == SPOT)
 		ray.d = vector_sub(spot->pos, hitpoint.pos);
 	else
 		ray.d = vector_scalar(-1, spot->dir);
@@ -55,25 +55,26 @@ t_color			diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint)
 	return (color);
 }
 
-t_color			illuminate(t_scene *scene, t_hitpoint hitpoint)
+t_color			illuminate(t_env *e, t_hitpoint hitpoint)
 {
 	t_color		color;
 	t_light		*light;
 
 	color = new_color(BLACK);
-	light = scene->lights;
+	light = e->scene->lights;
 	while (light != NULL)
 	{
-		if (light->type == AMB && scene->amb == ACTIVE)
+		if (light->type == AMB && e->scene->amb == ACTIVE)
 			color = add_color(scalar_color(light->intensity,
 				mult_color(light->color, hitpoint.color)), color);
-		else if (light->type == SPOT && scene->spot == ACTIVE)
+		else if (light->type == SPOT && e->scene->spot == ACTIVE)
 			color = add_color(scalar_color(light->intensity,
-				diffuse(scene->objects, light, hitpoint)), color);
-		else if (light->type == DIR && scene->dir == ACTIVE)
+				diffuse(e->scene->objects, light, hitpoint)), color);
+		else if (light->type == DIR && e->scene->dir == ACTIVE)
 			color = add_color(scalar_color(light->intensity,
-				diffuse(scene->objects, light, hitpoint)), color);
+				diffuse(e->scene->objects, light, hitpoint)), color);
 		light = light->next;
+		e->nb_light_rays++;
 	}
 	return (color);
 }

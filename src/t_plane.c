@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/10/06 22:57:21 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:23:42 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ t_plane			*new_plane(float x, float y, float z, float offset)
 
 void			delete_plane(t_plane *plane)
 {
-	delete_vector(plane->normal);
 	free(plane);
 }

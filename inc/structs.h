@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 00:57:41 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:14:15 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ typedef struct				s_vector
 
 typedef struct				s_sphere
 {
-	t_vector				*pos;
+	t_vector				pos;
 	float					r;
 }							t_sphere;
 
 typedef struct				s_plane
 {
-	t_vector				*normal;
+	t_vector				normal;
 	float					offset;
 }							t_plane;
 
@@ -50,16 +50,16 @@ typedef struct				s_object
 
 typedef struct				s_hitpoint
 {
-	t_vector				*pos;
-	t_vector				*normal;
+	t_vector				pos;
+	t_vector				normal;
 	t_color					color;
 	t_object				*object;
 }							t_hitpoint;
 
 typedef struct				s_ray
 {
-	t_vector				*o;
-	t_vector				*d;
+	t_vector				o;
+	t_vector				d;
 	float					t;
 	t_hitpoint				hitpoint;
 }							t_ray;
@@ -68,15 +68,15 @@ typedef struct				s_light
 {
 	int						type;
 	float					intensity;
-	t_vector				*pos;
-	t_vector				*dir;
+	t_vector				pos;
+	t_vector				dir;
 	t_color					color;
 	struct s_light			*next;
 }							t_light;
 
 typedef struct				s_camera
 {
-	t_vector				*pos;
+	t_vector				pos;
 	float					ratio;
 	float					fov;
 	float					focale;
@@ -104,6 +104,9 @@ typedef struct				s_env
 	int						bpp;
 	t_scene					*scene;
 	double					nb_rays;
+	double					nb_cam_rays;
+	double					nb_light_rays;
+	int						verbose;
 }							t_env;
 
 #endif

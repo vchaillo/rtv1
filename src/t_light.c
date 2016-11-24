@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:02:47 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:25:16 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_light			*new_light(int type, float intensity, t_vector *pos, t_vector *dir, t_color color)
+t_light			*new_light(int type, float intensity, t_vector pos, t_vector dir, t_color color)
 {
 	t_light		*new_light;
 
@@ -47,8 +47,6 @@ void			delete_lights(t_light *lights)
 	while (lights != NULL)
 	{
 		tmp = lights->next;
-		delete_vector(lights->pos);
-		delete_vector(lights->dir);
 		lights->next = NULL;
 		free(lights);
 		lights = tmp;

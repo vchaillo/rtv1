@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 03:41:04 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/24 06:18:13 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void				init_objects(t_scene *scene)
 
 void				init_lights(t_scene *scene)
 {
-	add_light(scene, new_light(AMB, 0.1, NULL, NULL, new_color(WHITE)));
-	add_light(scene, new_light(SPOT, 1, new_vector(-3, 8, 4), NULL, new_color(WHITE)));
+	add_light(scene, new_light(AMB, 0.1, new_vector(-3, 8, 4), new_vector(-3, 8, 4), new_color(WHITE)));
+	add_light(scene, new_light(SPOT, 1, new_vector(-3, 8, 4), new_vector(-3, 8, 4), new_color(WHITE)));
 	// add_light(scene, new_light(SPOT, 1, new_vector(10, 2, 10), NULL, new_color(WHITE)));
 	// add_light(scene, new_light(DIR, 0.8, NULL, new_vector(1, -1, -1), new_color(WHITE)));
 }
@@ -36,6 +36,8 @@ void				init_lights(t_scene *scene)
 void				init_all(t_env *e)
 {
 	e->nb_rays = 0;
+	e->nb_cam_rays = 0;
+	e->nb_light_rays = 0;
 	e->scene = new_scene(new_color(BLACK), new_camera(0, 2, 15));
 	init_objects(e->scene);
 	init_lights(e->scene);
