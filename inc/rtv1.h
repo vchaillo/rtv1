@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:16:28 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/25 05:09:31 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,10 @@ float			solve_deg2(double a, double b, double c);
 ** 				light.c functions
 */
 int				is_in_shadow(t_object *objects, t_ray *ray);
-t_color			diffuse(t_object *objects, t_light *spot, t_hitpoint hitpoint);
-t_color			illuminate(t_env *e, t_hitpoint hitpoint);
+t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
+t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray);
+t_color			phong(t_env *e, t_light *spot, t_ray *v_ray);
+t_color			illuminate(t_env *e, t_ray *ray);
 /*
 ** 				vector.c functions
 */
@@ -127,14 +129,14 @@ void			delete_plane(t_plane *plane);
 /*
 ** 				t_object.c functions
 */
-t_object		*new_object(int type, void *object, t_color color);
+t_object		*new_object(int type, void *object, t_color color, int mat);
 void			add_object(t_scene *scene, t_object *new);
 void			delete_objects(t_object *objects);
 /*
 ** 				t_light.c functions
 */
-t_light			*new_light(int type, float intensity, t_vector pos,
-							t_vector dir, t_color color);
+t_light			*new_light(int type, float intensity, t_vector vector,
+							t_color color);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:03:09 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/25 05:37:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_scene			*new_scene(t_color background_color, t_camera *camera)
 	scene->amb = ACTIVE;
 	scene->dir = ACTIVE;
 	scene->spot = ACTIVE;
+	scene->diffuse = ACTIVE;
+	scene->specular = INACTIVE;
 	return (scene);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:15:33 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/25 02:29:29 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_color			raytracer(t_env *e, int x, int y)
 	ray.d = get_ray_dir(e->scene->camera, x, y);
 	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
-		ray.hitpoint.color = illuminate(e, ray.hitpoint);
+		ray.hitpoint.color = illuminate(e, &ray);
 	else
 		ray.hitpoint.color = (e->scene->background_color);
 	return (ray.hitpoint.color);

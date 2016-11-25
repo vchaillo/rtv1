@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:02:57 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/25 03:18:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_object		*new_object(int type, void *object, t_color color)
+t_object		*new_object(int type, void *object, t_color color, int mat)
 {
 	t_object	*new_object;
 
@@ -21,6 +21,7 @@ t_object		*new_object(int type, void *object, t_color color)
 	new_object->type = type;
 	new_object->object = object;
 	new_object->color = color;
+	new_object->material = mat;
 	return (new_object);
 }
 

@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:25:16 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/25 01:42:38 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_light			*new_light(int type, float intensity, t_vector pos, t_vector dir, t_color color)
+t_light			*new_light(int type, float intensity, t_vector vector, t_color color)
 {
 	t_light		*new_light;
 
@@ -20,8 +20,10 @@ t_light			*new_light(int type, float intensity, t_vector pos, t_vector dir, t_co
 		print_error(MALLOC_ERROR);
 	new_light->type = type;
 	new_light->intensity = intensity;
-	new_light->pos = pos;
-	new_light->dir = dir;
+	if (type == SPOT)
+		new_light->pos = vector;
+	else
+		new_light->dir = vector;
 	new_light->color = scalar_color(intensity, color);
 	return (new_light);
 }
