@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/26 00:48:03 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/26 15:09:37 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_scene			*new_scene(t_color background_color, t_camera *camera)
 	scene->objects = NULL;
 	scene->lights = NULL;
 	scene->amb = ACTIVE;
-	scene->dir = ACTIVE;
+	scene->dir = INACTIVE;
 	scene->spot = ACTIVE;
 	scene->diffuse = ACTIVE;
 	scene->specular = ACTIVE;

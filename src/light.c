@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/26 14:00:16 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/26 15:17:45 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 	t_color		color;
 	t_ray		r_ray;
 	float		cos_angle;
-	float		is;
+	float		spe;
+	float		dot;
 
-	cos_angle = dot_product(v_ray->hitpoint.normal, l_ray->d);
-	if (cos_angle < 0)
-		cos_angle = 0;
-	r_ray.d = vector_sub(vector_scalar((2 * cos_angle), l_ray->d), l_ray->d);
+	cos_angle = 2 * dot_product(v_ray->hitpoint.normal, l_ray->d);
+	r_ray.d = vector_sub(vector_scalar(cos_angle, v_ray->hitpoint.normal), l_ray->d);
 	r_ray.d = normalize(r_ray.d);
-	is = pow(dot_product(r_ray.d, v_ray->d), v_ray->hitpoint.object->material);
-	color = scalar_color(is, mult_color(v_ray->hitpoint.color, spot->color));
+	dot = dot_product(r_ray.d, v_ray->d);
+	if (dot > 0)
+		dot = 0;
+	spe = pow(dot, v_ray->hitpoint.object->material);
+	// spe *= 2;
+	color = scalar_color(spe, spot->color);
 	return (color);
 }
 
