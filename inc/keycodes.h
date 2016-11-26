@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/25 00:37:49 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/25 08:24:49 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # define RETURN 65293
 # define R 114
 # define KP1 65436
-# define KP2 65436
-# define KP3 65436
-# define KP4 65436
-# define KP5 65436
+# define KP2 65433
+# define KP3 65435
+# define KP4 65430
+# define KP5 65437
 
 # define ESCAPE_MAC 53
 # define Z_MAC 13

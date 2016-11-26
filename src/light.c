@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/25 05:43:25 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/26 14:00:16 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 	float		is;
 
 	cos_angle = dot_product(v_ray->hitpoint.normal, l_ray->d);
+	if (cos_angle < 0)
+		cos_angle = 0;
 	r_ray.d = vector_sub(vector_scalar((2 * cos_angle), l_ray->d), l_ray->d);
 	r_ray.d = normalize(r_ray.d);
 	is = pow(dot_product(r_ray.d, v_ray->d), v_ray->hitpoint.object->material);
