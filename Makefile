@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/11/24 03:48:25 by valentin         ###   ########.fr        #
+#    Updated: 2016/11/26 16:10:41 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,16 @@ SRC	= 	main.c \
 		light.c\
 		sphere.c\
 		plane.c\
+		cylinder.c\
 		color.c\
+		solve_equations.c\
 		error.c\
 		t_vector.c\
 		t_scene.c\
 		t_camera.c\
 		t_sphere.c\
 		t_plane.c\
+		t_cylinder.c\
 		t_object.c\
 		t_light.c\
 		t_color.c\

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/26 14:29:13 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/26 18:05:57 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 			((t_sphere *)object->object)->pos));
 	else if (object->type == PLANE)
 		ray->hitpoint.normal = normalize(((t_plane *)object->object)->normal);
+	else if (object->type == CYLINDER)
+		ray->hitpoint.normal = normalize(vector_sub(new_vector(ray->hitpoint.pos.x, 0, ray->hitpoint.pos.z), ((t_cylinder *)object->object)->pos));
 	ray->hitpoint.color = object->color;
 }
 
@@ -39,6 +41,8 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 			t = hit_sphere((t_sphere *)object->object, ray);
 		else if (object->type == PLANE)
 			t = hit_plane((t_plane *)object->object, ray);
+		else if (object->type == CYLINDER)
+			t = hit_cylinder((t_cylinder *)object->object, ray);
 		if (t > EPSILON && t < t_min)
 		{
 			t_min = t;

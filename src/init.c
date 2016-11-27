@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/26 15:24:34 by valentin         ###   ########.fr       */
+/*   Updated: 2016/11/27 02:07:26 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 void				init_objects(t_scene *scene)
 {
-	add_object(scene, new_object(SPHERE, new_sphere(0, 2, 0, 2), new_color(PASTEL_BLUE), 100));
-	add_object(scene, new_object(SPHERE, new_sphere(-4, 2, -1, 1.5), new_color(ORANGE), 100));
-	add_object(scene, new_object(SPHERE, new_sphere(-1, 1, 3, 1), new_color(LIGHT_GREEN), 100));
-	add_object(scene, new_object(SPHERE, new_sphere(4, 1, -4, 1), new_color(YELLOW), 1000));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0), new_color(DARK_GREY), 1000));
+	// add_object(scene, new_object(SPHERE, new_sphere(-4, 6, -4, 1.5), new_color(PASTEL_BLUE), 100));
+	// add_object(scene, new_object(SPHERE, new_sphere(4, 6, -4, 1.5), new_color(PASTEL_BLUE), 100));
+	// add_object(scene, new_object(SPHERE, new_sphere(-4, 0, -4, 1.5), new_color(LIGHT_GREEN), 100));
+	// add_object(scene, new_object(SPHERE, new_sphere(4, 0, -4, 1.5), new_color(LIGHT_GREEN), 100));
+	// add_object(scene, new_object(SPHERE, new_sphere(-4, 3, -4, 1.1), new_color(ORANGE), 100));
+	// add_object(scene, new_object(SPHERE, new_sphere(4, 3, -4, 1.1), new_color(ORANGE), 100));
+	add_object(scene, new_object(SPHERE, new_sphere(0, 2, 0, 3), new_color(WHITE), 100));
+
+	// add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(1, 1, 0), new_vector(4, 0, -4), 1), new_color(YELLOW), 100));
+	// add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0), new_vector(-4, 0, -4), 1), new_color(YELLOW), 100));
+	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 2), new_color(DARK_GREY), 100));
 	// add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 6), new_color(DARK_GREY), 100));
 	// add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 4), new_color(DARK_GREY), 10));
 	// add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 4), new_color(DARK_GREY), 10));
@@ -29,9 +35,11 @@ void				init_lights(t_scene *scene)
 {
 	scene->amb_intensity = 0.1;
 	scene->amb_color = new_color(WHITE);
-	add_light(scene, new_light(SPOT, 1, new_vector(-15, 10, 15), new_color(WHITE)));
-	add_light(scene, new_light(SPOT, 1, new_vector(15, 10, -10), new_color(WHITE)));
-	add_light(scene, new_light(DIR, 0.8, new_vector(1, -1, -1), new_color(WHITE)));
+	add_light(scene, new_light(SPOT, 1, new_vector(-10, 5, 5), new_color(RED)));
+	add_light(scene, new_light(SPOT, 1, new_vector(10, 5, 5), new_color(BLUE)));
+	add_light(scene, new_light(SPOT, 1, new_vector(0, 10, 5), new_color(GREEN)));
+	// add_light(scene, new_light(SPOT, 1, new_vector(15, 10, -10), new_color(WHITE)));
+	// add_light(scene, new_light(DIR, 1, new_vector(-1, -1, -1), new_color(WHITE)));
 }
 
 void				init_all(t_env *e)

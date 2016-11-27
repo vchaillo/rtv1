@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/25 05:09:31 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/11/26 17:24:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,13 @@ float			hit_plane(t_plane *plane, t_ray *ray);
 ** 				sphere.c functions
 */
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
+/*
+** 				cylinder.c functions
+*/
+float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
+/*
+** 				solve_equations.c functions
+*/
 float			solve_deg2(double a, double b, double c);
 /*
 ** 				light.c functions
@@ -126,6 +133,11 @@ void			delete_sphere(t_sphere *sphere);
 */
 t_plane			*new_plane(float x, float y, float z, float d);
 void			delete_plane(t_plane *plane);
+/*
+** 				t_cylinder.c functions
+*/
+t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
+void			delete_cylinder(t_cylinder *cylinder);
 /*
 ** 				t_object.c functions
 */
