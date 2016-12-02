@@ -14,23 +14,23 @@ rtv1
 - [x] Multi objects
 
 #### Lights
-- [x] Ambient light
-- [x] Spot light
-- [x] Directional light
+- [x] Ambient
 - [x] Diffuse
-- [ ] Specular
+- [x] Specular
+- [x] Spot lights
+- [x] Directional lights
 - [x] Shadows
 - [x] Multi spots
 - [ ] Intensity modulation with distance
 
 #### Other
 - [ ] Materials implementation
-- [ ] Objects translations and rotations
-- [ ] Camera translations and rotations
+- [x] Objects and camera translations
+- [ ] Objects and camera rotations
 - [ ] Parsing of description scene file
 
 ## TodoList
-- [ ] Check memory leaks
+- [x] Check memory leaks
 - [ ] Normalize all files
 - [ ] Distance to the light coefficient
 - [x] Create a key_hook.c file
