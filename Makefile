@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/11/26 16:10:41 by valentin         ###   ########.fr        #
+#    Updated: 2016/12/12 21:04:06 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ else
 	LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 endif
 
-FILE := $(shell ls lib/libft/libft.a 2> /dev/null)
+FILE := $(shell ls lib/libft/libft.a 2>&-)
 
 LIBFT =	 -Llib/libft/ -lft
 
@@ -61,7 +61,7 @@ all:   $(NAME)
 $(NAME): obj $(OBJ)
 
 ifneq ($(FILE), lib/libft/libft.a)
-		@make -C lib/libft/ > /dev/null
+		@make -C lib/libft/ >&-
 endif
 
 		@echo "[\033[1;34m******  Creating $(UNAME_S) executable  ******\033[m]"

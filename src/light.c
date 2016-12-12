@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/02 00:14:29 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/12 21:25:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ t_color			phong(t_env *e, t_light *spot, t_ray *v_ray)
 			(l_ray.d.z * l_ray.d.z));
 	}
 	else
+	{
 		l_ray.d = vector_scalar(-1, spot->dir);
+		l_ray.t = 1000;
+	}
 	l_ray.d = normalize(l_ray.d);
 	if (!(is_in_shadow(e->scene->objects, &l_ray)))
 	{
