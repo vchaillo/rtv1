@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/12 21:04:06 by vchaillo         ###   ########.fr        #
+#    Updated: 2016/12/14 16:48:32 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,76 +16,107 @@ CC	=	gcc
 CFLAGS	+=	-Wall -Wextra -Werror
 RM	=	rm -Rf
 
-SRC	= 	main.c \
-		mlx.c\
-		key_hook.c\
-		mouse_hook.c\
-		draw.c\
-		init.c\
-		vector.c\
-		raytracer.c\
-		light.c\
-		sphere.c\
-		plane.c\
-		cylinder.c\
-		color.c\
-		solve_equations.c\
-		error.c\
-		t_vector.c\
-		t_scene.c\
-		t_camera.c\
-		t_sphere.c\
-		t_plane.c\
-		t_cylinder.c\
-		t_object.c\
-		t_light.c\
-		t_color.c\
+SRC_FOLDER = src/
+OBJ_FOLDER = obj/
 
+# Sources files
+SRC_MAIN = \
+		main.c \
+		init.c\
+		color.c\
+		error.c\
+
+SRC_CORE = \
+		core/raytracer.c\
+		core/light.c\
+		core/plane.c\
+		core/sphere.c\
+		core/cylinder.c\
+
+SRC_GUI = \
+		gui/mlx.c\
+		gui/draw.c\
+		gui/key_hook.c\
+		gui/mouse_hook.c\
+
+SRC_TOOLS = \
+		tools/vector.c\
+		tools/solve_equations.c\
+
+SRC_STRUCTS = \
+		structs/t_vector.c\
+		structs/t_scene.c\
+		structs/t_camera.c\
+		structs/t_sphere.c\
+		structs/t_plane.c\
+		structs/t_cylinder.c\
+		structs/t_object.c\
+		structs/t_light.c\
+		structs/t_color.c\
+
+SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_TOOLS) $(SRC_STRUCTS)
+
+# Objects files
+# OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
+OBJ = $(SRC:.c=.o)
+OBJ := $(subst /,__,$(OBJ))
+OBJ := $(addprefix $(OBJ_FOLDER), $(OBJ))
+SRC := $(addprefix $(SRC_FOLDER),$(SRC))
+
+# Inludes and libraries
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-	LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm
 else
-	UNAME_S = MACOS
-	LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+UNAME_S = MACOS
+LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 endif
-
-FILE := $(shell ls lib/libft/libft.a 2>&-)
-
 LIBFT =	 -Llib/libft/ -lft
-
 INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/include/
 
-OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
+# Colors
+NO_COLOR =		\033[0m
+OK_COLOR =		\033[32;1m
+KO_COLOR =		\033[31;1m
+WARN_COLOR =	\033[34;1m
+SILENT_COLOR =	\033[30;1m
 
-all:   $(NAME)
-$(NAME): obj $(OBJ)
+# Rules
+all:	libft $(NAME)
 
-ifneq ($(FILE), lib/libft/libft.a)
-		@make -C lib/libft/ >&-
-endif
+$(OBJECTS_FOLDER)%.o:
+		@$(CC) -c $(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@))) $(INC) $(CFLAGS) $(MACROS) -o $@
+		@printf "[$(OK_COLOR)√$(NO_COLOR)] "
+		@echo "$(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@)))"
 
-		@echo "[\033[1;34m******  Creating $(UNAME_S) executable  ******\033[m]"
+$(NAME): $(OBJ)
+		@printf "$(WARN_COLOR)Creating $(UNAME_S) $(NAME) executable... $(NO_COLOR)"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
+		@echo "$(OK_COLOR)Done √$(NO_COLOR)"
 
-obj/%.o: src/%.c
-		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-		@echo "[\033[1;32m√\033[m]" $<
+libft:
+		@make -C lib/libft/ 2>&-
 
-obj:
-		@mkdir -p obj
+# obj/%.o: src/%.c
+# 		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+# 		@echo "[$(OK_COLOR)√$(NO_COLOR)]" $<
+#
+# obj:
+# 		@mkdir -p obj
 
 clean:
-		@echo "[\033[31;1m******  Cleaning object files  ******\033[0m]"
-		@$(RM) obj/
+		@$(RM) $(OBJ)
+		@echo "$(SILENT_COLOR)$(NAME) - Cleaning object files$(NO_COLOR)"
 
 fclean:	clean
-		@echo "[\033[31;1m******  Cleaning executables  ******\033[0m]"
 		@$(RM) $(NAME)
+		@echo "$(SILENT_COLOR)$(NAME) - Cleaning executables$(NO_COLOR)"
+		@make -C lib/libft/ fclean 2>&-
 
 norm:
-		@echo "[\033[1;34m******  Norminette  ******\033[0m]"
+		@echo "$(WARN_COLOR)******  Norminette  ******$(NO_COLOR)"
 		@norminette inc/*.h src/*.c
 
 re: fclean all
 
-.PHONY: all obj clean fclean norm re
+.PHONY: all obj libft clean fclean norm re
