@@ -6,22 +6,30 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/14 16:48:32 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/16 19:03:17 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	rtv1
 
 CC	=	gcc
-CFLAGS	+=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror
 RM	=	rm -Rf
 
+# Colors
+NO_COLOR =		\033[0m
+OK_COLOR =		\033[32;1m
+KO_COLOR =		\033[31;1m
+WARN_COLOR =	\033[34;1m
+SILENT_COLOR =	\033[30;1m
+
+# Directories
 SRC_FOLDER = src/
 OBJ_FOLDER = obj/
 
 # Sources files
 SRC_MAIN = \
-		main.c \
+		main.c\
 		init.c\
 		color.c\
 		error.c\
@@ -57,7 +65,6 @@ SRC_STRUCTS = \
 SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_TOOLS) $(SRC_STRUCTS)
 
 # Objects files
-# OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 OBJ = $(SRC:.c=.o)
 OBJ := $(subst /,__,$(OBJ))
 OBJ := $(addprefix $(OBJ_FOLDER), $(OBJ))
@@ -72,19 +79,13 @@ UNAME_S = MACOS
 LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 endif
 LIBFT =	 -Llib/libft/ -lft
-INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/include/
-
-# Colors
-NO_COLOR =		\033[0m
-OK_COLOR =		\033[32;1m
-KO_COLOR =		\033[31;1m
-WARN_COLOR =	\033[34;1m
-SILENT_COLOR =	\033[30;1m
+INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/inc/
 
 # Rules
 all:	libft $(NAME)
 
-$(OBJECTS_FOLDER)%.o:
+$(OBJ_FOLDER)%.o:
+		@mkdir -p $(OBJ_FOLDER)
 		@$(CC) -c $(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@))) $(INC) $(CFLAGS) $(MACROS) -o $@
 		@printf "[$(OK_COLOR)√$(NO_COLOR)] "
 		@echo "$(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@)))"
@@ -97,15 +98,9 @@ $(NAME): $(OBJ)
 libft:
 		@make -C lib/libft/ 2>&-
 
-# obj/%.o: src/%.c
-# 		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-# 		@echo "[$(OK_COLOR)√$(NO_COLOR)]" $<
-#
-# obj:
-# 		@mkdir -p obj
-
 clean:
 		@$(RM) $(OBJ)
+		@$(RM) $(OBJ_FOLDER)
 		@echo "$(SILENT_COLOR)$(NAME) - Cleaning object files$(NO_COLOR)"
 
 fclean:	clean
@@ -114,7 +109,7 @@ fclean:	clean
 		@make -C lib/libft/ fclean 2>&-
 
 norm:
-		@echo "$(WARN_COLOR)******  Norminette  ******$(NO_COLOR)"
+		@echo "$(WARN_COLORNorminette...$(NO_COLOR)"
 		@norminette inc/*.h src/*.c
 
 re: fclean all
