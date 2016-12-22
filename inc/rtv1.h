@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 18:37:50 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 20:09:54 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ void 			print_sphere(t_sphere *sphere);
 void 			print_plane(t_plane *plane);
 void 			print_cylinder(t_cylinder *cylinder);
 void			print_lights(t_env *e);
-void			print_spot(t_light *light);
-void			print_dir(t_light *light);
-void			print_amb(t_env *e);
+void			print_amb_light(t_env *e);
+void			print_spot_light(t_light *light);
+void			print_dir_light(t_light *light);
+void			print_color(t_color color);
 /*
 ** 				tools functions
 */

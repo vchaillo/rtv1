@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 15:15:39 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/22 18:35:08 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 19:54:49 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			print_cli_output(t_env *e)
 		print_nb_rays(e);
 		print_camera_pos(e);
 		print_objects(e);
-		// print_lights(e);
+		print_lights(e);
 		ft_putstr(TERM_BOLD_BLACK);
 		ft_putendl("======================");
 	}
