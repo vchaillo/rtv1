@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/19 16:42:41 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 18:44:21 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ typedef struct				s_camera
 typedef struct				s_scene
 {
 	t_color					background_color;
+	int						nb_objects;
+	int						nb_lights;
 	t_camera				*camera;
 	t_object				*objects;
 	t_light					*lights;

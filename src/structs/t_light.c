@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/25 01:42:38 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/12/22 18:44:19 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void			add_light(t_scene *scene, t_light *new)
 		new->next = scene->lights;
 		scene->lights = new;
 	}
+	scene->nb_lights++;
 }
 
 void			delete_lights(t_light *lights)

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/25 03:18:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/12/22 18:44:06 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			add_object(t_scene *scene, t_object *new)
 		new->next = scene->objects;
 		scene->objects = new;
 	}
+	scene->nb_objects++;
 }
 
 void			delete_objects(t_object *objects)
@@ -50,6 +51,8 @@ void			delete_objects(t_object *objects)
 			delete_sphere(objects->object);
 		else if (objects->type == PLANE)
 			delete_plane(objects->object);
+		else if (objects->type == CYLINDER)
+			delete_cylinder(objects->object);
 		objects->next = NULL;
 		free(objects);
 		objects = tmp;

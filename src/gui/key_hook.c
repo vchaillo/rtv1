@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/22 17:44:20 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 18:37:46 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		key_hook(int keycode, t_env *e)
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 	{
 		if (e->scene)
-		delete_scene(e->scene);
+			delete_scene(e->scene);
 		exit(0);
 	}
 	else if (keycode == R || keycode == R_MAC)

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 17:49:41 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 18:37:50 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,19 @@ void			draw(t_env *e);
 void			print_cli_output(t_env *e);
 void			print_camera_pos(t_env *e);
 void 			print_nb_rays(t_env *e);
-void			print_objects(t_env *e);
 void			print_lights(t_env *e);
 void 			print_redraw_line(void);
 void			print_exposehook(t_env *e);
 void			print_keyhook(int keycode, t_env *e);
 void			print_mousehook(int button, int x, int y, t_env *e);
+void			print_objects(t_env *e);
+void 			print_sphere(t_sphere *sphere);
+void 			print_plane(t_plane *plane);
+void 			print_cylinder(t_cylinder *cylinder);
+void			print_lights(t_env *e);
+void			print_spot(t_light *light);
+void			print_dir(t_light *light);
+void			print_amb(t_env *e);
 /*
 ** 				tools functions
 */
