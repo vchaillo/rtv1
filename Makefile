@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/16 19:03:17 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/22 13:49:37 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ OBJ_FOLDER = obj/
 SRC_MAIN = \
 		main.c\
 		init.c\
-		color.c\
 		error.c\
 
 SRC_CORE = \
@@ -50,6 +49,7 @@ SRC_GUI = \
 SRC_TOOLS = \
 		tools/vector.c\
 		tools/solve_equations.c\
+		tools/color.c\
 
 SRC_STRUCTS = \
 		structs/t_vector.c\
@@ -91,9 +91,11 @@ $(OBJ_FOLDER)%.o:
 		@echo "$(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@)))"
 
 $(NAME): $(OBJ)
+		@echo "========================================="
 		@printf "$(WARN_COLOR)Creating $(UNAME_S) $(NAME) executable... $(NO_COLOR)"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 		@echo "$(OK_COLOR)Done √$(NO_COLOR)"
+		@echo "========================================="
 
 libft:
 		@make -C lib/libft/ 2>&-
@@ -101,11 +103,11 @@ libft:
 clean:
 		@$(RM) $(OBJ)
 		@$(RM) $(OBJ_FOLDER)
-		@echo "$(SILENT_COLOR)$(NAME) - Cleaning object files$(NO_COLOR)"
+		@echo "$(WARN_COLOR)$(NAME)$(SILENT_COLOR) - Cleaning object files$(NO_COLOR)"
 
 fclean:	clean
 		@$(RM) $(NAME)
-		@echo "$(SILENT_COLOR)$(NAME) - Cleaning executables$(NO_COLOR)"
+		@echo "$(WARN_COLOR)$(NAME)$(SILENT_COLOR) - Cleaning executables$(NO_COLOR)"
 		@make -C lib/libft/ fclean 2>&-
 
 norm:

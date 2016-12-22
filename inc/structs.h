@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/26 17:25:18 by valentin         ###   ########.fr       */
+/*   Updated: 2016/12/19 16:42:41 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ typedef struct				s_cylinder
 	t_vector				pos;
 	float					r;
 }							t_cylinder;
+
+typedef struct				s_cone
+{
+	t_vector				axis;
+	t_vector				apex;
+	float					angle;
+}							t_cone;
 
 typedef struct				s_object
 {
