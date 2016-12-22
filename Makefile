@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/22 13:49:37 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/22 14:01:41 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ UNAME_S = MACOS
 LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 endif
 LIBFT =	 -Llib/libft/ -lft
-INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/inc/
+INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/
 
 # Rules
 all:	libft $(NAME)

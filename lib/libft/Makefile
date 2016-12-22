@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/16 18:49:44 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/22 13:52:11 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WARN_COLOR =	\033[34;1m
 SILENT_COLOR =	\033[30;1m
 
 # Directories
-SRC_FOLDER = src/
+SRC_FOLDER = srcs/
 OBJ_FOLDER = obj/
 
 # Sources files
@@ -107,7 +107,7 @@ OBJ := $(subst /,__,$(OBJ))
 OBJ := $(addprefix $(OBJ_FOLDER), $(OBJ))
 SRC := $(addprefix $(SRC_FOLDER),$(SRC))
 
-INC = -I inc
+INC = -I includes
 
 # Rules
 all: $(NAME)
@@ -119,18 +119,20 @@ $(OBJ_FOLDER)%.o:
 		@echo "$(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@)))"
 
 $(NAME): $(OBJ)
+		@echo "==========================="
 		@printf "$(WARN_COLOR)Creating $(NAME)... $(NO_COLOR)"
 		@ar rc $(NAME) $(OBJ)
 		@ranlib $(NAME)
 		@echo "$(OK_COLOR)Done √$(NO_COLOR)"
+		@echo "==========================="
 
 clean:
 		@$(RM) $(OBJ)
 		@$(RM) $(OBJ_FOLDER)
-		@echo "$(SILENT_COLOR)Libft - Cleaning object files$(NO_COLOR)"
+		@echo "$(WARN_COLOR)libft$(SILENT_COLOR) - Cleaning object files$(NO_COLOR)"
 
 fclean:	clean
-		@echo "$(SILENT_COLOR)Libft - Cleaning library$(NO_COLOR)"
+		@echo "$(WARN_COLOR)libft$(SILENT_COLOR) - Cleaning library$(NO_COLOR)"
 		@$(RM) $(NAME)
 
 norm:
