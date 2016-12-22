@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/12 21:16:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2016/12/22 17:44:20 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,6 @@ int		key_hook_light(int keycode, t_env *e)
 
 int		key_hook(int keycode, t_env *e)
 {
-	if (e->verbose == TRUE)
-	{
-		ft_putstr("Keycode : ");
-		ft_putnbr(keycode);
-		ft_putchar('\n');
-	}
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 	{
 		if (e->scene)
@@ -65,6 +59,8 @@ int		key_hook(int keycode, t_env *e)
 		key_hook_camera(keycode, e);
 		key_hook_light(keycode, e);
 	}
+	print_keyhook(keycode, e);
+	print_cli_output(e);
 	erase_image(e);
 	return (0);
 }

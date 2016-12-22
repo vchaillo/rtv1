@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:37 by valentin          #+#    #+#             */
-/*   Updated: 2016/11/24 05:09:19 by valentin         ###   ########.fr       */
+/*   Updated: 2016/12/22 17:44:25 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	if (e->verbose == TRUE)
-	{
-		ft_putstr("Mouse button : ");
-		ft_putnbr(button);
-		ft_putstr(", x : ");
-		ft_putnbr(x);
-		ft_putstr(", y : ");
-		ft_putnbr(y);
-		ft_putchar('\n');
-	}
+	print_mousehook(button, x, y, e);
+	print_cli_output(e);
 	erase_image(e);
 	return (0);
 }

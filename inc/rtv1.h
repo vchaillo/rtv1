@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/19 16:37:27 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 17:49:41 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ int				mouse_hook(int button, int x, int y, t_env *e);
 void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			erase_image(t_env *e);
 void			draw(t_env *e);
+/*
+** 				cli functions
+*/
+void			print_cli_output(t_env *e);
+void			print_camera_pos(t_env *e);
+void 			print_nb_rays(t_env *e);
+void			print_objects(t_env *e);
+void			print_lights(t_env *e);
+void 			print_redraw_line(void);
+void			print_exposehook(t_env *e);
+void			print_keyhook(int keycode, t_env *e);
+void			print_mousehook(int button, int x, int y, t_env *e);
 /*
 ** 				tools functions
 */

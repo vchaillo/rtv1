@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 05:54:51 by valentin         ###   ########.fr       */
+/*   Updated: 2016/12/22 17:32:53 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,6 @@ void	erase_image(t_env *e)
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	draw(e);
-	e->nb_cam_rays = WIN_H * WIN_W;
-	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
-	if (e->verbose == TRUE)
-	{
-		ft_putchar('\n');
-		ft_putnbr(e->nb_rays);
-		ft_putendl(" Rays");
-		ft_putnbr(e->nb_cam_rays);
-		ft_putendl(" Cam rays");
-		ft_putnbr(e->nb_light_rays);
-		ft_putendl(" Light rays\n");
-	}
 }
 
 void	draw(t_env *e)
@@ -48,7 +36,8 @@ void	draw(t_env *e)
 	int			y;
 	t_color		color;
 
-	e->nb_rays = 0;
+	e->nb_cam_rays = WIN_W * WIN_H;
+	e->nb_light_rays = 0;
 	y = 0;
 	while (y < WIN_H)
 	{
@@ -61,5 +50,6 @@ void	draw(t_env *e)
 		}
 		y++;
 	}
+	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }

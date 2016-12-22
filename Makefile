@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/22 14:01:41 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/22 17:46:45 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,10 @@ SRC_GUI = \
 		gui/key_hook.c\
 		gui/mouse_hook.c\
 
+SRC_CLI = \
+		cli/output.c\
+		cli/hooks_output.c\
+
 SRC_TOOLS = \
 		tools/vector.c\
 		tools/solve_equations.c\
@@ -62,7 +66,7 @@ SRC_STRUCTS = \
 		structs/t_light.c\
 		structs/t_color.c\
 
-SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_TOOLS) $(SRC_STRUCTS)
+SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI) $(SRC_TOOLS) $(SRC_STRUCTS)
 
 # Objects files
 OBJ = $(SRC:.c=.o)

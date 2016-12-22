@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/01 17:48:41 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/22 17:48:29 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		expose_hook(t_env *e)
 {
-	if (e->verbose == TRUE)
-		ft_putendl("Expose !");
+	print_exposehook(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }
