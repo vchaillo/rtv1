@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 17:35:44 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/22 17:55:02 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/23 16:34:32 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void 			print_redraw_line(void)
 {
-	ft_putendl(TERM_BOLD_BLACK);
+	ft_putendl(TERM_BOLD_YELLOW);
 	ft_putstr("======");
-	ft_putstr(TERM_BOLD_BLUE);
+	ft_putstr(TERM_BOLD_GREY);
 	ft_putstr(" RE DRAW ");
-	ft_putstr(TERM_BOLD_BLACK);
+	ft_putstr(TERM_BOLD_YELLOW);
 	ft_putendl("=======");
 }
 

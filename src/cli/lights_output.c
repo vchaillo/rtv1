@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:34:52 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/22 20:12:31 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/23 16:32:41 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,34 @@
 
 void			print_amb_light(t_env *e)
 {
-	ft_putstr("Ambient light -> intensity : ");
-	ft_putnbr(e->scene->amb_intensity);
-	ft_putstr(", color : ");
+	ft_putendl(" Ambient light ->");
+	ft_putstr("   intensity : ");
+	ft_putfloat2(e->scene->amb_intensity);
+	ft_putstr("\n   color : ");
 	print_color(e->scene->amb_color);
 	ft_putendl(TERM_END);
 }
 
 void			print_dir_light(t_light *light)
 {
-	ft_putstr("Directional light -> intensity : ");
-	ft_putnbr(light->intensity);
-	ft_putstr(", color : ");
+	ft_putendl(" Directional light ->");
+	ft_putstr("   intensity : ");
+	ft_putfloat2(light->intensity);
+	ft_putstr("\n   color : ");
 	print_color(light->color);
-	ft_putstr(", direction : (");
-	ft_putnbr(light->dir.x);
-	ft_putstr(", ");
-	ft_putnbr(light->dir.y);
-	ft_putstr(", ");
-	ft_putnbr(light->dir.z);
-	ft_putstr(")");
+	ft_putstr("\n   direction : ");
+	print_vector(light->dir);
 }
 
 void			print_spot_light(t_light *light)
 {
-	ft_putstr("Spot light -> intensity : ");
-	ft_putnbr(light->intensity);
-	ft_putstr(", color : ");
+	ft_putendl(" Spot light -> ");
+	ft_putstr("   intensity : ");
+	ft_putfloat2(light->intensity);
+	ft_putstr("\n   color : ");
 	print_color(light->color);
-	ft_putstr(", position : (");
-	ft_putnbr(light->pos.x);
-	ft_putstr(", ");
-	ft_putnbr(light->pos.y);
-	ft_putstr(", ");
-	ft_putnbr(light->pos.z);
-	ft_putstr(")");
+	ft_putstr("\n   position : ");
+	print_vector(light->pos);
 }
 
 void			print_lights(t_env *e)

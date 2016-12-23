@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 20:09:54 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/23 16:23:31 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void			print_amb_light(t_env *e);
 void			print_spot_light(t_light *light);
 void			print_dir_light(t_light *light);
 void			print_color(t_color color);
+void			print_vector(t_vector vector);
 /*
 ** 				tools functions
 */

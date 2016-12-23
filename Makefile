@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/22 20:10:12 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/23 16:23:33 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ SRC_CLI = \
 		cli/hooks_output.c\
 		cli/objects_output.c\
 		cli/lights_output.c\
-		cli/colors_output.c\
+		cli/tools_output.c\
 
 SRC_TOOLS = \
 		tools/vector.c\
