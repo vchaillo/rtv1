@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/22 18:37:46 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/23 16:39:22 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int		key_hook(int keycode, t_env *e)
 		key_hook_light(keycode, e);
 	}
 	print_keyhook(keycode, e);
-	print_cli_output(e);
 	erase_image(e);
 	return (0);
 }

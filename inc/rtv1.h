@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/23 16:23:31 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/24 00:45:21 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include "libft.h"
 # include "colors.h"
+# include "term_colors.h"
 # include "structs.h"
 # include "keycodes.h"
 # include "macros.h"
@@ -63,7 +64,6 @@ void			print_cli_output(t_env *e);
 void			print_camera_pos(t_env *e);
 void 			print_nb_rays(t_env *e);
 void			print_lights(t_env *e);
-void 			print_redraw_line(void);
 void			print_exposehook(t_env *e);
 void			print_keyhook(int keycode, t_env *e);
 void			print_mousehook(int button, int x, int y, t_env *e);
@@ -77,6 +77,8 @@ void			print_spot_light(t_light *light);
 void			print_dir_light(t_light *light);
 void			print_color(t_color color);
 void			print_vector(t_vector vector);
+void 			print_start_line(void);
+void 			print_end_line(void);
 /*
 ** 				tools functions
 */

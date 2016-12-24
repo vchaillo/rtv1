@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putfloat2.c                                     :+:      :+:    :+:   */
+/*   structs_libft.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/23 14:34:08 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/23 21:14:27 by valentinchaillou89###   ########.fr       */
+/*   Created: 2016/12/24 00:56:43 by valentin          #+#    #+#             */
+/*   Updated: 2016/12/24 01:00:36 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef STRUCTS_LIBFT_H
+# define STRUCTS_LIBFT_H
 
-void		ft_putfloat2(float f)
+typedef struct		s_list
 {
-	float	dec_part;
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
-	ft_putnbr(f);
-	ft_putchar('.');
-	dec_part = f - (int)f;
-	ft_putnbr(dec_part * 100);
-}
+#endif

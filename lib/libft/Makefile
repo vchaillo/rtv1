@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/23 14:37:33 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/24 01:05:37 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,14 +74,17 @@ SRC_MEMORY = \
 
 SRC_PRINT = \
 		print/ft_putchar.c\
-		print/ft_putendl.c\
 		print/ft_putstr.c\
+		print/ft_putendl.c\
 		print/ft_putnbr.c\
 		print/ft_putfloat2.c\
+		print/ft_putendl_color.c\
+		print/ft_putstr_color.c\
+		print/ft_putnbr_color.c\
 		print/ft_putchar_fd.c\
 		print/ft_putstr_fd.c\
-		print/ft_putnbr_fd.c\
 		print/ft_putendl_fd.c\
+		print/ft_putnbr_fd.c\
 
 SRC_CONVERT = \
 		convert/ft_tolower.c\

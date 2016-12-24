@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 17:32:53 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/23 16:39:04 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	draw(t_env *e)
 		y++;
 	}
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
+	print_cli_output(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }
