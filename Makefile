@@ -107,7 +107,7 @@ obj:
 		@mkdir -p $(OBJSUBDIR)
 
 libft:
-		@make -C lib/libft/ 2>&-
+		@make -sC lib/libft/ 2>&-
 
 clean:
 		@$(RM) $(OBJ)
@@ -117,7 +117,7 @@ clean:
 fclean:	clean
 		@$(RM) $(NAME)
 		@echo "$(BLUE)$(NAME)$(GREY) - Cleaning executables$(END_COLOR)"
-		@make -C lib/libft/ fclean 2>&-
+		@make -sC lib/libft/ fclean 2>&-
 
 norm:
 		@echo "$(BLUE)Norminette...$(END_COLOR)"
