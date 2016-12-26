@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 18:44:18 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/26 19:42:44 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_scene			*new_scene(t_color background_color, t_camera *camera)
 		print_error(MALLOC_ERROR);
 	scene->background_color = background_color;
 	scene->nb_objects = 0;
-	scene->nb_lights = 0;
+	scene->nb_lights = 1;
 	scene->camera = camera;
 	scene->objects = NULL;
 	scene->lights = NULL;

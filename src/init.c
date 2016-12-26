@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/23 14:57:09 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/27 00:05:04 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void				init_objects(t_scene *scene)
 	// add_object(scene, new_object(SPHERE, new_sphere(4, 0, -4, 1.5), new_color(LIGHT_GREEN), 100));
 	// add_object(scene, new_object(SPHERE, new_sphere(-4, 3, -4, 1.1), new_color(ORANGE), 100));
 	// add_object(scene, new_object(SPHERE, new_sphere(4, 3, -4, 1.1), new_color(ORANGE), 100));
-	add_object(scene, new_object(SPHERE, new_sphere(0, 2, 0, 3), new_color(LIGHT_GREEN), 100));
+	add_object(scene, new_object(SPHERE, new_sphere(0, 2, 0, 3), new_color(YELLOW), 100));
 
-	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(1, 1, 0), new_vector(4, 0, -4), 1), new_color(ORANGE), 100));
-	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0), new_vector(-4, 0, -4), 1), new_color(ORANGE), 100));
+	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(1, 1, 0), new_vector(4, 0, -4), 1), new_color(RED), 100));
+	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0), new_vector(-4, 0, -4), 1), new_color(RED), 100));
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 2), new_color(DARK_GREY), 100));
 	// add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 6), new_color(DARK_GREY), 100));
 	// add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 4), new_color(DARK_GREY), 10));

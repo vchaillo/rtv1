@@ -6,26 +6,29 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/24 01:05:37 by valentinchaillou89###   ########.fr        #
+#    Updated: 2016/12/27 00:10:18 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC	=	gcc
-CFLAGS	+=	-Wall -Wextra -Werror -g
-RM	=	rm -Rf
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g
+RM = rm -Rf
 
 # Colors
-NO_COLOR =		\033[0m
-OK_COLOR =		\033[32;1m
-KO_COLOR =		\033[31;1m
-WARN_COLOR =	\033[34;1m
-SILENT_COLOR =	\033[30;1m
+GREY = \033[30;1m
+RED = \033[31;1m
+GREEN =	\033[32;1m
+YELLOW = \033[33;1m
+BLUE = \033[34;1m
+WHITE = \033[37;1m
+END_COLOR =	\033[0m
 
 # Directories
-SRC_FOLDER = srcs/
-OBJ_FOLDER = obj/
+SRCDIR = srcs/
+OBJDIR = obj/
+OBJSUBDIR = obj/string obj/memory obj/print obj/convert obj/list
 
 # Sources files
 SRC_STRING = \
@@ -106,41 +109,40 @@ SRC_GNL = \
 SRC = $(SRC_STRING) $(SRC_MEMORY) $(SRC_PRINT) $(SRC_CONVERT) $(SRC_LIST) $(SRC_GNL)
 
 # Objects files
-OBJ = $(SRC:.c=.o)
-OBJ := $(subst /,__,$(OBJ))
-OBJ := $(addprefix $(OBJ_FOLDER), $(OBJ))
-SRC := $(addprefix $(SRC_FOLDER),$(SRC))
+OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 INC = -I includes
 
 # Rules
 all: $(NAME)
 
-$(OBJ_FOLDER)%.o:
-		@mkdir -p $(OBJ_FOLDER)
-		@$(CC) -c $(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@))) $(INC) $(CFLAGS) $(MACROS) -o $@
-		@printf "[$(OK_COLOR)√$(NO_COLOR)] "
-		@echo "$(subst .o,.c,$(subst $(OBJ_FOLDER),$(SRC_FOLDER),$(subst __,/,$@)))"
-
-$(NAME): $(OBJ)
+$(NAME): obj $(OBJ)
 		@echo "==========================="
-		@printf "$(WARN_COLOR)Creating $(NAME)... $(NO_COLOR)"
+		@printf "$(WHITE)Creating $(NAME)... $(END_COLOR)"
 		@ar rc $(NAME) $(OBJ)
 		@ranlib $(NAME)
-		@echo "$(OK_COLOR)Done √$(NO_COLOR)"
+		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "==========================="
+
+$(OBJDIR)%.o:$(SRCDIR)%.c
+		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+		@echo "[$(GREEN)√$(END_COLOR)]" $(subst obj,src,$(subst .o,.c,$@))
+
+obj:
+		@mkdir -p $(OBJDIR)
+		@mkdir -p $(OBJSUBDIR)
 
 clean:
 		@$(RM) $(OBJ)
-		@$(RM) $(OBJ_FOLDER)
-		@echo "$(WARN_COLOR)libft$(SILENT_COLOR) - Cleaning object files$(NO_COLOR)"
+		@$(RM) $(OBJDIR)
+		@echo "$(BLUE)libft$(GREY) - Cleaning object files$(END_COLOR)"
 
 fclean:	clean
-		@echo "$(WARN_COLOR)libft$(SILENT_COLOR) - Cleaning library$(NO_COLOR)"
+		@echo "$(BLUE)libft$(GREY) - Cleaning library$(END_COLOR)"
 		@$(RM) $(NAME)
 
 norm:
-		@echo "$(WARN_COLORNorminette...$(NO_COLOR)"
+		@echo "$(BLUE)Norminette...$(END_COLOR)"
 		@norminette **/*.[ch]
 
 re: fclean all
