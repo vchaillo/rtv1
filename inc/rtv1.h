@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/24 00:45:21 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/27 01:49:12 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void			init_all(t_env *e);
 void			init_objects(t_scene *scene);
 void			init_lights(t_scene *scene);
 void			print_error(int error_code);
+void			print_help(void);
 /*
 ** 				core functions
 */

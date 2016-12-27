@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 15:15:39 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/24 01:27:31 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/27 01:37:04 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void			print_camera_pos(t_env *e)
 
 void 			print_nb_rays(t_env *e)
 {
-	ft_putchar('\n');
 	ft_putendl_color("Rays informations :", TERM_BOLD_GREY);
 	ft_putstr_color("Camera rays : ", TERM_BOLD_BLACK);
 	ft_putnbr_color(e->nb_cam_rays, TERM_BOLD_GREEN);
@@ -43,13 +42,16 @@ void 			print_nb_rays(t_env *e)
 
 void			print_cli_output(t_env *e)
 {
-	if (e->verbose)
+	if (e->verbose == FULL_VERBOSE || e->verbose == MIN_VERBOSE)
 	{
 		print_start_line();
-		print_camera_pos(e);
 		print_nb_rays(e);
-		print_objects(e);
-		print_lights(e);
+		if (e->verbose == FULL_VERBOSE)
+		{
+			print_camera_pos(e);
+			print_objects(e);
+			print_lights(e);
+		}
 		print_end_line();
 	}
 }

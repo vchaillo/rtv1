@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 20:07:24 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/24 00:45:43 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/27 01:35:34 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void 			print_start_line(void)
 	ft_putstr(TERM_BOLD_YELLOW);
 	ft_putstr(" DRAW NEW IMAGE ");
 	ft_putstr(TERM_BOLD_BLUE);
-	ft_putendl("=======");
+	ft_putendl("=======\n");
 }
 
 void 			print_end_line(void)
 {
 	ft_putstr(TERM_BOLD_BLUE);
-	ft_putendl("======================\n");
+	ft_putendl("\n======================\n");
 	ft_putstr(TERM_END);
 }

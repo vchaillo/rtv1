@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/23 21:12:57 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2016/12/27 01:50:25 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@
 # define INACTIVE 0
 
 /*
+** verbose defines
+*/
+# define FULL_VERBOSE 1
+# define MIN_VERBOSE 2
+
+/*
 ** errors defines
 */
 # define MALLOC_ERROR 0
 # define MLX_ERROR 1
+# define ARG_ERROR 2
 
 /*
 ** window and camera defines
