@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/04 16:58:06 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 17:17:34 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	return (t_min);
 }
 
-t_vector		get_ray_dir(t_camera *camera, int x, int y)
+t_vector		get_camray_dir(t_camera *camera, int x, int y)
 {
 	t_vector	dir;
 	float		dir_x;
@@ -75,7 +75,7 @@ t_color			raytracer(t_env *e, int x, int y)
 	t_ray		ray;
 
 	ray.o = e->scene->camera->pos;
-	ray.d = get_ray_dir(e->scene->camera, x, y);
+	ray.d = get_camray_dir(e->scene->camera, x, y);
 	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
 		ray.hitpoint.color = illuminate(e, &ray);
