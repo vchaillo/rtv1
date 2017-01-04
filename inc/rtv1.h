@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/04 16:35:14 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 20:00:22 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@
 /*
 ** 				main functions
 */
-void			parse_arguments(char **av, t_env *e);
-void			init_all(t_env *e);
-void			init_objects(t_scene *scene);
-void			init_lights(t_scene *scene);
+void			parse_arguments(int ac, char **av, t_env *e);
 void			print_error(int error_code);
 void			print_help(void);
 /*
@@ -95,6 +92,20 @@ t_color			average_color(t_color color);
 t_color			scalar_color(float scalar, t_color color);
 t_color			add_color(t_color color1, t_color color2);
 t_color			mult_color(t_color color1, t_color color2);
+/*
+** 				scenes functions
+*/
+void 			load_scene(int scene_type, t_env *e);
+void 			switch_scene(int keycode, t_env *e);
+void			load_scene1(t_env *e);
+void			load_scene1_objects(t_scene *scene);
+void			load_scene1_lights(t_scene *scene);
+void			load_scene2(t_env *e);
+void			load_scene2_objects(t_scene *scene);
+void			load_scene2_lights(t_scene *scene);
+void			load_scene3(t_env *e);
+void			load_scene3_objects(t_scene *scene);
+void			load_scene3_lights(t_scene *scene);
 /*
 ** 				structs functions
 */

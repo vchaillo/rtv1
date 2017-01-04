@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/12 20:48:07 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/04 19:43:13 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define KEYCODES_H
 
 # define ESCAPE 65307
+# define RIGHT 65363
+# define LEFT 65361
 # define Z 122
 # define Q 113
 # define S 115
@@ -29,6 +31,8 @@
 # define KP5 65437
 
 # define ESCAPE_MAC 53
+# define RIGHT_MAC 124
+# define LEFT_MAC 123
 # define Z_MAC 13
 # define Q_MAC 0
 # define S_MAC 1

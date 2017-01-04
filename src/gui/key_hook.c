@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/23 16:39:22 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 20:05:11 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,17 @@ int		key_hook_light(int keycode, t_env *e)
 	return (0);
 }
 
+int		key_hook_scene(int keycode, t_env *e)
+{
+	if (keycode == R || keycode == R_MAC)
+		load_scene(e->scene_type, e);
+	else if (keycode == LEFT || keycode == LEFT_MAC)
+		switch_scene(LEFT, e);
+	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+		switch_scene(RIGHT, e);
+	return (0);
+}
+
 int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
@@ -52,12 +63,11 @@ int		key_hook(int keycode, t_env *e)
 			delete_scene(e->scene);
 		exit(0);
 	}
-	else if (keycode == R || keycode == R_MAC)
-		init_all(e);
 	else
 	{
 		key_hook_camera(keycode, e);
 		key_hook_light(keycode, e);
+		key_hook_scene(keycode, e);
 	}
 	print_keyhook(keycode, e);
 	erase_image(e);

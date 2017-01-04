@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/04 16:34:37 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/04 19:55:54 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,12 @@ END_COLOR =	\033[0m
 # Directories
 SRCDIR = src/
 OBJDIR = obj/
-OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs
+OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs obj/scenes
 
 # Sources files
 SRC_MAIN = \
 		main.c\
 		parser.c\
-		init.c\
 		error.c\
 
 SRC_CORE = \
@@ -62,6 +61,12 @@ SRC_TOOLS = \
 		tools/solve_equations.c\
 		tools/color.c\
 
+SRC_SCENES = \
+		scenes/scenes.c\
+		scenes/scene1.c\
+		scenes/scene2.c\
+		scenes/scene3.c\
+
 SRC_STRUCTS = \
 		structs/t_vector.c\
 		structs/t_scene.c\
@@ -73,7 +78,8 @@ SRC_STRUCTS = \
 		structs/t_light.c\
 		structs/t_color.c\
 
-SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI) $(SRC_TOOLS) $(SRC_STRUCTS)
+SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI)\
+		$(SRC_TOOLS) $(SRC_STRUCTS) $(SRC_SCENES)
 
 # Objects files
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))

@@ -6,20 +6,31 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 16:31:16 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/04 16:33:21 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 19:56:46 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-void			parse_arguments(char **av, t_env *e)
+void			parse_arguments(int ac, char **av, t_env *e)
 {
-	if (ft_strcmp(av[1], "-V") == 0 ||
-	 ft_strcmp(av[1], "--minverbose") == 0)
-		e->verbose = MIN_VERBOSE;
-	else if (ft_strcmp(av[1], "-v") == 0 ||
-	 ft_strcmp(av[1], "--verbose") == 0)
-		e->verbose = FULL_VERBOSE;
-	else
-		print_error(ARG_ERROR);
+	int			i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (ft_strcmp(av[i], "-V") == 0)
+			e->verbose = MIN_VERBOSE;
+		else if (ft_strcmp(av[i], "-v") == 0)
+			e->verbose = FULL_VERBOSE;
+		else if (ft_strcmp(av[i], "-s1") == 0)
+			load_scene(SCENE_1, e);
+		else if (ft_strcmp(av[i], "-s2") == 0)
+			load_scene(SCENE_2, e);
+		else if (ft_strcmp(av[i], "-s3") == 0)
+			load_scene(SCENE_3, e);
+		else
+			print_error(ARG_ERROR);
+		i++;
+	}
 }

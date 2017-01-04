@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:10 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/22 01:02:28 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/04 18:03:01 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_color			scalar_color(float scalar, t_color color)
 	color.r *= scalar;
 	color.g *= scalar;
 	color.b *= scalar;
-	return (limit_color(color));
+	return (average_color(color));
 }
 
 t_color			add_color(t_color color1, t_color color2)

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 18:44:21 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 19:32:57 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ typedef struct				s_env
 	int						size;
 	int						endian;
 	int						bpp;
+	int						scene_type;
 	t_scene					*scene;
 	double					nb_rays;
 	double					nb_cam_rays;
