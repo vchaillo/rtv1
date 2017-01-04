@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:13:55 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/24 01:17:05 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 16:22:59 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,4 @@ void			print_objects(t_env *e)
 		ft_putendl(TERM_END);
 		tmp = tmp->next;
 	}
-	(void)e;
 }

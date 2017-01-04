@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/22 18:17:16 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 16:58:06 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 	else if (object->type == PLANE)
 		ray->hitpoint.normal = normalize(((t_plane *)object->object)->normal);
 	else if (object->type == CYLINDER)
-		ray->hitpoint.normal = normalize(vector_sub(new_vector(ray->hitpoint.pos.x, 0, ray->hitpoint.pos.z), ((t_cylinder *)object->object)->pos));
+		ray->hitpoint.normal = normalize(vector_sub(new_vector(
+			ray->hitpoint.pos.x, 0, ray->hitpoint.pos.z),
+			((t_cylinder *)object->object)->pos));
 	ray->hitpoint.color = object->color;
 }
 

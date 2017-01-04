@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/27 00:12:52 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/04 16:34:37 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs
 # Sources files
 SRC_MAIN = \
 		main.c\
+		parser.c\
 		init.c\
 		error.c\
 

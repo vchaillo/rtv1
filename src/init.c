@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:09 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/27 00:05:04 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 16:54:57 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void				init_objects(t_scene *scene)
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 2), new_color(DARK_GREY), 100));
 	// add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 6), new_color(DARK_GREY), 100));
 	// add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 4), new_color(DARK_GREY), 10));
-	// add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 4), new_color(DARK_GREY), 10));
+	add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 4), new_color(DARK_GREY), 10));
 	// add_object(scene, new_object(PLANE, new_plane(0, 0, 1, 4), new_color(DARK_GREY), 10));
 }
 

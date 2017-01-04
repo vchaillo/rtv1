@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/27 01:49:12 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/04 16:35:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 /*
 ** 				main functions
 */
+void			parse_arguments(char **av, t_env *e);
 void			init_all(t_env *e);
 void			init_objects(t_scene *scene);
 void			init_lights(t_scene *scene);
