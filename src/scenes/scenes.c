@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 19:53:08 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/04 20:06:06 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/05 03:00:53 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void 			load_scene(int scene_type, t_env *e)
 void 			switch_scene(int keycode, t_env *e)
 {
 	if (keycode == LEFT)
-		e->scene_type++;
+		e->scene_type--;
 	else if (keycode == RIGHT)
 		e->scene_type++;
 	if (e->scene_type == 0)
