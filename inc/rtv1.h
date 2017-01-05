@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/04 20:00:22 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/05 19:35:05 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 /*
 ** 				main functions
 */
-void			parse_arguments(int ac, char **av, t_env *e);
 void			print_error(int error_code);
 void			print_help(void);
 /*
@@ -81,6 +80,7 @@ void 			print_end_line(void);
 /*
 ** 				tools functions
 */
+void			parse_arguments(int ac, char **av, t_env *e);
 float			solve_deg2(double a, double b, double c);
 t_vector		normalize(t_vector vector);
 t_vector		vector_scalar(float scalar, t_vector v);

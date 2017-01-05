@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:34:52 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/04 20:11:44 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/05 19:32:53 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void			print_amb_light(t_env *e)
 	ft_putfloat2(e->scene->amb_intensity);
 	ft_putstr("\n      color : ");
 	print_color(e->scene->amb_color);
+	ft_putchar('\n');
 	ft_putendl(TERM_END);
 }
 

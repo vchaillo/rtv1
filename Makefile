@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/04 19:55:54 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/05 19:39:36 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,12 @@ END_COLOR =	\033[0m
 # Directories
 SRCDIR = src/
 OBJDIR = obj/
-OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs obj/scenes
+OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs\
+ 			obj/scenes obj/parser
 
 # Sources files
 SRC_MAIN = \
 		main.c\
-		parser.c\
-		error.c\
 
 SRC_CORE = \
 		core/raytracer.c\
@@ -42,6 +41,9 @@ SRC_CORE = \
 		core/plane.c\
 		core/sphere.c\
 		core/cylinder.c\
+
+SRC_PARSER = \
+		parser/args_parser.c\
 
 SRC_GUI = \
 		gui/mlx.c\
@@ -60,6 +62,7 @@ SRC_TOOLS = \
 		tools/vector.c\
 		tools/solve_equations.c\
 		tools/color.c\
+		tools/error.c\
 
 SRC_SCENES = \
 		scenes/scenes.c\
@@ -78,14 +81,14 @@ SRC_STRUCTS = \
 		structs/t_light.c\
 		structs/t_color.c\
 
-SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI)\
-		$(SRC_TOOLS) $(SRC_STRUCTS) $(SRC_SCENES)
+SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI) $(SRC_TOOLS)\
+ 		$(SRC_STRUCTS) $(SRC_SCENES) $(SRC_PARSER)
 
 # Objects files
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 # Inludes and libraries
-UNAME_S := $(shell uname -s)
+UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
 LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm
 else

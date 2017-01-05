@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:10 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/04 18:03:01 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/05 19:34:07 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_color			scalar_color(float scalar, t_color color)
 	color.r *= scalar;
 	color.g *= scalar;
 	color.b *= scalar;
-	return (average_color(color));
+	return (color);
 }
 
 t_color			add_color(t_color color1, t_color color2)
@@ -52,7 +52,7 @@ t_color			add_color(t_color color1, t_color color2)
 	color1.r = color1.r + color2.r;
 	color1.g = color1.g + color2.g;
 	color1.b = color1.b + color2.b;
-	return (average_color(color1));
+	return (limit_color(color1));
 }
 
 t_color			mult_color(t_color color1, t_color color2)
