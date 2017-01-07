@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:23:42 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/07 02:10:37 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ t_plane			*new_plane(float x, float y, float z, float offset)
 		print_error(MALLOC_ERROR);
 	plane->normal = new_vector(x, y, z);
 	plane->offset = offset;
+	plane->normal = matrix_ry(plane->normal, 45);
+	// plane->normal = matrix_rx(plane->normal, 45);
+	plane->normal = matrix_rz(plane->normal, 45);
+	plane->normal = matrix_ry(plane->normal, -45);
 	return (plane);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/05 19:35:05 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 01:46:37 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@ t_color			average_color(t_color color);
 t_color			scalar_color(float scalar, t_color color);
 t_color			add_color(t_color color1, t_color color2);
 t_color			mult_color(t_color color1, t_color color2);
+t_vector		matrix_rx(t_vector v, int angle);
+t_vector		matrix_ry(t_vector v, int angle);
+t_vector		matrix_rz(t_vector v, int angle);
 /*
 ** 				scenes functions
 */

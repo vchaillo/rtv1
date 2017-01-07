@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:34:52 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/05 19:32:53 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 01:04:20 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void			print_amb_light(t_env *e)
 	ft_putfloat2(e->scene->amb_intensity);
 	ft_putstr("\n      color : ");
 	print_color(e->scene->amb_color);
-	ft_putchar('\n');
 	ft_putendl(TERM_END);
 }
 
@@ -51,10 +50,10 @@ void			print_lights(t_env *e)
 
 	ft_putchar('\n');
 	ft_putendl_color("Lights informations :", TERM_BOLD_GREY);
-	ft_putnbr_color(e->scene->nb_lights, TERM_BOLD_GREEN);
-	ft_putendl_color(" lights in scene", TERM_BOLD_GREEN);
 	ft_putstr(TERM_BOLD_BLACK);
 	print_amb_light(e);
+	ft_putnbr_color(e->scene->nb_lights, TERM_BOLD_GREEN);
+	ft_putendl_color(" lights in scene", TERM_BOLD_GREEN);
 	tmp = e->scene->lights;
 	while (tmp != NULL)
 	{
