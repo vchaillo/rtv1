@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 03:17:46 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 06:16:01 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ int				mouse_hook(int button, int x, int y, t_env *e);
 void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			erase_image(t_env *e);
 void			draw(t_env *e);
+void			select_object(int x, int y, t_env *e);
+void 			print_gui_output(t_env *e);
+void			print_gui_selected_object(t_env *e);
 /*
 ** 				cli functions
 */
