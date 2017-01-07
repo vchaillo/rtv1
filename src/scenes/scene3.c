@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:57:50 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/07 00:40:44 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 05:31:02 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void			load_scene3_objects(t_scene *scene)
 {
 	int i;
 
-	i = 4;
-	while (i < 18)
+	i = 2;
+	while (i < 40)
 	{
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(1, 1, 0),
 			new_vector(i, 0, -i), 1), new_color(RED), 100));
@@ -25,14 +25,13 @@ void			load_scene3_objects(t_scene *scene)
 			new_vector(-i, 0, -i), 1), new_color(RED), 100));
 		i += 3;
 	}
-	add_object(scene, new_object(SPHERE, new_sphere(0, 4, 0, 3),
-		new_color(GREEN_1), 50));
-	add_object(scene, new_object(SPHERE, new_sphere(0, 10, 0, 3),
-		new_color(GREEN_2), 50));
-	add_object(scene, new_object(SPHERE, new_sphere(0, 16, 0, 3),
-		new_color(GREEN_3), 50));
-	add_object(scene, new_object(SPHERE, new_sphere(0, 22, 0, 3),
-		new_color(GREEN_4), 50));
+	i = 1;
+	while (i < 100)
+	{
+		add_object(scene, new_object(SPHERE, new_sphere(0, i, 0, 2),
+			new_color(YELLOW), 50));
+		i += 4;
+	}
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0),
 		new_color(DARK_GREY), 1000));
 }
@@ -52,7 +51,8 @@ void			load_scene3(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_3;
-	e->scene = new_scene(new_color(BLACK), new_camera(0, 13, 35));
+	e->scene = new_scene(new_color(BLACK), new_camera(0, 0, 10));
+	e->scene->camera->rot.x = -1.1;
 	load_scene3_objects(e->scene);
 	load_scene3_lights(e->scene);
 }

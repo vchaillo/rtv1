@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/24 06:23:26 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/07 04:55:21 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_camera		*new_camera(float x, float y, float z)
 	if (!(camera = (t_camera*)malloc(sizeof(t_camera))))
 		print_error(MALLOC_ERROR);
 	camera->pos = new_vector(x, y, z);
+	camera->rot = new_vector(0, 0, 0);
+	camera->dir = new_vector(0, 0, -1);
 	camera->ratio = RATIO;
 	camera->fov = FOV;
 	camera->focale = FOCALE;

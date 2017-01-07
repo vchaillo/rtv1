@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 01:46:37 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 03:17:46 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ t_color			illuminate(t_env *e, t_ray *ray);
 void			start_mlx(t_env *e);
 int				expose_hook(t_env *e);
 int				key_hook(int keycode, t_env *e);
+int				key_hook_camera(int keycode, t_camera *camera);
+int				key_hook_light(int keycode, t_scene *scene);
+int				key_hook_scene(int keycode, t_env *e);
 int				mouse_hook(int button, int x, int y, t_env *e);
 void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			erase_image(t_env *e);
@@ -92,9 +95,9 @@ t_color			average_color(t_color color);
 t_color			scalar_color(float scalar, t_color color);
 t_color			add_color(t_color color1, t_color color2);
 t_color			mult_color(t_color color1, t_color color2);
-t_vector		matrix_rx(t_vector v, int angle);
-t_vector		matrix_ry(t_vector v, int angle);
-t_vector		matrix_rz(t_vector v, int angle);
+t_vector		vector_rot_x(t_vector v, float angle);
+t_vector		vector_rot_y(t_vector v, float angle);
+t_vector		vector_rot_z(t_vector v, float angle);
 /*
 ** 				scenes functions
 */

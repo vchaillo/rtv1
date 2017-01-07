@@ -6,13 +6,13 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 01:20:22 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/07 02:11:45 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 04:58:55 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_vector		matrix_rx(t_vector v, int angle)
+t_vector		vector_rot_x(t_vector v, float angle)
 {
 	t_vector	vector;
 
@@ -22,7 +22,7 @@ t_vector		matrix_rx(t_vector v, int angle)
 	return (vector);
 }
 
-t_vector		matrix_ry(t_vector v, int angle)
+t_vector		vector_rot_y(t_vector v, float angle)
 {
 	t_vector	vector;
 
@@ -32,7 +32,7 @@ t_vector		matrix_ry(t_vector v, int angle)
 	return (vector);
 }
 
-t_vector		matrix_rz(t_vector v, int angle)
+t_vector		vector_rot_z(t_vector v, float angle)
 {
 	t_vector	vector;
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/05 16:50:59 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 02:25:45 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int				is_in_shadow(t_object *objects, t_ray *ray)
 			t = hit_plane((t_plane *)object->object, ray);
 		else if (object->type == CYLINDER)
 			t = hit_cylinder((t_cylinder *)object->object, ray);
-
 		if (t > EPSILON && t < ray->t)
 			return (TRUE);
 		object = object->next;

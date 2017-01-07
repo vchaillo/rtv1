@@ -6,51 +6,63 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/04 20:05:11 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 05:09:55 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-int		key_hook_camera(int keycode, t_env *e)
+int				key_hook_camera(int keycode, t_camera *camera)
 {
 	if (keycode == D || keycode == D_MAC)
-		e->scene->camera->pos.x += 1;
-	else if (keycode == Q || keycode == Q_MAC)
-		e->scene->camera->pos.x -= 1;
+		camera->pos.x += 1;
+	else if (keycode == Q || keycode == A_MAC)
+		camera->pos.x -= 1;
 	else if (keycode == SPACE || keycode == SPACE_MAC)
-		e->scene->camera->pos.y += 1;
+		camera->pos.y += 1;
 	else if (keycode == CONTROL || keycode == CONTROL_MAC)
-		e->scene->camera->pos.y -= 1;
+		camera->pos.y -= 1;
 	else if (keycode == S || keycode == S_MAC)
-		e->scene->camera->pos.z += 1;
-	else if (keycode == Z || keycode == Z_MAC)
-		e->scene->camera->pos.z -= 1;
+		camera->pos.z += 1;
+	else if (keycode == Z || keycode == W_MAC)
+		camera->pos.z -= 1;
+	else if (keycode == UP || keycode == UP_MAC)
+		camera->rot.x -= 0.1;
+	else if (keycode == DOWN || keycode == DOWN_MAC)
+		camera->rot.x += 0.1;
+	else if (keycode == LEFT || keycode == LEFT_MAC)
+		camera->rot.y -= 0.1;
+	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+		camera->rot.y += 0.1;
+	else if (keycode == A || keycode == Q_MAC)
+		camera->rot.z += 0.1;
+	else if (keycode == E || keycode == E_MAC)
+		camera->rot.z -= 0.1;
 	return (0);
 }
 
-int		key_hook_light(int keycode, t_env *e)
+int				key_hook_light(int keycode, t_scene *scene)
 {
 	if (keycode == KP1 || keycode == KP1_MAC || keycode == NUM1_MAC)
-		e->scene->amb = (e->scene->amb == ACTIVE) ? INACTIVE : ACTIVE;
+		scene->amb = (scene->amb == ACTIVE) ? INACTIVE : ACTIVE;
 	else if (keycode == KP2 || keycode == KP2_MAC || keycode == NUM2_MAC)
-		e->scene->diffuse = (e->scene->diffuse == ACTIVE) ? INACTIVE : ACTIVE;
+		scene->diffuse = (scene->diffuse == ACTIVE) ? INACTIVE : ACTIVE;
 	else if (keycode == KP3 || keycode == KP3_MAC || keycode == NUM3_MAC)
-		e->scene->specular = (e->scene->specular == ACTIVE) ? INACTIVE : ACTIVE;
+		scene->specular = (scene->specular == ACTIVE) ? INACTIVE : ACTIVE;
 	else if (keycode == KP4 || keycode == KP4_MAC || keycode == NUM4_MAC)
-		e->scene->spot = (e->scene->spot == ACTIVE) ? INACTIVE : ACTIVE;
+		scene->spot = (scene->spot == ACTIVE) ? INACTIVE : ACTIVE;
 	else if (keycode == KP5 || keycode == KP5_MAC || keycode == NUM5_MAC)
-		e->scene->dir = (e->scene->dir == ACTIVE) ? INACTIVE : ACTIVE;
+		scene->dir = (scene->dir == ACTIVE) ? INACTIVE : ACTIVE;
 	return (0);
 }
 
-int		key_hook_scene(int keycode, t_env *e)
+int				key_hook_scene(int keycode, t_env *e)
 {
 	if (keycode == R || keycode == R_MAC)
 		load_scene(e->scene_type, e);
-	else if (keycode == LEFT || keycode == LEFT_MAC)
+	else if (keycode == P || keycode == P_MAC)
 		switch_scene(LEFT, e);
-	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+	else if (keycode == N || keycode == N_MAC)
 		switch_scene(RIGHT, e);
 	return (0);
 }
@@ -65,8 +77,8 @@ int		key_hook(int keycode, t_env *e)
 	}
 	else
 	{
-		key_hook_camera(keycode, e);
-		key_hook_light(keycode, e);
+		key_hook_camera(keycode, e->scene->camera);
+		key_hook_light(keycode, e->scene);
 		key_hook_scene(keycode, e);
 	}
 	print_keyhook(keycode, e);
