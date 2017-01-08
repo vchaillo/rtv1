@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 21:53:27 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 05:41:26 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct				s_plane
 
 typedef struct				s_cylinder
 {
-	t_vector				axis;
+	int						axis;
 	t_vector				pos;
 	float					r;
 }							t_cylinder;

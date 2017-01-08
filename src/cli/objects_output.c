@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:13:55 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/04 16:22:59 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 06:03:30 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ void 			print_cylinder(t_cylinder *cylinder)
 	ft_putendl(" Cylinder ->");
 	ft_putstr("      position : ");
 	print_vector(cylinder->pos);
-	ft_putstr("\n      axis : ");
-	print_vector(cylinder->axis);
+	if (cylinder->axis == X_AXIS)
+		ft_putstr("\n      axis : X");
+	else if (cylinder->axis == Y_AXIS)
+		ft_putstr("\n      axis : Y");
+	else
+		ft_putstr("\n      axis : Z");
 	ft_putstr("\n      radius : ");
 	ft_putnbr(cylinder->r);
 }

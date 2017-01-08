@@ -37,7 +37,7 @@ int				mouse_hook(int button, int x, int y, t_env *e)
 	if (button == 1)
 	{
 		select_object(x, y, e);
-		erase_image(e);
+		update_image(e);
 	}
 	return (0);
 }

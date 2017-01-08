@@ -84,6 +84,6 @@ int				key_hook(int keycode, t_env *e)
 	key_hook_light(keycode, e->scene);
 	key_hook_scene(keycode, e);
 	print_keyhook(keycode, e);
-	erase_image(e);
+	update_image(e);
 	return (0);
 }

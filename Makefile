@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/07 22:27:39 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/08 06:17:23 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,9 @@ SRC_MAIN = \
 SRC_CORE = \
 		core/raytracer.c\
 		core/light.c\
-		core/plane.c\
+		core/normal.c\
 		core/sphere.c\
+		core/plane.c\
 		core/cylinder.c\
 
 SRC_PARSER = \
@@ -72,6 +73,7 @@ SRC_SCENES = \
 		scenes/scene1.c\
 		scenes/scene2.c\
 		scenes/scene3.c\
+		scenes/scene4.c\
 
 SRC_STRUCTS = \
 		structs/t_vector.c\

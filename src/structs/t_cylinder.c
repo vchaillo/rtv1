@@ -6,13 +6,13 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:37 by valentin          #+#    #+#             */
-/*   Updated: 2016/11/26 17:25:25 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/08 05:42:32 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r)
+t_cylinder		*new_cylinder(int axis, t_vector pos, float r)
 {
 	t_cylinder	*cylinder;
 

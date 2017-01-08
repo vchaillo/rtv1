@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 22:26:30 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 02:53:22 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 06:15:12 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,41 @@ int				key_hook_plane(int keycode, t_plane *plane)
 	return (0);
 }
 
+int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder)
+{
+	if (keycode == UP || keycode == UP_MAC)
+	{
+		if (cylinder->axis != X_AXIS)
+			cylinder->axis = cylinder->axis == Y_AXIS ? Z_AXIS : Y_AXIS;
+	}
+	else if (keycode == DOWN || keycode == DOWN_MAC)
+	{
+		if (cylinder->axis != X_AXIS)
+			cylinder->axis = cylinder->axis == Y_AXIS ? Z_AXIS : Y_AXIS;
+	}
+	else if (keycode == LEFT || keycode == LEFT_MAC)
+	{
+		if (cylinder->axis != Y_AXIS)
+			cylinder->axis = cylinder->axis == Z_AXIS ? X_AXIS : Z_AXIS;
+	}
+	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+	{
+		if (cylinder->axis != Y_AXIS)
+			cylinder->axis = cylinder->axis == Z_AXIS ? X_AXIS : Z_AXIS;
+	}
+	else if (keycode == A || keycode == Q_MAC)
+	{
+		if (cylinder->axis != Z_AXIS)
+			cylinder->axis = cylinder->axis == X_AXIS ? Y_AXIS : X_AXIS;
+	}
+	else if (keycode == E || keycode == E_MAC)
+	{
+		if (cylinder->axis != Z_AXIS)
+			cylinder->axis = cylinder->axis == X_AXIS ? Y_AXIS : X_AXIS;
+	}
+	return (0);
+}
+
 int				key_hook_cylinder(int keycode, t_cylinder *cylinder)
 {
 	if (keycode == D || keycode == D_MAC)
@@ -47,22 +82,12 @@ int				key_hook_cylinder(int keycode, t_cylinder *cylinder)
 		cylinder->pos.z += 1;
 	else if (keycode == Z || keycode == W_MAC)
 		cylinder->pos.z -= 1;
-	else if (keycode == UP || keycode == UP_MAC)
-		cylinder->axis = vector_rot_x(cylinder->axis, 0.1);
-	else if (keycode == DOWN || keycode == DOWN_MAC)
-		cylinder->axis = vector_rot_x(cylinder->axis, -0.1);
-	else if (keycode == LEFT || keycode == LEFT_MAC)
-		cylinder->axis = vector_rot_y(cylinder->axis, 0.1);
-	else if (keycode == RIGHT || keycode == RIGHT_MAC)
-		cylinder->axis = vector_rot_y(cylinder->axis, -0.1);
-	else if (keycode == A || keycode == Q_MAC)
-		cylinder->axis = vector_rot_z(cylinder->axis, 0.1);
-	else if (keycode == E || keycode == E_MAC)
-		cylinder->axis = vector_rot_z(cylinder->axis, -0.1);
 	else if (keycode == PLUS || keycode == PLUS_MAC)
 		cylinder->r += 1;
 	else if (keycode == MINUS || keycode == MINUS_MAC)
 		cylinder->r -= 1;
+	else
+		key_hook_cylinder_rotation(keycode, cylinder);
 	return (0);
 }
 

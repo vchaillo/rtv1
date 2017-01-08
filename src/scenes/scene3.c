@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:57:50 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/07 05:31:02 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 07:07:31 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void			load_scene3_objects(t_scene *scene)
 	i = 2;
 	while (i < 40)
 	{
-		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(1, 1, 0),
+		add_object(scene, new_object(CYLINDER, new_cylinder(Y_AXIS,
 			new_vector(i, 0, -i), 1), new_color(RED), 100));
-		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(1, 1, 0),
+		add_object(scene, new_object(CYLINDER, new_cylinder(Y_AXIS,
 			new_vector(-i, 0, -i), 1), new_color(RED), 100));
 		i += 3;
 	}
@@ -29,7 +29,7 @@ void			load_scene3_objects(t_scene *scene)
 	while (i < 100)
 	{
 		add_object(scene, new_object(SPHERE, new_sphere(0, i, 0, 2),
-			new_color(YELLOW), 50));
+			new_color(SEA_BLUE), 50));
 		i += 4;
 	}
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0),
@@ -38,11 +38,9 @@ void			load_scene3_objects(t_scene *scene)
 
 void			load_scene3_lights(t_scene *scene)
 {
-	scene->amb_intensity = 0.5;
+	scene->amb_intensity = 0.3;
 	scene->amb_color = new_color(WHITE);
 	add_light(scene, new_light(SPOT, 1, new_vector(-15, 10, 20),
-		new_color(WHITE)));
-	add_light(scene, new_light(DIR, 0.1, new_vector(-1, -1, -1),
 		new_color(WHITE)));
 }
 

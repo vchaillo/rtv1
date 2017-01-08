@@ -22,7 +22,7 @@ void	fill_pixel(t_env *e, t_color color, int x, int y)
 	e->data[i + 2] = (color.r);
 }
 
-void	erase_image(t_env *e)
+void	update_image(t_env *e)
 {
 	mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/07 21:54:42 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 06:20:00 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@
 # define SCENE_1 1
 # define SCENE_2 2
 # define SCENE_3 3
+# define SCENE_4 4
+# define SCENE_5 5
 
 /*
 ** objects defines
@@ -65,6 +67,13 @@
 # define PLANE 1
 # define CYLINDER 2
 # define CONE 3
+
+/*
+** cylinder axis defines
+*/
+# define X_AXIS 0
+# define Y_AXIS 1
+# define Z_AXIS 2
 
 /*
 ** lights defines

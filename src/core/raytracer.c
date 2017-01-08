@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 05:08:24 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 05:29:15 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,7 @@ void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 {
 	ray->hitpoint.object = object;
 	ray->hitpoint.pos = vector_add(ray->o, vector_scalar(t_min, ray->d));
-	if (object->type == SPHERE)
-		ray->hitpoint.normal = normalize(vector_sub(ray->hitpoint.pos,
-			((t_sphere *)object->object)->pos));
-	else if (object->type == PLANE)
-		ray->hitpoint.normal = normalize(((t_plane *)object->object)->normal);
-	else if (object->type == CYLINDER)
-		ray->hitpoint.normal = normalize(vector_sub(new_vector(
-			ray->hitpoint.pos.x, 0, ray->hitpoint.pos.z),
-			((t_cylinder *)object->object)->pos));
+	ray->hitpoint.normal = get_normal(ray);
 	ray->hitpoint.color = object->color;
 }
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 01:00:57 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 07:12:13 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define BLACK 0x000000
 # define GREY 0x777777
 # define LIGHT_GREY 0xAAAAAA
-# define DARK_GREY 0x111111
+# define DARK_GREY 0x050505
 
 # define RED 0xFF0000
 # define GREEN 0x00FF00
@@ -33,7 +33,7 @@
 
 # define BROWN 0x663100
 # define PURPLE 0x471054
-# define ORANGE 0xFF6D47
+# define ORANGE 0x59682F00
 # define PASTEL_BLUE 0x6161FB
 # define SEA_BLUE 0x0066FF
 # define GRASS_GREEN 0x669933
