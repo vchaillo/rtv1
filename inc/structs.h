@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 05:45:36 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 21:53:27 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ typedef struct				s_scene
 	t_object				*selected_object;
 	int						nb_objects;
 	int						nb_lights;
+	int						mode;
 }							t_scene;
 
 typedef struct				s_env

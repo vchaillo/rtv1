@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 06:16:01 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 22:29:27 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ void			draw(t_env *e);
 void			select_object(int x, int y, t_env *e);
 void 			print_gui_output(t_env *e);
 void			print_gui_selected_object(t_env *e);
+void			print_mode(t_env *e);
+int				key_hook_sphere(int keycode, t_sphere *sphere);
+int				key_hook_plane(int keycode, t_plane *plane);
+int				key_hook_cylinder(int keycode, t_cylinder *cylinder);
+int				key_hook_objects(int keycode, t_scene *scene);
 /*
 ** 				cli functions
 */

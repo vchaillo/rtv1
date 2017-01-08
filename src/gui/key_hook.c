@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/07 05:09:55 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 22:29:51 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int				key_hook_light(int keycode, t_scene *scene)
 
 int				key_hook_scene(int keycode, t_env *e)
 {
+	if (keycode == M || keycode == M_MAC)
+		e->scene->mode = e->scene->mode == EDIT_MODE ? MOVE_MODE : EDIT_MODE;
 	if (keycode == R || keycode == R_MAC)
 		load_scene(e->scene_type, e);
 	else if (keycode == P || keycode == P_MAC)
@@ -67,7 +69,7 @@ int				key_hook_scene(int keycode, t_env *e)
 	return (0);
 }
 
-int		key_hook(int keycode, t_env *e)
+int				key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
 	{
@@ -75,12 +77,12 @@ int		key_hook(int keycode, t_env *e)
 			delete_scene(e->scene);
 		exit(0);
 	}
-	else
-	{
+	if (e->scene->mode == MOVE_MODE)
 		key_hook_camera(keycode, e->scene->camera);
-		key_hook_light(keycode, e->scene);
-		key_hook_scene(keycode, e);
-	}
+	else
+		key_hook_objects(keycode, e->scene);
+	key_hook_light(keycode, e->scene);
+	key_hook_scene(keycode, e);
 	print_keyhook(keycode, e);
 	erase_image(e);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/04 20:16:54 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/07 21:54:42 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@
 # define FOCALE 1
 # define EPSILON 0.0001
 # define MAX_DIST 1000
+
+/*
+** lights defines
+*/
+# define MOVE_MODE 0
+# define EDIT_MODE 1
 
 /*
 ** scenes defines

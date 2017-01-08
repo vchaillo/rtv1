@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 03:57:46 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 02:22:46 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@
 /*
 ** linux azerty keycodes
 */
-# define UP 0
-# define DOWN 0
+# define UP 424242
+# define DOWN 424242
 # define LEFT 65361
 # define RIGHT 65363
+# define PLUS 424242
+# define MINUS 424242
 # define Z 122
 # define Q 113
 # define S 115
 # define D 100
-# define A 0
-# define E 0
-# define N 45
-# define P 35
+# define A 424242
+# define E 424242
+# define N 424242
+# define P 424242
+# define M 424242
 # define SPACE 32
 # define CONTROL 65507
 # define RETURN 65293
@@ -46,6 +49,8 @@
 # define DOWN_MAC 125
 # define LEFT_MAC 123
 # define RIGHT_MAC 124
+# define PLUS_MAC 24
+# define MINUS_MAC 27
 # define W_MAC 13
 # define A_MAC 0
 # define S_MAC 1
@@ -54,6 +59,7 @@
 # define E_MAC 14
 # define N_MAC 45
 # define P_MAC 35
+# define M_MAC 46
 # define SPACE_MAC 49
 # define CONTROL_MAC 256
 # define RETURN_MAC 36

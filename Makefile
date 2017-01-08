@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/07 05:48:05 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/07 22:27:39 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRC_GUI = \
 		gui/mlx.c\
 		gui/draw.c\
 		gui/key_hook.c\
+		gui/key_hook_objects.c\
 		gui/mouse_hook.c\
 		gui/print.c\
 
