@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/08 05:29:15 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 14:15:09 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 			t = hit_plane((t_plane *)object->object, ray);
 		else if (object->type == CYLINDER)
 			t = hit_cylinder((t_cylinder *)object->object, ray);
+		else if (object->type == CONE)
+			t = hit_cone((t_cone *)object->object, ray);
 		if (t > EPSILON && t < t_min)
 		{
 			t_min = t;

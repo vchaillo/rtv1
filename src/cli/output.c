@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 15:15:39 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/27 01:37:04 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 17:35:38 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void			print_camera_pos(t_env *e)
 {
+	ft_putchar('\n');
 	ft_putendl_color("Camera position :", TERM_BOLD_GREY);
 	ft_putstr_color("x : ", TERM_BOLD_BLACK);
 	ft_putnbr_color(e->scene->camera->pos.x, TERM_BOLD_GREEN);

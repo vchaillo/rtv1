@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/09 13:06:09 by valentin         ###   ########.fr        #
+#    Updated: 2017/01/09 17:13:03 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC_CORE = \
 		core/sphere.c\
 		core/plane.c\
 		core/cylinder.c\
+		core/cone.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\
@@ -83,6 +84,7 @@ SRC_STRUCTS = \
 		structs/t_sphere.c\
 		structs/t_plane.c\
 		structs/t_cylinder.c\
+		structs/t_cone.c\
 		structs/t_object.c\
 		structs/t_light.c\
 		structs/t_color.c\

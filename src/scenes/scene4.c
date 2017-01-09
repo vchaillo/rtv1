@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 07:12:08 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/08 19:03:34 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void			load_scene4_objects(t_scene *scene)
 		new_vector(0, 0, 0), 0.02), new_color(GREEN), 100));
 	add_object(scene, new_object(CYLINDER, new_cylinder(Z_AXIS,
 		new_vector(0, 0, 0), 0.02), new_color(BLUE), 100));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 2),
-		new_color(DARK_GREY), 100));
 }
 
 void			load_scene4_lights(t_scene *scene)

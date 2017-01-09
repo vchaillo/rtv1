@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:34:52 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/07 01:04:20 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 17:37:20 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ void			print_lights(t_env *e)
 	ft_putchar('\n');
 	ft_putendl_color("Lights informations :", TERM_BOLD_GREY);
 	ft_putstr(TERM_BOLD_BLACK);
-	print_amb_light(e);
+	if (e->scene->amb == ACTIVE)
+		print_amb_light(e);
 	ft_putnbr_color(e->scene->nb_lights, TERM_BOLD_GREEN);
 	ft_putendl_color(" lights in scene", TERM_BOLD_GREEN);
 	tmp = e->scene->lights;
 	while (tmp != NULL)
 	{
 		ft_putstr(TERM_BOLD_BLACK);
-		if (tmp->type == DIR)
+		if (tmp->type == DIR && e->scene->dir == ACTIVE)
 			print_dir_light(tmp);
-		else if (tmp->type == SPOT)
+		else if (tmp->type == SPOT && e->scene->spot == ACTIVE)
 			print_spot_light(tmp);
 		ft_putendl(TERM_END);
 		tmp = tmp->next;

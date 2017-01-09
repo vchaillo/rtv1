@@ -6,11 +6,22 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:13:55 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 06:03:30 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 17:32:57 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
+
+void 			print_cone(t_cone *cone)
+{
+	ft_putendl(" Cone -> ");
+	ft_putstr("      apex : ");
+	print_vector(cone->apex);
+	ft_putstr("      axis : ");
+	print_vector(cone->axis);
+	ft_putstr("\n      angle : ");
+	ft_putnbr(cone->angle);
+}
 
 void 			print_sphere(t_sphere *sphere)
 {
@@ -63,6 +74,8 @@ void			print_objects(t_env *e)
 			print_plane((t_plane *)tmp->object);
 		else if (tmp->type == CYLINDER)
 			print_cylinder((t_cylinder *)tmp->object);
+		else if (tmp->type == CONE)
+			print_cone((t_cone *)tmp->object);
 		ft_putendl(TERM_END);
 		tmp = tmp->next;
 	}

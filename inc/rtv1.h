@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/09 13:06:39 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/09 18:44:52 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_color			raytracer(t_env *e, int x, int y);
 float			hit_plane(t_plane *plane, t_ray *ray);
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
+float			hit_cone(t_cone *cone, t_ray *ray);
 float			hit_x_axis_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_y_axis_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_z_axis_cylinder(t_cylinder *cylinder, t_ray *ray);
@@ -47,8 +48,9 @@ float			hit_cone(t_cone *cone, t_ray *ray);
 int				is_in_shadow(t_object *objects, t_ray *ray);
 t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
 t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray);
-t_color			phong(t_env *e, t_light *spot, t_ray *v_ray);
+t_color			phong(t_env *e, t_light *light, t_ray *v_ray);
 t_color			illuminate(t_env *e, t_ray *ray);
+t_vector		get_normal_at_cone(t_ray *ray);
 t_vector		get_normal_at_cylinder(t_ray *ray);
 t_vector		get_normal(t_ray *ray);
 /*
@@ -148,6 +150,8 @@ t_plane			*new_plane(float x, float y, float z, float d);
 void			delete_plane(t_plane *plane);
 t_cylinder		*new_cylinder(int axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);
+t_cone			*new_cone(t_vector axis, t_vector apex, float aperture);
+void			delete_cone(t_cone *cone);
 t_object		*new_object(int type, void *object, t_color color, int mat);
 void			add_object(t_scene *scene, t_object *new);
 void			delete_objects(t_object *objects);

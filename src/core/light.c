@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/07 02:25:45 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 17:40:19 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int				is_in_shadow(t_object *objects, t_ray *ray)
 			t = hit_plane((t_plane *)object->object, ray);
 		else if (object->type == CYLINDER)
 			t = hit_cylinder((t_cylinder *)object->object, ray);
+		else if (object->type == CONE)
+			t = hit_cone((t_cone *)object->object, ray);
 		if (t > EPSILON && t < ray->t)
 			return (TRUE);
 		object = object->next;
@@ -65,31 +67,31 @@ t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray)
 	return (color);
 }
 
-t_color			phong(t_env *e, t_light *spot, t_ray *v_ray)
+t_color			phong(t_env *e, t_light *light, t_ray *v_ray)
 {
 	t_color		color;
 	t_ray		l_ray;
 
 	color = new_color(BLACK);
 	l_ray.o = v_ray->hitpoint.pos;
-	if (spot->type == SPOT)
+	if (light->type == SPOT)
 	{
-		l_ray.d = vector_sub(spot->pos, v_ray->hitpoint.pos);
+		l_ray.d = vector_sub(light->pos, v_ray->hitpoint.pos);
 		l_ray.t = sqrt((l_ray.d.x * l_ray.d.x) + (l_ray.d.y * l_ray.d.y) +
 			(l_ray.d.z * l_ray.d.z));
 	}
 	else
 	{
-		l_ray.d = vector_scalar(-1, spot->dir);
+		l_ray.d = vector_scalar(-1, light->dir);
 		l_ray.t = MAX_DIST;
 	}
 	l_ray.d = normalize(l_ray.d);
 	if (!(is_in_shadow(e->scene->objects, &l_ray)))
 	{
 		if (e->scene->diffuse == ACTIVE)
-			color = add_color(diffuse(v_ray->hitpoint, spot, &l_ray), color);
+			color = add_color(diffuse(v_ray->hitpoint, light, &l_ray), color);
 		if (e->scene->specular == ACTIVE)
-			color = add_color(specular(v_ray, spot, &l_ray), color);
+			color = add_color(specular(v_ray, light, &l_ray), color);
 	}
 	return (color);
 }

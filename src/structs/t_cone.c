@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve_equations.c                                  :+:      :+:    :+:   */
+/*   t_cone.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/26 16:07:17 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/09 19:31:06 by valentinchaillou89###   ########.fr       */
+/*   Created: 2016/11/26 16:04:37 by valentin          #+#    #+#             */
+/*   Updated: 2017/01/09 19:36:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-float			solve_deg2(double a, double b, double c)
+t_cone			*new_cone(t_vector axis, t_vector apex, float aperture)
 {
-	float		delta;
-	float		res;
-	float		x1;
-	float		x2;
+	t_cone	*cone;
 
-	delta = (b * b) - (4 * a * c);
-	if (delta > 0)
-	{
-		x1 = (-b - sqrt(delta)) / (2 * a);
-		x2 = (-b + sqrt(delta)) / (2 * a);
-		if (x1 < x2)
-			res = x1;
-		else
-			res = x2;
-	}
-	else if (delta == 0)
-		res = -b / (2 * a);
-	else
-		res = 0;
-	return (res);
+	if (!(cone = (t_cone*)malloc(sizeof(t_cone))))
+		print_error(MALLOC_ERROR);
+	cone->axis = axis;
+	cone->apex = apex;
+	cone->angle = aperture * (M_PI / 180);
+	return (cone);
+}
+
+void			delete_cone(t_cone *cone)
+{
+	free(cone);
 }
