@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/08 06:17:23 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/09 13:06:09 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ SRC_SCENES = \
 		scenes/scene2.c\
 		scenes/scene3.c\
 		scenes/scene4.c\
+		scenes/scene5.c\
 
 SRC_STRUCTS = \
 		structs/t_vector.c\

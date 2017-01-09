@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 19:53:08 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 07:04:35 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 13:07:07 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ void 			load_scene(int scene_type, t_env *e)
 {
 	if (scene_type == SCENE_1)
 		load_scene1(e);
-	if (scene_type == SCENE_2)
+	else if (scene_type == SCENE_2)
 		load_scene2(e);
-	if (scene_type == SCENE_3)
+	else if (scene_type == SCENE_3)
 		load_scene3(e);
-	if (scene_type == SCENE_4)
+	else if (scene_type == SCENE_4)
 		load_scene4(e);
+	else if (scene_type == SCENE_5)
+		load_scene5(e);
 }
 
 void 			switch_scene(int keycode, t_env *e)
@@ -31,8 +33,8 @@ void 			switch_scene(int keycode, t_env *e)
 	else if (keycode == RIGHT)
 		e->scene_type++;
 	if (e->scene_type == 0)
-		e->scene_type = SCENE_4;
-	else if (e->scene_type == 5)
+		e->scene_type = NB_SCENES;
+	else if (e->scene_type == NB_SCENES + 1)
 		e->scene_type = SCENE_1;
 	load_scene(e->scene_type, e);
 }

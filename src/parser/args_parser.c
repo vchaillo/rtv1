@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 16:31:16 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 06:26:51 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 13:07:23 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void			parse_arguments(int ac, char **av, t_env *e)
 			load_scene(SCENE_3, e);
 		else if (ft_strcmp(av[i], "-s4") == 0)
 			load_scene(SCENE_4, e);
+		else if (ft_strcmp(av[i], "-s5") == 0)
+			load_scene(SCENE_5, e);
 		else
 			print_error(ARG_ERROR);
 		i++;

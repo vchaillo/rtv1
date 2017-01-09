@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 06:20:00 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 13:06:18 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 /*
 ** scenes defines
 */
+# define NB_SCENES 5
 # define SCENE_1 1
 # define SCENE_2 2
 # define SCENE_3 3

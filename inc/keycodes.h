@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/08 02:22:46 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 12:54:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 /*
 ** linux azerty keycodes
 */
-# define UP 424242
-# define DOWN 424242
+# define UP 65362
+# define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
-# define PLUS 424242
-# define MINUS 424242
+# define PLUS 65453
+# define MINUS 65453
 # define Z 122
 # define Q 113
 # define S 115
 # define D 100
-# define A 424242
-# define E 424242
-# define N 424242
-# define P 424242
-# define M 424242
+# define A 97
+# define E 101
+# define N 110
+# define P 112
+# define M 109
 # define SPACE 32
 # define CONTROL 65507
 # define RETURN 65293

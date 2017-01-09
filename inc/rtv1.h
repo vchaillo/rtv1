@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/08 06:18:08 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/09 13:06:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,9 @@ void			load_scene3_lights(t_scene *scene);
 void			load_scene4(t_env *e);
 void			load_scene4_objects(t_scene *scene);
 void			load_scene4_lights(t_scene *scene);
+void			load_scene5(t_env *e);
+void			load_scene5_objects(t_scene *scene);
+void			load_scene5_lights(t_scene *scene);
 /*
 ** 				structs functions
 */
