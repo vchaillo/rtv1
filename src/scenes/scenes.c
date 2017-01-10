@@ -6,13 +6,13 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 19:53:08 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/09 13:07:07 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/10 14:35:53 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-void 			load_scene(int scene_type, t_env *e)
+void			load_scene(int scene_type, t_env *e)
 {
 	if (scene_type == SCENE_1)
 		load_scene1(e);
@@ -26,7 +26,7 @@ void 			load_scene(int scene_type, t_env *e)
 		load_scene5(e);
 }
 
-void 			switch_scene(int keycode, t_env *e)
+void			switch_scene(int keycode, t_env *e)
 {
 	if (keycode == LEFT)
 		e->scene_type--;

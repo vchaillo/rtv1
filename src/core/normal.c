@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/09 19:49:50 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:28:17 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_vector		get_normal(t_ray *ray)
 		normal = normalize(((t_plane *)ray->hitpoint.object->object)->normal);
 	else if (ray->hitpoint.object->type == CYLINDER)
 		normal = get_normal_at_cylinder(ray);
-	else if (ray->hitpoint.object->type == CONE)
+	else
 		normal = get_normal_at_cone(ray);
 	return (normal);
 }
@@ -38,7 +38,7 @@ t_vector		get_normal_at_cone(t_ray *ray)
 		((t_cone *)ray->hitpoint.object->object)->apex);
 	dot = dot_product(v, ((t_cone *)ray->hitpoint.object->object)->axis);
 	normal = vector_sub(v, vector_scalar(dot,
-		 ((t_cone *)ray->hitpoint.object->object)->axis));
+		((t_cone *)ray->hitpoint.object->object)->axis));
 	return (normalize(normal));
 }
 

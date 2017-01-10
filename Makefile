@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/09 17:13:03 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/01/10 14:42:53 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRC_GUI = \
 		gui/draw.c\
 		gui/key_hook.c\
 		gui/key_hook_objects.c\
+		gui/key_hook_cylinder.c\
 		gui/mouse_hook.c\
 		gui/print.c\
 
@@ -139,7 +140,7 @@ fclean:	clean
 
 norm:
 		@echo "$(BLUE)Norminette...$(END_COLOR)"
-		@norminette inc/*.h src/*.c
+		@norminette inc/*.h src/**/*.c
 
 re: fclean all
 

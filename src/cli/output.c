@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 15:15:39 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/09 17:35:38 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:14:05 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,14 @@ void			print_camera_pos(t_env *e)
 	ft_putchar('\n');
 }
 
-void 			print_nb_rays(t_env *e)
+void			print_nb_rays(t_env *e)
 {
 	ft_putendl_color("Rays informations :", TERM_BOLD_GREY);
 	ft_putstr_color("Camera rays : ", TERM_BOLD_BLACK);
 	ft_putnbr_color(e->nb_cam_rays, TERM_BOLD_GREEN);
-
 	ft_putchar('\n');
 	ft_putstr_color("Light rays : ", TERM_BOLD_BLACK);
 	ft_putnbr_color(e->nb_light_rays, TERM_BOLD_GREEN);
-
 	ft_putchar('\n');
 	ft_putstr_color("Total rays : ", TERM_BOLD_BLACK);
 	ft_putnbr_color(e->nb_rays, TERM_BOLD_GREEN);

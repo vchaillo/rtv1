@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 21:12:00 by valentin          #+#    #+#             */
-/*   Updated: 2016/12/23 21:13:48 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 11:43:18 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 ** term colors defines
 */
-# define TERM_BLACK "\033[30m"
+# define TERM_BLACK "\033[30;1m"
 # define TERM_RED "\033[31m"
 # define TERM_GREEN "\033[32m"
 # define TERM_YELLOW "\033[33m"

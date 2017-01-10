@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 05:46:34 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/09 17:46:29 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:34:37 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			print_gui_selected_object(t_env *e)
 		mlx_string_put(e->mlx, e->win, x, y, RED, "no object selected");
 }
 
-void 			print_gui_output(t_env *e)
+void			print_gui_output(t_env *e)
 {
 	print_gui_selected_object(e);
 	print_gui_mode(e);

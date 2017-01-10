@@ -6,13 +6,13 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 18:13:55 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/09 17:32:57 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:14:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-void 			print_cone(t_cone *cone)
+void			print_cone(t_cone *cone)
 {
 	ft_putendl(" Cone -> ");
 	ft_putstr("      apex : ");
@@ -23,7 +23,7 @@ void 			print_cone(t_cone *cone)
 	ft_putnbr(cone->angle);
 }
 
-void 			print_sphere(t_sphere *sphere)
+void			print_sphere(t_sphere *sphere)
 {
 	ft_putendl(" Sphere -> ");
 	ft_putstr("      position : ");
@@ -32,7 +32,7 @@ void 			print_sphere(t_sphere *sphere)
 	ft_putnbr(sphere->r);
 }
 
-void 			print_plane(t_plane *plane)
+void			print_plane(t_plane *plane)
 {
 	ft_putendl(" Plane ->");
 	ft_putstr("      normal : ");
@@ -41,7 +41,7 @@ void 			print_plane(t_plane *plane)
 	ft_putnbr(plane->offset);
 }
 
-void 			print_cylinder(t_cylinder *cylinder)
+void			print_cylinder(t_cylinder *cylinder)
 {
 	ft_putendl(" Cylinder ->");
 	ft_putstr("      position : ");

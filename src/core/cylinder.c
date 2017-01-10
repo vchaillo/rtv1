@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/08 06:14:14 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:31:08 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ float			hit_x_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
 	t = solve_deg2(a, b, c);
 	return (t);
 }
+
 float			hit_y_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
 {
 	float		t;
@@ -59,6 +60,7 @@ float			hit_y_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
 	t = solve_deg2(a, b, c);
 	return (t);
 }
+
 float			hit_z_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
 {
 	float		t;

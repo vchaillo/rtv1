@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/09 18:44:52 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:46:09 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include "structs.h"
 # include "keycodes.h"
 # include "macros.h"
-// # include "times.h"
 
 /*
 ** 				main functions
@@ -67,36 +66,37 @@ void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			update_image(t_env *e);
 void			draw(t_env *e);
 void			select_object(int x, int y, t_env *e);
-void 			print_gui_output(t_env *e);
+void			print_gui_output(t_env *e);
 void			print_gui_selected_object(t_env *e);
 void			print_mode(t_env *e);
 int				key_hook_sphere(int keycode, t_sphere *sphere);
 int				key_hook_plane(int keycode, t_plane *plane);
 int				key_hook_cylinder(int keycode, t_cylinder *cylinder);
-int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder);
+int				key_hook_cylinder_rotation_ae(int keycode, t_cylinder *cylinder);
+int				key_hook_cylinder_rotation_udlr(int keycode, t_cylinder *cylinder);
 int				key_hook_objects(int keycode, t_scene *scene);
 /*
 ** 				cli functions
 */
 void			print_cli_output(t_env *e);
 void			print_camera_pos(t_env *e);
-void 			print_nb_rays(t_env *e);
+void			print_nb_rays(t_env *e);
 void			print_lights(t_env *e);
 void			print_exposehook(t_env *e);
 void			print_keyhook(int keycode, t_env *e);
 void			print_mousehook(int button, int x, int y, t_env *e);
 void			print_objects(t_env *e);
-void 			print_sphere(t_sphere *sphere);
-void 			print_plane(t_plane *plane);
-void 			print_cylinder(t_cylinder *cylinder);
+void			print_sphere(t_sphere *sphere);
+void			print_plane(t_plane *plane);
+void			print_cylinder(t_cylinder *cylinder);
 void			print_lights(t_env *e);
 void			print_amb_light(t_env *e);
 void			print_spot_light(t_light *light);
 void			print_dir_light(t_light *light);
 void			print_color(t_color color);
 void			print_vector(t_vector vector);
-void 			print_start_line(void);
-void 			print_end_line(void);
+void			print_start_line(void);
+void			print_end_line(void);
 /*
 ** 				tools functions
 */
@@ -118,8 +118,8 @@ t_vector		vector_rot_z(t_vector v, float angle);
 /*
 ** 				scenes functions
 */
-void 			load_scene(int scene_type, t_env *e);
-void 			switch_scene(int keycode, t_env *e);
+void			load_scene(int scene_type, t_env *e);
+void			switch_scene(int keycode, t_env *e);
 void			load_scene1(t_env *e);
 void			load_scene1_objects(t_scene *scene);
 void			load_scene1_lights(t_scene *scene);
@@ -155,8 +155,7 @@ void			delete_cone(t_cone *cone);
 t_object		*new_object(int type, void *object, t_color color, int mat);
 void			add_object(t_scene *scene, t_object *new);
 void			delete_objects(t_object *objects);
-t_light			*new_light(int type, float intensity, t_vector vector,
-							t_color color);
+t_light			*new_light(int type, float intensity, t_vector v, t_color c);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
 

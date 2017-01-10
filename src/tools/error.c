@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/04 20:20:00 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 11:41:51 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			print_help(void)
 	ft_putendl_color("display rays and scene infos", TERM_BLACK);
 	ft_putstr_color("-V   		:   ", TERM_BLACK);
 	ft_putendl_color("display only rays infos", TERM_BLACK);
-	ft_putstr_color("-s1 -s2 -s3   :   ", TERM_BLACK);
+	ft_putstr_color("-s1 -s2 -s3   	:   ", TERM_BLACK);
 	ft_putendl_color("load defaults scenes", TERM_BLACK);
 }
 

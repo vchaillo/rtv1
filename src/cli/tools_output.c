@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 20:07:24 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/05 03:20:17 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/10 14:14:17 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			print_vector(t_vector vector)
 	ft_putchar(')');
 }
 
-void 			print_start_line(void)
+void			print_start_line(void)
 {
 	ft_putstr(TERM_BOLD_BLUE);
 	ft_putstr("======");
@@ -44,7 +44,7 @@ void 			print_start_line(void)
 	ft_putendl("=======\n");
 }
 
-void 			print_end_line(void)
+void			print_end_line(void)
 {
 	ft_putstr(TERM_BOLD_BLUE);
 	ft_putendl("\n======================\n");
