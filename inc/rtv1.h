@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:46:09 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/12 22:48:06 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,14 @@ float			hit_plane(t_plane *plane, t_ray *ray);
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_cone(t_cone *cone, t_ray *ray);
-float			hit_x_axis_cylinder(t_cylinder *cylinder, t_ray *ray);
-float			hit_y_axis_cylinder(t_cylinder *cylinder, t_ray *ray);
-float			hit_z_axis_cylinder(t_cylinder *cylinder, t_ray *ray);
-float			hit_cone(t_cone *cone, t_ray *ray);
 int				is_in_shadow(t_object *objects, t_ray *ray);
 t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
 t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray);
 t_color			phong(t_env *e, t_light *light, t_ray *v_ray);
 t_color			illuminate(t_env *e, t_ray *ray);
-t_vector		get_normal_at_cone(t_ray *ray);
-t_vector		get_normal_at_cylinder(t_ray *ray);
 t_vector		get_normal(t_ray *ray);
+t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
+t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
 /*
 ** 				gui functions
 */
@@ -102,6 +98,7 @@ void			print_end_line(void);
 */
 void			parse_arguments(int ac, char **av, t_env *e);
 float			solve_deg2(double a, double b, double c);
+float			pow_2(float nb);
 t_vector		normalize(t_vector vector);
 t_vector		vector_scalar(float scalar, t_vector v);
 t_vector		vector_add(t_vector v1, t_vector v2);
@@ -148,7 +145,7 @@ t_sphere		*new_sphere(float x, float y, float z, float r);
 void			delete_sphere(t_sphere *sphere);
 t_plane			*new_plane(float x, float y, float z, float d);
 void			delete_plane(t_plane *plane);
-t_cylinder		*new_cylinder(int axis, t_vector pos, float r);
+t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);
 t_cone			*new_cone(t_vector axis, t_vector apex, float aperture);
 void			delete_cone(t_cone *cone);

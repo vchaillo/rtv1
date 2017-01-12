@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/10 14:31:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/12 22:45:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,66 +15,19 @@
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray)
 {
 	float		t;
-
-	if (cylinder->axis == X_AXIS)
-		t = hit_x_axis_cylinder(cylinder, ray);
-	else if (cylinder->axis == Y_AXIS)
-		t = hit_y_axis_cylinder(cylinder, ray);
-	else
-		t = hit_z_axis_cylinder(cylinder, ray);
-	return (t);
-}
-
-float			hit_x_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
-{
-	float		t;
 	double		a;
 	double		b;
 	double		c;
+	t_vector	dist;
+	float		tmp[2];
 
-	a = (ray->d.y * ray->d.y);
-	a += (ray->d.z * ray->d.z);
-	b = 2 * (ray->o.y - cylinder->pos.y) * ray->d.y;
-	b += 2 * (ray->o.z - cylinder->pos.z) * ray->d.z;
-	c = ((ray->o.y - cylinder->pos.y) * (ray->o.y - cylinder->pos.y));
-	c += ((ray->o.z - cylinder->pos.z) * (ray->o.z - cylinder->pos.z));
-	c -= cylinder->r * cylinder->r;
+	dist = vector_sub(ray->o, cylinder->pos);
+	tmp[0] = dot_product(ray->d, cylinder->axis);
+	tmp[1] = dot_product(dist, cylinder->axis);
+	a = dot_product(ray->d, ray->d) - pow_2(tmp[0]);
+	b = 2 * (dot_product(ray->d, dist) - (tmp[0] * tmp[1]));
+	c = dot_product(dist, dist) - pow_2(tmp[1]) - pow_2(cylinder->r);
 	t = solve_deg2(a, b, c);
 	return (t);
-}
 
-float			hit_y_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
-{
-	float		t;
-	double		a;
-	double		b;
-	double		c;
-
-	a = (ray->d.x * ray->d.x);
-	a += (ray->d.z * ray->d.z);
-	b = 2 * (ray->o.x - cylinder->pos.x) * ray->d.x;
-	b += 2 * (ray->o.z - cylinder->pos.z) * ray->d.z;
-	c = ((ray->o.x - cylinder->pos.x) * (ray->o.x - cylinder->pos.x));
-	c += ((ray->o.z - cylinder->pos.z) * (ray->o.z - cylinder->pos.z));
-	c -= cylinder->r * cylinder->r;
-	t = solve_deg2(a, b, c);
-	return (t);
-}
-
-float			hit_z_axis_cylinder(t_cylinder *cylinder, t_ray *ray)
-{
-	float		t;
-	double		a;
-	double		b;
-	double		c;
-
-	a = (ray->d.x * ray->d.x);
-	a += (ray->d.y * ray->d.y);
-	b = 2 * (ray->o.x - cylinder->pos.x) * ray->d.x;
-	b += 2 * (ray->o.y - cylinder->pos.y) * ray->d.y;
-	c = ((ray->o.x - cylinder->pos.x) * (ray->o.x - cylinder->pos.x));
-	c += ((ray->o.y - cylinder->pos.y) * (ray->o.y - cylinder->pos.y));
-	c -= cylinder->r * cylinder->r;
-	t = solve_deg2(a, b, c);
-	return (t);
 }

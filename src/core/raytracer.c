@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:31:47 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/12 23:01:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ t_vector		get_camray_dir(t_camera *camera, int x, int y)
 	dir = vector_rot_x(dir, camera->rot.x);
 	dir = vector_rot_y(dir, camera->rot.y);
 	dir = vector_rot_z(dir, camera->rot.z);
-	dir = normalize(dir);
-	return (dir);
+	return (normalize(dir));
 }
 
 t_color			raytracer(t_env *e, int x, int y)

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:39:19 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/12 23:02:24 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_light			*new_light(int type, float intensity, t_vector v, t_color c)
 	if (type == SPOT)
 		new_light->pos = v;
 	else
-		new_light->dir = v;
+		new_light->dir = normalize(v);
 	new_light->color = scalar_color(intensity, c);
 	return (new_light);
 }
