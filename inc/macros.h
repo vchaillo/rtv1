@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/12 21:31:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/13 00:27:50 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define WIN_W 1080
 # define WIN_H 720
 # define RATIO (float)WIN_W / (float)WIN_H
-# define FOV tan((20 * 3.14) / 180)
+# define FOV tan((20 * M_PI) / 180)
 # define FOCALE 1
 # define EPSILON 0.0001
 # define MAX_DIST 1000
@@ -68,13 +68,6 @@
 # define PLANE 1
 # define CYLINDER 2
 # define CONE 3
-
-/*
-** cylinder axis defines
-*/
-# define X_AXIS 0
-# define Y_AXIS 1
-# define Z_AXIS 2
 
 /*
 ** lights defines
