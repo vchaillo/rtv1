@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/13 00:27:50 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/17 09:47:08 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define FOV tan((20 * M_PI) / 180)
 # define FOCALE 1
 # define EPSILON 0.0001
-# define MAX_DIST 1000
+# define MAX_DIST 10000
 
 /*
 ** lights defines
