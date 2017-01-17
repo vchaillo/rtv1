@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/12 22:59:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/13 00:26:58 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,21 @@ t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone)
 	t_vector	normal;
 	float		dot;
 
-	(void)cone;
-	v = vector_sub(ray->hitpoint.pos,
-		((t_cone *)ray->hitpoint.object->object)->apex);
-	dot = dot_product(v, ((t_cone *)ray->hitpoint.object->object)->axis);
-	normal = vector_sub(v, vector_scalar(dot,
-		((t_cone *)ray->hitpoint.object->object)->axis));
+	v = vector_sub(ray->hitpoint.pos, cone->apex);
+	dot = dot_product(v, cone->axis);
+	normal = vector_sub(v, vector_scalar(dot, cone->axis));
 	return (normalize(normal));
+	// t_vector	normal;
+	// t_vector	dist;
+	// t_vector	tmp;
+	// float		dot;
+	//
+	// dist = vector_sub(ray->o, cone->apex);
+	// dot = dot_product(ray->d, cone->axis) * ray->t
+	// 	+ dot_product(dist, cone->axis);
+	// normal = vector_scalar(ray->t, ray->d);
+	// normal = vector_add(normal, dist);
+	// tmp = vector_scalar(dot * (1 + pow_2(tan(cone->angle / 2))), cone->axis);
+	// normal = vector_sub(normal, tmp);
+	// return (normalize(normal));
 }
