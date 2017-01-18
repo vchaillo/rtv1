@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 22:26:30 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/10 14:40:23 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/18 15:34:54 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int				key_hook_objects(int keycode, t_scene *scene)
 			key_hook_plane(keycode, scene->selected_object->object);
 		else if (scene->selected_object->type == CYLINDER)
 			key_hook_cylinder(keycode, scene->selected_object->object);
+		else if (scene->selected_object->type == CONE)
+			key_hook_cone(keycode, scene->selected_object->object);
 	}
 	return (0);
 }
