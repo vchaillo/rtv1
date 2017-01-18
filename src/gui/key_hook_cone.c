@@ -6,33 +6,26 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:40:03 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/18 15:46:34 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/18 17:00:25 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-int				key_hook_cone_rotation_ae(int keycode, t_cone *cone)
-{
-	if (keycode == A || keycode == Q_MAC)
-		cone->axis = vector_rot_z(cone->axis, 0.1);
-	else if (keycode == E || keycode == E_MAC)
-		cone->axis = vector_rot_z(cone->axis, -0.1);
-	return (0);
-}
-
-int				key_hook_cone_rotation_udlr(int keycode, t_cone *cone)
+int				key_hook_cone_rotation(int keycode, t_cone *cone)
 {
 	if (keycode == UP || keycode == UP_MAC)
 		cone->axis = vector_rot_x(cone->axis, -0.1);
 	else if (keycode == DOWN || keycode == DOWN_MAC)
 		cone->axis = vector_rot_x(cone->axis, 0.1);
 	else if (keycode == LEFT || keycode == LEFT_MAC)
-		cone->axis = vector_rot_y(cone->axis, -0.1);
-	else if (keycode == RIGHT || keycode == RIGHT_MAC)
 		cone->axis = vector_rot_y(cone->axis, 0.1);
-	else
-		key_hook_cone_rotation_ae(keycode, cone);
+	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+		cone->axis = vector_rot_y(cone->axis, -0.1);
+	else if (keycode == A || keycode == Q_MAC)
+		cone->axis = vector_rot_z(cone->axis, 0.1);
+	else if (keycode == E || keycode == E_MAC)
+		cone->axis = vector_rot_z(cone->axis, -0.1);
 	return (0);
 }
 
@@ -55,6 +48,6 @@ int				key_hook_cone(int keycode, t_cone *cone)
 	else if (keycode == MINUS || keycode == MINUS_MAC)
 		cone->angle -= 1;
 	else
-		key_hook_cone_rotation_udlr(keycode, cone);
+		key_hook_cone_rotation(keycode, cone);
 	return (0);
 }

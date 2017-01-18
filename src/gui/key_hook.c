@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/10 14:35:00 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/18 16:55:34 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int				key_hook_camera(int keycode, t_camera *camera)
 	else if (keycode == Z || keycode == W_MAC)
 		camera->pos.z -= 1;
 	else if (keycode == UP || keycode == UP_MAC)
-		camera->rot.x -= 0.1;
-	else if (keycode == DOWN || keycode == DOWN_MAC)
 		camera->rot.x += 0.1;
+	else if (keycode == DOWN || keycode == DOWN_MAC)
+		camera->rot.x -= 0.1;
 	else if (keycode == LEFT || keycode == LEFT_MAC)
-		camera->rot.y -= 0.1;
-	else if (keycode == RIGHT || keycode == RIGHT_MAC)
 		camera->rot.y += 0.1;
+	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+		camera->rot.y -= 0.1;
 	else if (keycode == A || keycode == Q_MAC)
-		camera->rot.z += 0.1;
-	else if (keycode == E || keycode == E_MAC)
 		camera->rot.z -= 0.1;
+	else if (keycode == E || keycode == E_MAC)
+		camera->rot.z += 0.1;
 	return (0);
 }
 

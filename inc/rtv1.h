@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/18 15:32:24 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/18 17:00:17 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,9 @@ void			print_mode(t_env *e);
 int				key_hook_sphere(int keycode, t_sphere *sphere);
 int				key_hook_plane(int keycode, t_plane *plane);
 int				key_hook_cylinder(int keycode, t_cylinder *cylinder);
-int				key_hook_cylinder_rotation_ae(int keycode, t_cylinder *cylinder);
-int				key_hook_cylinder_rotation_udlr(int keycode, t_cylinder *cylinder);
+int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder);
 int				key_hook_cone(int keycode, t_cone *cone);
-int				key_hook_cone_rotation_ae(int keycode, t_cone *cone);
-int				key_hook_cone_rotation_udlr(int keycode, t_cone *cone);
+int				key_hook_cone_rotation(int keycode, t_cone *cone);
 int				key_hook_objects(int keycode, t_scene *scene);
 /*
 ** 				cli functions

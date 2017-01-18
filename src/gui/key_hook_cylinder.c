@@ -6,22 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:40:03 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/17 09:41:44 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/18 17:00:48 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-int				key_hook_cylinder_rotation_ae(int keycode, t_cylinder *cylinder)
-{
-	if (keycode == A || keycode == Q_MAC)
-		cylinder->axis = vector_rot_z(cylinder->axis, 0.1);
-	else if (keycode == E || keycode == E_MAC)
-		cylinder->axis = vector_rot_z(cylinder->axis, -0.1);
-	return (0);
-}
-
-int				key_hook_cylinder_rotation_udlr(int keycode, t_cylinder *cylinder)
+int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder)
 {
 	if (keycode == UP || keycode == UP_MAC)
 		cylinder->axis = vector_rot_x(cylinder->axis, -0.1);
@@ -31,8 +22,10 @@ int				key_hook_cylinder_rotation_udlr(int keycode, t_cylinder *cylinder)
 		cylinder->axis = vector_rot_y(cylinder->axis, -0.1);
 	else if (keycode == RIGHT || keycode == RIGHT_MAC)
 		cylinder->axis = vector_rot_y(cylinder->axis, 0.1);
-	else
-		key_hook_cylinder_rotation_ae(keycode, cylinder);
+	if (keycode == A || keycode == Q_MAC)
+		cylinder->axis = vector_rot_z(cylinder->axis, 0.1);
+	else if (keycode == E || keycode == E_MAC)
+		cylinder->axis = vector_rot_z(cylinder->axis, -0.1);
 	return (0);
 }
 
@@ -55,6 +48,6 @@ int				key_hook_cylinder(int keycode, t_cylinder *cylinder)
 	else if (keycode == MINUS || keycode == MINUS_MAC)
 		cylinder->r -= 1;
 	else
-		key_hook_cylinder_rotation_udlr(keycode, cylinder);
+		key_hook_cylinder_rotation(keycode, cylinder);
 	return (0);
 }
