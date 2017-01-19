@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 21:44:49 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/18 15:47:55 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/19 02:38:00 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			load_scene1_objects(t_scene *scene)
 	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
 		new_vector(0, 15, 0), 10), new_color(RED), 100));
 	add_object(scene, new_object(CONE, new_cone(new_vector(0.5, 1, 0),
-		new_vector(20, 10, 10), 15), new_color(GREEN_4), 100));
+		new_vector(20, 10, 10), 90), new_color(GREEN_4), 100));
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0),
 		new_color(LIGHT_GREY), 100));
 }
@@ -40,6 +40,8 @@ void			load_scene1(t_env *e)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_1;
 	e->scene = new_scene(new_color(BLACK), new_camera(0, 15, 120));
+	// e->scene->camera->rot.x += 1.2;
+	// e->scene->camera->rot.y -= 0.2;
 	load_scene1_objects(e->scene);
 	load_scene1_lights(e->scene);
 }

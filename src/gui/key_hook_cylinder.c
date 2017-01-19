@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:40:03 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/18 17:00:48 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 01:07:49 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder)
 	else if (keycode == DOWN || keycode == DOWN_MAC)
 		cylinder->axis = vector_rot_x(cylinder->axis, 0.1);
 	else if (keycode == LEFT || keycode == LEFT_MAC)
-		cylinder->axis = vector_rot_y(cylinder->axis, -0.1);
-	else if (keycode == RIGHT || keycode == RIGHT_MAC)
 		cylinder->axis = vector_rot_y(cylinder->axis, 0.1);
+	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+		cylinder->axis = vector_rot_y(cylinder->axis, -0.1);
 	if (keycode == A || keycode == Q_MAC)
 		cylinder->axis = vector_rot_z(cylinder->axis, 0.1);
 	else if (keycode == E || keycode == E_MAC)

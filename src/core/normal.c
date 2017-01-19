@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/18 17:02:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 02:33:08 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,38 +31,27 @@ t_vector		get_normal(t_ray *ray)
 t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder)
 {
 	t_vector	normal;
-	t_vector	dist;
+	t_vector	tmp;
+	t_vector	project;
 	float		dot;
 
-	dist = vector_sub(ray->o, cylinder->pos);
-	dot = dot_product(ray->d, cylinder->axis) *
-		ray->t + dot_product(dist, cylinder->axis);
-	normal = vector_add(vector_scalar(ray->t, ray->d), dist);
-	normal = vector_sub(normal, vector_scalar(dot, cylinder->axis));
+	tmp = vector_sub(ray->hitpoint.pos, cylinder->pos);
+	dot = dot_product(tmp, cylinder->axis);
+	project = vector_scalar(dot, cylinder->axis);
+	normal = vector_sub(tmp, project);
 	return (normalize(normal));
 }
 
 t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone)
 {
-	t_vector	v;
 	t_vector	normal;
+	t_vector	tmp;
+	t_vector	project;
 	float		dot;
 
-	v = vector_sub(ray->hitpoint.pos, cone->apex);
-	dot = dot_product(v, cone->axis);
-	normal = vector_sub(v, vector_scalar(dot, cone->axis));
+	tmp = vector_sub(ray->hitpoint.pos, cone->apex);
+	dot = dot_product(tmp, cone->axis);
+	project = vector_scalar(dot, cone->axis);
+	normal = vector_sub(tmp, project);
 	return (normalize(normal));
-	// t_vector	normal;
-	// t_vector	dist;
-	// t_vector	tmp;
-	// float		dot;
-	//
-	// dist = vector_sub(ray->o, cone->apex);
-	// dot = dot_product(ray->d, cone->axis) * ray->t
-	// 	+ dot_product(dist, cone->axis);
-	// normal = vector_scalar(ray->t, ray->d);
-	// normal = vector_add(normal, dist);
-	// tmp = vector_scalar(dot * (1 + pow_2(tan(cone->angle / 2))), cone->axis);
-	// normal = vector_sub(normal, tmp);
-	// return (normalize(normal));
 }

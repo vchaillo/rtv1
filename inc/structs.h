@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/12 20:20:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 00:46:43 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 typedef struct				s_color
 {
-	int						r;
-	int						g;
-	int						b;
+	float					r;
+	float					g;
+	float					b;
 }							t_color;
 
 typedef struct				s_vector
