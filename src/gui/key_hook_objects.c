@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 22:26:30 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/18 16:59:25 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 03:42:57 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 int				key_hook_plane(int keycode, t_plane *plane)
 {
 	if (keycode == UP || keycode == UP_MAC)
-		plane->normal = vector_rot_x(plane->normal, -0.1);
+		plane->normal = vector_rot_x(plane->normal, -10);
 	else if (keycode == DOWN || keycode == DOWN_MAC)
-		plane->normal = vector_rot_x(plane->normal, 0.1);
+		plane->normal = vector_rot_x(plane->normal, 10);
 	else if (keycode == LEFT || keycode == LEFT_MAC)
-		plane->normal = vector_rot_y(plane->normal, 0.1);
+		plane->normal = vector_rot_y(plane->normal, 10);
 	else if (keycode == RIGHT || keycode == RIGHT_MAC)
-		plane->normal = vector_rot_y(plane->normal, -0.1);
+		plane->normal = vector_rot_y(plane->normal, -10);
 	else if (keycode == A || keycode == Q_MAC)
-		plane->normal = vector_rot_z(plane->normal, 0.1);
+		plane->normal = vector_rot_z(plane->normal, 10);
 	else if (keycode == E || keycode == E_MAC)
-		plane->normal = vector_rot_z(plane->normal, -0.1);
+		plane->normal = vector_rot_z(plane->normal, -10);
 	else if (keycode == PLUS || keycode == PLUS_MAC)
 		plane->offset -= 1;
 	else if (keycode == MINUS || keycode == MINUS_MAC)

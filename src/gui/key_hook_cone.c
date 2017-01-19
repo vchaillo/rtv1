@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:40:03 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/19 01:48:46 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 03:42:39 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 int				key_hook_cone_rotation(int keycode, t_cone *cone)
 {
 	if (keycode == UP || keycode == UP_MAC)
-		cone->axis = vector_rot_x(cone->axis, -0.1);
+		cone->axis = vector_rot_x(cone->axis, -10);
 	else if (keycode == DOWN || keycode == DOWN_MAC)
-		cone->axis = vector_rot_x(cone->axis, 0.1);
+		cone->axis = vector_rot_x(cone->axis, 10);
 	else if (keycode == LEFT || keycode == LEFT_MAC)
-		cone->axis = vector_rot_y(cone->axis, 0.1);
+		cone->axis = vector_rot_y(cone->axis, 10);
 	else if (keycode == RIGHT || keycode == RIGHT_MAC)
-		cone->axis = vector_rot_y(cone->axis, -0.1);
+		cone->axis = vector_rot_y(cone->axis, -10);
 	else if (keycode == A || keycode == Q_MAC)
-		cone->axis = vector_rot_z(cone->axis, 0.1);
+		cone->axis = vector_rot_z(cone->axis, 10);
 	else if (keycode == E || keycode == E_MAC)
-		cone->axis = vector_rot_z(cone->axis, -0.1);
+		cone->axis = vector_rot_z(cone->axis, -10);
 	return (0);
 }
 

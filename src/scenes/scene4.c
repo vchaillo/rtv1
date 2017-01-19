@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/18 23:57:31 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 04:03:51 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void			load_scene4(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_4;
-	e->scene = new_scene(new_color(BLACK), new_camera(2, 4, 20));
-	e->scene->camera->rot.x -= 0.2;
-	e->scene->camera->rot.y += 0.1;
+	e->scene = new_scene(new_color(BLACK), new_camera(4, 4, 22));
+	e->scene->camera->rot.x -= 10;
+	e->scene->camera->rot.y += 10;
 	load_scene4_objects(e->scene);
 	load_scene4_lights(e->scene);
 }

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 05:46:34 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/10 14:34:37 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/19 04:00:06 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,24 @@ void			print_gui_selected_object(t_env *e)
 {
 	int			x;
 	int			y;
+	int			color;
 
 	x = 10;
 	y = 35;
+	color = RED;
 	if (e->scene->selected_object)
 	{
 		if (e->scene->selected_object->type == SPHERE)
-			mlx_string_put(e->mlx, e->win, x, y, RED, "sphere selected");
+			mlx_string_put(e->mlx, e->win, x, y, color, "sphere selected");
 		if (e->scene->selected_object->type == PLANE)
-			mlx_string_put(e->mlx, e->win, x, y, RED, "plane selected");
+			mlx_string_put(e->mlx, e->win, x, y, color, "plane selected");
 		if (e->scene->selected_object->type == CYLINDER)
-			mlx_string_put(e->mlx, e->win, x, y, RED, "cylinder selected");
+			mlx_string_put(e->mlx, e->win, x, y, color, "cylinder selected");
 		if (e->scene->selected_object->type == CONE)
-			mlx_string_put(e->mlx, e->win, x, y, RED, "cone selected");
+			mlx_string_put(e->mlx, e->win, x, y, color, "cone selected");
 	}
 	else
-		mlx_string_put(e->mlx, e->win, x, y, RED, "no object selected");
+		mlx_string_put(e->mlx, e->win, x, y, color, "no object selected");
 }
 
 void			print_gui_output(t_env *e)
