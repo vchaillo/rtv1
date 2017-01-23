@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/19 00:46:43 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/23 19:11:48 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ typedef struct				s_color
 
 typedef struct				s_vector
 {
-	float					x;
-	float					y;
-	float					z;
+	double					x;
+	double					y;
+	double					z;
 }							t_vector;
 
 typedef struct				s_sphere

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/18 16:54:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/23 21:51:57 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_vector		get_camray_dir(t_camera *camera, int x, int y)
 	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H)) * camera->fov;
 	dir_z = camera->focale;
 	dir = new_vector(dir_x, dir_y, dir_z);
+	// dir = vector_add(dir, camera->rot);
 	dir = vector_rot_x(dir, camera->rot.x);
 	dir = vector_rot_y(dir, camera->rot.y);
 	dir = vector_rot_z(dir, camera->rot.z);
