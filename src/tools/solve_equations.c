@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:07:17 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/23 22:02:20 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/23 22:07:00 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ float			solve_deg2(double a, double b, double c)
 	{
 		x1 = (-b - sqrt(delta)) / (2 * a);
 		x2 = (-b + sqrt(delta)) / (2 * a);
-		if (x1 > 0.1)
+		if (x1 > EPSILON)
 		{
 			res = x1;
 			return (res);
