@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:07:53 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/24 18:08:54 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
-# define PLUS 65453
+# define PLUS 65451
 # define MINUS 65453
 # define Z 122
 # define Q 113
