@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/23 22:30:22 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/28 15:08:40 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-int				is_in_shadow(t_object *objects, t_ray *ray)
+int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 {
 	float		t;
 	t_object	*object;
@@ -28,8 +28,13 @@ int				is_in_shadow(t_object *objects, t_ray *ray)
 			t = hit_cylinder((t_cylinder *)object->object, ray);
 		else if (object->type == CONE)
 			t = hit_cone((t_cone *)object->object, ray);
-		if (t > EPSILON && t < ray->t)
-			return (TRUE);
+		if (hit_obj != object)
+		{
+			// if (t > EPSILON * 100 && t < ray->t)
+			// 	return (TRUE);
+			if (t > EPSILON && t < ray->t)
+				return (TRUE);
+		}
 		object = object->next;
 	}
 	return (FALSE);
@@ -48,10 +53,9 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 		l_ray->d);
 	r_ray.d = normalize(r_ray.d);
 	dot = dot_product(r_ray.d, v_ray->d);
-	if (dot > 0)
-		dot = 0;
+	if (dot >= 0)
+		return (new_color(BLACK));
 	spe = pow(dot, v_ray->hitpoint.object->material);
-	// spe *= 2;
 	color = scalar_color(spe, spot->color);
 	return (color);
 }
@@ -59,12 +63,12 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray)
 {
 	t_color		color;
-	float		cos_angle;
+	float		dot;
 
-	cos_angle = dot_product(hitpoint.normal, ray->d);
-	if (cos_angle < 0)
-		cos_angle = 0;
-	color = scalar_color(cos_angle, mult_color(hitpoint.color, spot->color));
+	dot = dot_product(hitpoint.normal, ray->d);
+	if (dot <= 0)
+		return (new_color(BLACK));
+	color = scalar_color(dot, mult_color(hitpoint.color, spot->color));
 	return (color);
 }
 
@@ -87,7 +91,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *v_ray)
 		l_ray.t = MAX_DIST;
 	}
 	l_ray.d = normalize(l_ray.d);
-	if (!(is_in_shadow(e->scene->objects, &l_ray)))
+	if (!(is_in_shadow(e->scene->objects, &l_ray, v_ray->hitpoint.object)))
 	{
 		if (e->scene->diffuse == ACTIVE)
 			color = add_color(diffuse(v_ray->hitpoint, light, &l_ray), color);

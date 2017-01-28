@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:37 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/13 00:18:30 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/01/28 14:57:17 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_cone			*new_cone(t_vector axis, t_vector apex, float aperture)
 		print_error(MALLOC_ERROR);
 	cone->axis = normalize(axis);
 	cone->apex = apex;
-	cone->angle = aperture * (M_PI / 180);
+	cone->angle = aperture;
 	return (cone);
 }
 
