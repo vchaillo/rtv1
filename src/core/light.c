@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/28 15:08:40 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/28 16:12:51 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,16 @@ int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 	object = objects;
 	while (object != NULL)
 	{
-		if (object->type == SPHERE)
-			t = hit_sphere((t_sphere *)object->object, ray);
-		else if (object->type == PLANE)
-			t = hit_plane((t_plane *)object->object, ray);
-		else if (object->type == CYLINDER)
-			t = hit_cylinder((t_cylinder *)object->object, ray);
-		else if (object->type == CONE)
-			t = hit_cone((t_cone *)object->object, ray);
 		if (hit_obj != object)
 		{
-			// if (t > EPSILON * 100 && t < ray->t)
-			// 	return (TRUE);
+			if (object->type == SPHERE)
+				t = hit_sphere((t_sphere *)object->object, ray);
+			else if (object->type == PLANE)
+				t = hit_plane((t_plane *)object->object, ray);
+			else if (object->type == CYLINDER)
+				t = hit_cylinder((t_cylinder *)object->object, ray);
+			else if (object->type == CONE)
+				t = hit_cone((t_cone *)object->object, ray);
 			if (t > EPSILON && t < ray->t)
 				return (TRUE);
 		}
@@ -66,6 +64,8 @@ t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray)
 	float		dot;
 
 	dot = dot_product(hitpoint.normal, ray->d);
+	if (hitpoint.object->type == PLANE)
+		dot = fabs(dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
 	color = scalar_color(dot, mult_color(hitpoint.color, spot->color));
@@ -105,15 +105,20 @@ t_color			illuminate(t_env *e, t_ray *ray)
 {
 	t_color		color;
 	t_light		*light;
+	int			lux;
 
 	color = new_color(BLACK);
 	light = e->scene->lights;
 	while (light != NULL)
 	{
-		if (light->type == SPOT && e->scene->spot == ACTIVE)
+		lux = TRUE;
+		if (ray->hitpoint.object->type == PLANE)
+			lux = is_plane_illuminated(ray, light);
+
+		if (light->type == SPOT && e->scene->spot == ACTIVE && lux)
 			color = add_color(scalar_color(light->intensity,
 				phong(e, light, ray)), color);
-		else if (light->type == DIR && e->scene->dir == ACTIVE)
+		else if (light->type == DIR && e->scene->dir == ACTIVE && lux)
 			color = add_color(scalar_color(light->intensity,
 				phong(e, light, ray)), color);
 		light = light->next;

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/28 15:01:14 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/28 16:03:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void			load_scene5_objects(t_scene *scene)
 		new_vector(0, 0, 0), 10), new_color(GREEN_2), 100));
 	add_object(scene, new_object(CONE, new_cone(new_vector(1, 0, 0),
 		new_vector(2, 1, 0), 15), new_color(GREEN_3), 100));
-	// add_object(scene, new_object(CONE, new_cone(new_vector(1, 0, -0.3),
-	// 	new_vector(20, 10, 10), 20), new_color(GREEN_4), 100));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0),
+	add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 0),
 		new_color(DARK_GREY), 100));
 }
 
@@ -29,6 +27,8 @@ void			load_scene5_lights(t_scene *scene)
 	scene->amb_intensity = 0.3;
 	scene->amb_color = new_color(BLUE);
 	add_light(scene, new_light(SPOT, 1, new_vector(-10, 35, 40),
+		new_color(WHITE)));
+	add_light(scene, new_light(SPOT, 1, new_vector(-10, -35, 40),
 		new_color(WHITE)));
 }
 

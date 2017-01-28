@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/28 14:49:24 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/28 15:51:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray);
 t_vector		get_camray_dir(t_camera *camera, int x, int y);
 t_color			raytracer(t_env *e, int x, int y);
 float			hit_plane(t_plane *plane, t_ray *ray);
+int				is_plane_illuminated(t_ray *ray, t_light *light);
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_cone(t_cone *cone, t_ray *ray);
