@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/19 02:22:37 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/01/30 23:02:58 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ float			hit_cylinder(t_cylinder *cylinder, t_ray *ray)
 	abc[2] = dot_product(dist, dist) - pow_2(tmp[1]) - pow_2(cylinder->r);
 	t = solve_deg2(abc[0], abc[1], abc[2]);
 	return (t);
-
 }

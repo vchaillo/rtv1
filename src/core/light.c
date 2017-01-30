@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/28 16:12:51 by valentin         ###   ########.fr       */
+/*   Updated: 2017/01/30 23:03:28 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ t_color			illuminate(t_env *e, t_ray *ray)
 		lux = TRUE;
 		if (ray->hitpoint.object->type == PLANE)
 			lux = is_plane_illuminated(ray, light);
-
 		if (light->type == SPOT && e->scene->spot == ACTIVE && lux)
 			color = add_color(scalar_color(light->intensity,
 				phong(e, light, ray)), color);
