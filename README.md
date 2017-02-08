@@ -4,13 +4,32 @@ rtv1
 <img src="https://raw.githubusercontent.com/vchaillo/rtv1/master/doc/screenshots/Screenshot_20161223_040938.png"/>
 * [Subject] (https://github.com/vchaillo/rtv1/blob/master/rtv1.pdf)
 
-## Functionalities
+=============
+###Description
+
+Discover Raytracing fundamental principles: computer-generated imagery. Through this first project, you will create simple scenes involving objects and non complex lights.
+
+=============
+###Usage
+
+```
+./rtv1 [-v, -V] [-s1...5]
+```
+
+=============
+###Dependencies
+
+* OSX : OpenGL, AppKit
+* Linux : X11
+
+=============
+### Functionalities
 
 #### Objects
 - [x] Sphere
 - [x] Plane
-- [ ] Cylinder
-- [ ] Cone
+- [x] Cylinder
+- [x] Cone
 - [x] Multi objects
 
 #### Lights
@@ -24,17 +43,9 @@ rtv1
 - [ ] Intensity modulation with distance
 
 #### Other
-- [ ] Materials implementation
 - [x] Objects and camera translations
-- [ ] Objects and camera rotations
-- [ ] Parsing of description scene file
-
-## TodoList
-- [x] Check memory leaks
-- [ ] Normalize all files
-- [ ] Distance to the light coefficient
-- [x] Create a key_hook.c file
-- [x] Create a get_hitpoint function in raytracer.c
+- [x] Objects and camera rotations
+- [x] Cross platforms (OSX and Linux)
 
 =============
-Project of 42
+Project of school 42
