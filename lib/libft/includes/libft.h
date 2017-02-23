@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:05:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/12/24 01:06:25 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/02/23 04:28:52 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putfloat2(float f);
-void 				ft_putstr_color(char const *str, char const *color);
-void 				ft_putendl_color(char const *str, char const *color);
+void				ft_putstr_color(char const *str, char const *color);
+void				ft_putendl_color(char const *str, char const *color);
 void				ft_putnbr_color(int n, char const *color);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);

@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2017/02/23 04:01:19 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/02/23 04:34:01 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,7 +145,7 @@ fclean:	clean
 
 norm:
 		@echo "$(BLUE)Norminette...$(END_COLOR)"
-		@norminette **/*.[ch]
+		@norminette includes/*.h srcs/**/*.c
 
 re: fclean all
 
