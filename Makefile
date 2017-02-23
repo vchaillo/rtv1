@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/01/19 00:12:41 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/02/23 04:07:34 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,9 +119,11 @@ $(NAME): obj libft $(OBJ)
 		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "========================================="
 
+DEPS := $(OBJ:.o=.d)
+-include $(DEPS)
 $(OBJDIR)%.o:$(SRCDIR)%.c
-		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-		@echo "[$(GREEN)√$(END_COLOR)]" $(subst obj,src,$(subst .o,.c,$@))
+		@$(CC) $(CFLAGS) -MD $(INC) -o $@ -c $<
+		@echo "[$(GREEN)√$(END_COLOR)]" $(subst obj/,src/,$(subst .o,.c,$@))
 
 obj:
 		@mkdir -p $(OBJDIR)

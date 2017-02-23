@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2016/12/27 00:10:18 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/02/23 04:01:19 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,8 +124,10 @@ $(NAME): obj $(OBJ)
 		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "==========================="
 
+DEPS := $(OBJ:.o=.d)
+-include $(DEPS)
 $(OBJDIR)%.o:$(SRCDIR)%.c
-		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+		@$(CC) $(CFLAGS) $(INC) -MD -o $@ -c $<
 		@echo "[$(GREEN)√$(END_COLOR)]" $(subst obj,src,$(subst .o,.c,$@))
 
 obj:
