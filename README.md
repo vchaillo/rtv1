@@ -1,28 +1,24 @@
 rtv1
 ====
 
+[Subject](../master/rtv1.pdf)
 <img src="https://raw.githubusercontent.com/vchaillo/rtv1/master/doc/screenshots/Screenshot_20161223_040938.png"/>
-* [Subject] (https://github.com/vchaillo/rtv1/blob/master/rtv1.pdf)
 
-=============
-###Description
+### Description
 
 Discover Raytracing fundamental principles: computer-generated imagery. Through this first project, you will create simple scenes involving objects and non complex lights.
 
-=============
-###Usage
+### Usage
 
 ```
 ./rtv1 [-v, -V] [-s1...5]
 ```
 
-=============
-###Dependencies
+### Dependencies
 
 * OSX : OpenGL, AppKit
 * Linux : X11
 
-=============
 ### Functionalities
 
 #### Objects
@@ -40,12 +36,10 @@ Discover Raytracing fundamental principles: computer-generated imagery. Through 
 - [x] Directional lights
 - [x] Shadows
 - [x] Multi spots
-- [ ] Intensity modulation with distance
 
 #### Other
 - [x] Objects and camera translations
 - [x] Objects and camera rotations
 - [x] Cross platforms (OSX and Linux)
 
-=============
-Project of school 42
+###### Project of school 42
